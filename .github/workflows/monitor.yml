@@ -5,40 +5,19 @@ on:
   schedule:
     - cron: "*/5 * * * *"
 
-permissions:
-  contents: write
-
 jobs:
   monitor:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          persist-credentials: true
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run monitor cycle
+      - name: Trigger Vercel monitor
         env:
-          WALLET_ADDRESS: ${{ secrets.WALLET_ADDRESS }}
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          POLL_INTERVAL_MS: 180000
-        run: node scripts/run-monitor.js
-
-      - name: Commit updated state and dashboard data
+          MONITOR_URL: ${{ secrets.VERCEL_MONITOR_URL }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/state.json public/dashboard-data.json
-          git diff --cached --quiet && exit 0
-          git commit -m "chore: update monitor state"
-          git push
+          test -n "$MONITOR_URL"
+          test -n "$CRON_SECRET"
+          curl --fail --silent --show-error \
+            -X POST \
+            -H "Authorization: Bearer $CRON_SECRET" \
+            "$MONITOR_URL"

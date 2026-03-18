@@ -4,3 +4,4 @@ node_modules/
 research/
 .vite/
 data/token-cache.json
+.vercel

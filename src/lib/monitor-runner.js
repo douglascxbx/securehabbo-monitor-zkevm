@@ -25,27 +25,27 @@ function getDashboardPath(rootDir) {
   return path.join(rootDir, "public", "dashboard-data.json");
 }
 
-function getConfig(rootDir) {
-  const config = readJson(getConfigPath(rootDir), getDefaultConfig());
+async function getConfig(rootDir) {
+  const config = await readJson(getConfigPath(rootDir), getDefaultConfig());
   config.walletAddress = config.walletAddress || getDefaultConfig().walletAddress;
   config.pollIntervalMs = Number(config.pollIntervalMs || getDefaultConfig().pollIntervalMs);
   config.monitors = config.monitors && typeof config.monitors === "object" ? config.monitors : {};
   return config;
 }
 
-function saveConfig(rootDir, config) {
-  writeJson(getConfigPath(rootDir), config);
+async function saveConfig(rootDir, config) {
+  await writeJson(getConfigPath(rootDir), config);
 }
 
-function getState(rootDir) {
-  const state = readJson(getStatePath(rootDir), { alerts: {}, priceHistory: [] });
+async function getState(rootDir) {
+  const state = await readJson(getStatePath(rootDir), { alerts: {}, priceHistory: [] });
   state.alerts = state.alerts && typeof state.alerts === "object" ? state.alerts : {};
   state.priceHistory = Array.isArray(state.priceHistory) ? state.priceHistory : [];
   return state;
 }
 
-function saveState(rootDir, state) {
-  writeJson(getStatePath(rootDir), state);
+async function saveState(rootDir, state) {
+  await writeJson(getStatePath(rootDir), state);
 }
 
 function updatePriceHistory(state, ethUsdPrice) {
@@ -114,18 +114,41 @@ async function maybeSendAlert(item, state, walletAddress) {
       ? item.cheaperCompetitor.priceDeltaUsdDisplay
       : `${item.cheaperCompetitor.priceDeltaDisplay} ${item.buyTokenSymbol}`;
 
+  const divider = "\u2501".repeat(19);
   const message = [
-    "Alerta Immutable zkEVM",
+    "\ud83d\udea8 *ALERTA \u2014 Immutable zkEVM*",
     "",
-    `Item: ${item.name}`,
-    `Sua menor listing: ${ownPrice}`,
-    `Mais barata do mercado: ${marketPrice}`,
-    `Diferença: ${difference}`,
-    `Carteira monitorada: ${walletAddress}`,
-    `Concorrente: ${item.cheaperCompetitor.accountAddress}`,
+    divider,
+    "\ud83c\udfaf *Item*",
+    item.name,
+    "",
+    "\ud83d\udcb0 *Sua listing*",
+    ownPrice,
+    "",
+    "\ud83d\udcc9 *Menor pre\u00e7o*",
+    marketPrice,
+    "",
+    "\u2696\ufe0f *Diferen\u00e7a*",
+    `- ${difference}`,
+    "",
+    divider,
+    "\ud83d\udc40 *Status*",
+    "Acima do menor pre\u00e7o do mercado",
+    "Ajuste recomendado para competir",
+    "",
+    divider,
+    "\ud83e\uddfe *Sua carteira:*",
+    `\`${walletAddress}\``,
+    "",
+    "\ud83e\udd47 *Concorrente com o menor pre\u00e7o:*",
+    `\`${item.cheaperCompetitor.accountAddress}\``,
+    divider,
   ].join("\n");
 
-  await sendTelegramMessage(process.env.TELEGRAM_BOT_TOKEN, process.env.TELEGRAM_CHAT_ID, message);
+  await sendTelegramMessage(process.env.TELEGRAM_BOT_TOKEN, process.env.TELEGRAM_CHAT_ID, message, {
+    imageUrl: item.imageUrl,
+    parseMode: "Markdown",
+  });
 
   state.alerts[item.key] = {
     status: "alerted",
@@ -137,7 +160,7 @@ async function maybeSendAlert(item, state, walletAddress) {
 }
 
 async function runMonitorCycle(rootDir, options = {}) {
-  const config = getConfig(rootDir);
+  const config = await getConfig(rootDir);
   const groupedListings = await loadGroupedListings(config.walletAddress);
   const marketListingsIndex = await loadMarketListingsIndex(groupedListings);
   const ethUsdPrice = await fetchEthUsdPrice().catch(() => null);
@@ -170,10 +193,10 @@ async function runMonitorCycle(rootDir, options = {}) {
   }
 
   if (configChanged) {
-    saveConfig(rootDir, config);
+    await saveConfig(rootDir, config);
   }
 
-  const state = getState(rootDir);
+  const state = await getState(rootDir);
   state.priceHistory = updatePriceHistory(state, ethUsdPrice);
   let sentAlertsInLastRefresh = 0;
 
@@ -185,7 +208,7 @@ async function runMonitorCycle(rootDir, options = {}) {
     }
   }
 
-  saveState(rootDir, state);
+  await saveState(rootDir, state);
 
   const result = {
     config,
@@ -207,7 +230,7 @@ async function runMonitorCycle(rootDir, options = {}) {
 
   const dashboardData = buildDashboardData(result);
   if (options.writeDashboardFile !== false) {
-    writeJson(getDashboardPath(rootDir), dashboardData);
+    await writeJson(getDashboardPath(rootDir), dashboardData);
   }
 
   return {
@@ -219,5 +242,6 @@ async function runMonitorCycle(rootDir, options = {}) {
 module.exports = {
   buildDashboardData,
   getConfig,
+  saveConfig,
   runMonitorCycle,
 };

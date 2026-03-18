@@ -2,107 +2,20 @@ const fs = require("fs");
 const http = require("http");
 const path = require("path");
 
+const { handleApiRequest, refreshData } = require("./api-handler");
 const { loadEnv } = require("./lib/env");
-const { getConfig, runMonitorCycle } = require("./lib/monitor-runner");
-const { listTelegramChats, sendTelegramMessage } = require("./lib/telegram");
+const { getConfig } = require("./lib/monitor-runner");
 
 const rootDir = path.resolve(__dirname, "..");
 loadEnv(rootDir);
 
 const publicDir = path.join(rootDir, "public");
 
-const runtime = {
-  dashboardData: null,
-  refreshing: false,
-};
-
-function getDashboardAgeMs() {
-  if (!runtime.dashboardData?.lastRefreshAt) {
-    return Number.POSITIVE_INFINITY;
-  }
-
-  return Date.now() - new Date(runtime.dashboardData.lastRefreshAt).getTime();
-}
-
-async function getFreshDashboard({ force = false, sendAlerts = false } = {}) {
-  const maxAgeMs = Number(getConfig(rootDir).pollIntervalMs || 180000);
-  const shouldRefresh = force || !runtime.dashboardData || getDashboardAgeMs() > maxAgeMs + 15000;
-
-  if (!shouldRefresh) {
-    return runtime.dashboardData;
-  }
-
-  try {
-    return await refreshData(sendAlerts);
-  } catch (error) {
-    if (runtime.dashboardData) {
-      return runtime.dashboardData;
-    }
-
-    throw error;
-  }
-}
-
-function jsonResponse(response, statusCode, payload) {
-  response.writeHead(statusCode, {
-    "Content-Type": "application/json; charset=utf-8",
-    "Cache-Control": "no-store",
-  });
-  response.end(JSON.stringify(payload, null, 2));
-}
-
 function textResponse(response, statusCode, payload, contentType = "text/plain; charset=utf-8") {
   response.writeHead(statusCode, {
     "Content-Type": contentType,
   });
   response.end(payload);
-}
-
-function parseRequestBody(request) {
-  return new Promise((resolve, reject) => {
-    let raw = "";
-
-    request.on("data", (chunk) => {
-      raw += chunk.toString("utf8");
-      if (raw.length > 1_000_000) {
-        reject(new Error("Body too large"));
-      }
-    });
-
-    request.on("end", () => {
-      if (!raw) {
-        resolve({});
-        return;
-      }
-
-      try {
-        resolve(JSON.parse(raw));
-      } catch (error) {
-        reject(error);
-      }
-    });
-
-    request.on("error", reject);
-  });
-}
-
-async function refreshData(sendAlerts = true) {
-  if (runtime.refreshing) {
-    return runtime.dashboardData;
-  }
-
-  runtime.refreshing = true;
-
-  try {
-    const result = await runMonitorCycle(rootDir, {
-      sendAlerts,
-      writeDashboardFile: true,
-    });
-    runtime.dashboardData = result.dashboardData;
-    return runtime.dashboardData;
-  } finally {
-    runtime.refreshing = false;
-  }
 }
 
 function getStaticFile(filePath) {
@@ -135,95 +48,12 @@ function getContentType(filePath) {
 
 const server = http.createServer(async (request, response) => {
   try {
-    const requestUrl = new URL(request.url, "http://localhost");
-
-    if (request.method === "GET" && requestUrl.pathname === "/api/status") {
-      const data = await getFreshDashboard();
-      jsonResponse(response, 200, data || { ...getConfig(rootDir), refreshing: runtime.refreshing });
-      return;
-    }
-
-    if (request.method === "GET" && requestUrl.pathname === "/api/dashboard") {
-      const data = await getFreshDashboard();
-      jsonResponse(response, 200, data);
-      return;
-    }
-
-    if (request.method === "GET" && requestUrl.pathname === "/api/items") {
-      jsonResponse(response, 200, {
-        items: runtime.dashboardData?.items || [],
-      });
-      return;
-    }
-
-    if (request.method === "POST" && requestUrl.pathname === "/api/refresh") {
-      const data = await refreshData(true);
-      jsonResponse(response, 200, { ok: true, status: data });
-      return;
-    }
-
-    if (request.method === "POST" && requestUrl.pathname === "/api/test-telegram") {
-      if (!process.env.TELEGRAM_BOT_TOKEN || !process.env.TELEGRAM_CHAT_ID) {
-        jsonResponse(response, 400, {
-          ok: false,
-          error: "Preencha TELEGRAM_BOT_TOKEN e TELEGRAM_CHAT_ID no arquivo .env primeiro.",
-        });
-        return;
-      }
-
-      await sendTelegramMessage(
-        process.env.TELEGRAM_BOT_TOKEN,
-        process.env.TELEGRAM_CHAT_ID,
-        "Teste do monitor Immutable zkEVM: o envio pelo Telegram esta funcionando."
-      );
-
-      jsonResponse(response, 200, { ok: true });
-      return;
-    }
-
-    if (request.method === "GET" && requestUrl.pathname === "/api/telegram/chats") {
-      if (!process.env.TELEGRAM_BOT_TOKEN) {
-        jsonResponse(response, 400, {
-          ok: false,
-          error: "Preencha TELEGRAM_BOT_TOKEN no .env primeiro.",
-        });
-        return;
-      }
-
-      const chats = await listTelegramChats(process.env.TELEGRAM_BOT_TOKEN);
-      jsonResponse(response, 200, {
-        ok: true,
-        chats,
-        message:
-          chats.length > 0
-            ? "Chats encontrados. Copie o ID desejado para TELEGRAM_CHAT_ID."
-            : "Nenhum chat encontrado ainda. Envie uma mensagem para o bot no Telegram e tente novamente.",
-      });
-      return;
-    }
-
-    if (request.method === "POST" && requestUrl.pathname === "/api/monitors") {
-      const body = await parseRequestBody(request);
-      const config = getConfig(rootDir);
-
-      if (!body.key) {
-        jsonResponse(response, 400, { ok: false, error: "Item de monitoramento não informado." });
-        return;
-      }
-
-      if (!config.monitors[body.key]) {
-        config.monitors[body.key] = { enabled: false };
-      }
-
-      config.monitors[body.key].enabled = Boolean(body.enabled);
-      fs.writeFileSync(path.join(rootDir, "data", "config.json"), `${JSON.stringify(config, null, 2)}\n`, "utf8");
-      const data = await refreshData(false);
-
-      jsonResponse(response, 200, { ok: true, dashboard: data });
+    if (await handleApiRequest(request, response, rootDir)) {
       return;
     }
 
     if (request.method === "GET") {
+      const requestUrl = new URL(request.url, "http://localhost");
       const filePath = getStaticFile(requestUrl.pathname);
       if (!filePath) {
         textResponse(response, 404, "Not found");
@@ -236,7 +66,7 @@ const server = http.createServer(async (request, response) => {
 
     textResponse(response, 405, "Method not allowed");
   } catch (error) {
-    jsonResponse(response, 500, { ok: false, error: error.message });
+    textResponse(response, 500, JSON.stringify({ ok: false, error: error.message }, null, 2), "application/json; charset=utf-8");
   }
 });
 
@@ -245,16 +75,17 @@ server.listen(port, async () => {
   console.log(`Immutable zkEVM monitor on http://localhost:${port}`);
 
   try {
-    await refreshData(false);
+    await refreshData(rootDir, false);
   } catch (error) {
     console.error("Initial refresh failed:", error.message);
   }
 
+  const config = await getConfig(rootDir);
   setInterval(async () => {
     try {
-      await refreshData(true);
+      await refreshData(rootDir, true);
     } catch (error) {
       console.error("Scheduled refresh failed:", error.message);
     }
-  }, getConfig(rootDir).pollIntervalMs);
+  }, Number(config.pollIntervalMs || 180000));
 });

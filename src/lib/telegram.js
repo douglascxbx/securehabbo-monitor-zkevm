@@ -1,21 +1,39 @@
-async function sendTelegramMessage(botToken, chatId, text) {
+async function sendTelegramMessage(botToken, chatId, text, options = {}) {
   if (!botToken || !chatId) {
     throw new Error("Telegram is not configured yet.");
   }
 
-  const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+  const payload = {
+    chat_id: chatId,
+    parse_mode: options.parseMode || "Markdown",
+  };
+
+  let endpoint = "sendMessage";
+  if (options.imageUrl) {
+    endpoint = "sendPhoto";
+    payload.photo = options.imageUrl;
+    payload.caption = text;
+  } else {
+    payload.text = text;
+  }
+
+  const response = await fetch(`https://api.telegram.org/bot${botToken}/${endpoint}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text,
-    }),
+    body: JSON.stringify(payload),
   });
 
   if (!response.ok) {
     const body = await response.text();
+    if (options.imageUrl) {
+      return sendTelegramMessage(botToken, chatId, text, {
+        ...options,
+        imageUrl: "",
+      });
+    }
+
     throw new Error(`Telegram error ${response.status}: ${body}`);
   }
 
