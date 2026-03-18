@@ -1,14 +1,11 @@
 const itemsGrid = document.getElementById("itemsGrid");
 const walletAddress = document.getElementById("walletAddress");
 const lastRefresh = document.getElementById("lastRefresh");
-const telegramStatus = document.getElementById("telegramStatus");
+const ethUsdPrice = document.getElementById("ethUsdPrice");
 const undercutCount = document.getElementById("undercutCount");
 const enabledCount = document.getElementById("enabledCount");
 const totalCount = document.getElementById("totalCount");
 const healthyCount = document.getElementById("healthyCount");
-const sentAlertsCount = document.getElementById("sentAlertsCount");
-const runtimeMode = document.getElementById("runtimeMode");
-const runtimePill = document.getElementById("runtimePill");
 const headlineStatus = document.getElementById("headlineStatus");
 const flashMessage = document.getElementById("flashMessage");
 const heroActions = document.getElementById("heroActions");
@@ -61,7 +58,7 @@ function formatAddress(value) {
 
 function formatDate(value) {
   if (!value) {
-    return "Ainda nao sincronizado";
+    return "Ainda não sincronizado";
   }
 
   return new Intl.DateTimeFormat("pt-BR", {
@@ -70,34 +67,15 @@ function formatDate(value) {
   }).format(new Date(value));
 }
 
-function applyDashboardMeta(data) {
-  walletAddress.textContent = data.walletAddress || "-";
-  lastRefresh.textContent = formatDate(data.lastRefreshAt);
-  undercutCount.textContent = String(data.undercutItems || 0);
-  enabledCount.textContent = String(data.enabledItems || 0);
-  totalCount.textContent = String(data.totalItems || 0);
-  healthyCount.textContent = String(data.healthyItems || 0);
-  sentAlertsCount.textContent = String(data.sentAlertsInLastRefresh || 0);
+function formatCollectionName(value) {
+  const normalized = String(value || "").toLowerCase();
+  const labels = {
+    clothes: "Vestuário",
+    furniture: "Móveis",
+    addons: "Extras",
+  };
 
-  const runtimeText = state.interactiveApi ? "Painel local com controle" : "Painel publicado 24h";
-  runtimeMode.textContent = runtimeText;
-  runtimePill.textContent = runtimeText;
-
-  if (data.telegramConfigured) {
-    telegramStatus.textContent = "Bot e chat prontos";
-  } else if (data.telegramBotConfigured) {
-    telegramStatus.textContent = "Falta definir o chat_id";
-  } else {
-    telegramStatus.textContent = "Token ainda nao configurado";
-  }
-
-  if ((data.undercutItems || 0) > 0) {
-    headlineStatus.textContent = `${data.undercutItems} item(ns) estao abaixo do seu preco agora.`;
-  } else if ((data.totalItems || 0) > 0) {
-    headlineStatus.textContent = "No momento, nenhum concorrente esta abaixo do seu floor.";
-  } else {
-    headlineStatus.textContent = "Nenhuma listing ativa foi encontrada nessa carteira.";
-  }
+  return labels[normalized] || value || "Coleção";
 }
 
 function renderThumb(item) {
@@ -110,7 +88,7 @@ function renderThumb(item) {
 
 function buildToggle(item) {
   if (!state.interactiveApi) {
-    return `<span class="monitor-chip ${item.enabled ? "on" : "off"}">${item.enabled ? "Monitorando" : "Desligado"}</span>`;
+    return `<span class="monitor-chip ${item.enabled ? "on" : "off"}">${item.enabled ? "Ativo" : "Pausado"}</span>`;
   }
 
   return `
@@ -119,6 +97,28 @@ function buildToggle(item) {
       <span></span>
     </label>
   `;
+}
+
+function priceText(value) {
+  return value && value !== "—" ? value : "—";
+}
+
+function applyDashboardMeta(data) {
+  walletAddress.textContent = formatAddress(data.walletAddress);
+  lastRefresh.textContent = formatDate(data.lastRefreshAt);
+  ethUsdPrice.textContent = data.pricing?.ethUsdDisplay || "—";
+  undercutCount.textContent = String(data.undercutItems || 0);
+  enabledCount.textContent = String(data.enabledItems || 0);
+  totalCount.textContent = String(data.totalItems || 0);
+  healthyCount.textContent = String(data.healthyItems || 0);
+
+  if ((data.undercutItems || 0) > 0) {
+    headlineStatus.textContent = `${data.undercutItems} item(ns) estão abaixo do seu preço agora.`;
+  } else if ((data.totalItems || 0) > 0) {
+    headlineStatus.textContent = "Nenhum concorrente está abaixo do seu preço neste momento.";
+  } else {
+    headlineStatus.textContent = "Nenhuma listing ativa foi encontrada nessa carteira.";
+  }
 }
 
 function renderItems(data) {
@@ -147,54 +147,49 @@ function renderItems(data) {
       const competitor = item.cheaperCompetitor;
       const hasAlert = Boolean(competitor);
       const competitorText = competitor
-        ? `Concorrente ${formatAddress(competitor.accountAddress)} em ${competitor.buyAmountDisplay} ${competitor.buyTokenSymbol}.`
-        : "Voce ainda esta no menor preco desse item.";
+        ? `Concorrente ${formatAddress(competitor.accountAddress)} com anúncio abaixo do seu valor.`
+        : "Você ainda segura o menor preço desse item.";
 
       return `
-        <article class="listing-card ${hasAlert ? "alert" : "safe"}">
-          <div class="listing-top">
+        <article class="item-card ${hasAlert ? "alert" : "safe"}">
+          <div class="item-top">
             ${renderThumb(item)}
 
-            <div class="listing-copy">
-              <div class="listing-meta">
-                <p class="collection-tag">${escapeHtml(item.collectionName || "Collection")}</p>
-                <span class="state-badge ${hasAlert ? "alert" : "safe"}">
-                  ${hasAlert ? "Undercut detectado" : "Preco saudavel"}
+            <div class="item-copy">
+              <div class="item-header">
+                <span class="collection-chip">${escapeHtml(formatCollectionName(item.collectionName))}</span>
+                <span class="state-pill ${hasAlert ? "alert" : "safe"}">
+                  ${hasAlert ? "Em risco" : "Seguro"}
                 </span>
               </div>
 
               <h3>${escapeHtml(item.name)}</h3>
-              <p class="product-code">${escapeHtml(item.productCode)}</p>
             </div>
 
-            <div class="listing-toggle">
+            <div class="item-toggle">
               ${buildToggle(item)}
             </div>
           </div>
 
           <div class="price-grid">
-            <div class="price-card">
-              <span>Seu floor</span>
-              <strong>${escapeHtml(item.ownFloorPriceDisplay)} ${escapeHtml(item.buyTokenSymbol)}</strong>
+            <div class="price-box">
+              <span>Seu preço</span>
+              <strong>${priceText(item.ownFloorUsdDisplay)}</strong>
             </div>
-            <div class="price-card">
-              <span>Floor do mercado</span>
-              <strong>${
-                competitor
-                  ? `${escapeHtml(competitor.buyAmountDisplay)} ${escapeHtml(competitor.buyTokenSymbol)}`
-                  : "Sem undercut"
-              }</strong>
+            <div class="price-box">
+              <span>Menor do mercado</span>
+              <strong>${competitor ? priceText(competitor.buyAmountUsdDisplay) : "Sem undercut"}</strong>
             </div>
-            <div class="price-card">
-              <span>Diferenca</span>
-              <strong>${competitor ? `${escapeHtml(competitor.priceDeltaDisplay)} ${escapeHtml(item.buyTokenSymbol)}` : "0"}</strong>
+            <div class="price-box">
+              <span>Diferença</span>
+              <strong>${competitor ? priceText(competitor.priceDeltaUsdDisplay) : "$0.00"}</strong>
             </div>
           </div>
 
-          <div class="listing-foot">
-            <div class="foot-meta">
-              <span class="micro-pill">${item.ownListingCount} listing(s) suas</span>
-              <span class="micro-pill">${item.marketListingCount || 0} listing(s) no mercado</span>
+          <div class="item-foot">
+            <div class="tags">
+              <span class="tag">${item.ownListingCount} anúncio(s) seu(s)</span>
+              <span class="tag">${item.marketListingCount || 0} anúncio(s) no mercado</span>
             </div>
             <p class="competitor-note">${escapeHtml(competitorText)}</p>
           </div>
@@ -265,7 +260,7 @@ refreshButton.addEventListener("click", async () => {
     refreshButton.disabled = true;
     await fetchJson("/api/refresh", { method: "POST" });
     await loadDashboardData();
-    showMessage("Atualizacao concluida.");
+    showMessage("Atualização concluída.");
   } catch (error) {
     showMessage(error.message, true);
   } finally {

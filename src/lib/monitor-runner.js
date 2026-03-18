@@ -1,6 +1,7 @@
 const path = require("path");
 
 const { findCheaperCompetitor, loadGroupedListings, loadMarketListingsIndex } = require("./marketplace");
+const { enrichItemWithUsdValues, fetchEthUsdPrice, formatUsd } = require("./pricing");
 const { readJson, writeJson } = require("./store");
 const { sendTelegramMessage } = require("./telegram");
 
@@ -46,17 +47,14 @@ function saveState(rootDir, state) {
   writeJson(getStatePath(rootDir), state);
 }
 
-function buildDashboardData({ config, items, lastRefreshAt, lastError, sentAlertsInLastRefresh }) {
+function buildDashboardData({ config, items, pricing, lastRefreshAt, lastError, sentAlertsInLastRefresh }) {
   const undercutItems = items.filter((item) => item.cheaperCompetitor).length;
   const enabledItems = items.filter((item) => item.enabled).length;
 
   return {
     walletAddress: config.walletAddress,
     pollIntervalMs: config.pollIntervalMs,
-    telegramConfigured: Boolean(process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID),
-    telegramBotConfigured: Boolean(process.env.TELEGRAM_BOT_TOKEN),
-    telegramChatConfigured: Boolean(process.env.TELEGRAM_CHAT_ID),
-    whatsappSupported: false,
+    pricing,
     lastRefreshAt,
     lastError,
     refreshing: false,
@@ -94,10 +92,19 @@ async function maybeSendAlert(item, state, walletAddress) {
     "Alerta Immutable zkEVM",
     "",
     `Item: ${item.name}`,
-    `ProductCode: ${item.productCode}`,
-    `Sua menor listing: ${item.ownFloorPriceDisplay} ${item.buyTokenSymbol}`,
-    `Mais barata do mercado: ${item.cheaperCompetitor.buyAmountDisplay} ${item.cheaperCompetitor.buyTokenSymbol}`,
-    `Diferenca: ${item.cheaperCompetitor.priceDeltaDisplay} ${item.buyTokenSymbol}`,
+    `Sua menor listing: ${
+      item.ownFloorUsdDisplay !== "—" ? item.ownFloorUsdDisplay : `${item.ownFloorPriceDisplay} ${item.buyTokenSymbol}`
+    }`,
+    `Mais barata do mercado: ${
+      item.cheaperCompetitor.buyAmountUsdDisplay !== "—"
+        ? item.cheaperCompetitor.buyAmountUsdDisplay
+        : `${item.cheaperCompetitor.buyAmountDisplay} ${item.cheaperCompetitor.buyTokenSymbol}`
+    }`,
+    `Diferença: ${
+      item.cheaperCompetitor.priceDeltaUsdDisplay !== "—"
+        ? item.cheaperCompetitor.priceDeltaUsdDisplay
+        : `${item.cheaperCompetitor.priceDeltaDisplay} ${item.buyTokenSymbol}`
+    }`,
     `Carteira monitorada: ${walletAddress}`,
     `Concorrente: ${item.cheaperCompetitor.accountAddress}`,
   ].join("\n");
@@ -117,6 +124,7 @@ async function runMonitorCycle(rootDir, options = {}) {
   const config = getConfig(rootDir);
   const groupedListings = await loadGroupedListings(config.walletAddress);
   const marketListingsIndex = await loadMarketListingsIndex(groupedListings);
+  const ethUsdPrice = await fetchEthUsdPrice().catch(() => null);
   let configChanged = false;
   const items = [];
 
@@ -129,11 +137,19 @@ async function runMonitorCycle(rootDir, options = {}) {
     const marketListings = marketListingsIndex.get(group.key) || [];
     const cheaperCompetitor = findCheaperCompetitor(group, marketListings, config.walletAddress);
 
+    const enrichedItem = enrichItemWithUsdValues(
+      {
+        ...group,
+        enabled: Boolean(config.monitors[group.key]?.enabled),
+        marketListingCount: marketListings.length,
+        cheaperCompetitor,
+      },
+      ethUsdPrice
+    );
+
     items.push({
       ...group,
-      enabled: Boolean(config.monitors[group.key]?.enabled),
-      marketListingCount: marketListings.length,
-      cheaperCompetitor,
+      ...enrichedItem,
     });
   }
 
@@ -157,6 +173,15 @@ async function runMonitorCycle(rootDir, options = {}) {
   const result = {
     config,
     items,
+    pricing: ethUsdPrice
+      ? {
+          pair: ethUsdPrice.pair,
+          source: ethUsdPrice.source,
+          ethUsd: ethUsdPrice.amount,
+          ethUsdDisplay: formatUsd(ethUsdPrice.amount),
+          fetchedAt: ethUsdPrice.fetchedAt,
+        }
+      : null,
     lastRefreshAt: new Date().toISOString(),
     lastError: null,
     sentAlertsInLastRefresh,
