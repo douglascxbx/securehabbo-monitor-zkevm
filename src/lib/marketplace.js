@@ -7,31 +7,21 @@ const {
   normalizeAddress,
   shortAddress,
 } = require("./utils");
-const { fetchJsonThroughBrowser } = require("./securehabbo-browser");
 
 const IMMUTABLE_API_BASE = "https://api.immutable.com/v1/chains/imtbl-zkevm-mainnet";
-const SECUREHABBO_TURBO_BASE = "https://turbo.securehabbo.com";
 const REQUEST_TIMEOUT_MS = 20000;
 
 async function fetchJson(url, options = {}) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), options.timeoutMs || REQUEST_TIMEOUT_MS);
-  const defaultHeaders = {
-    Accept: "application/json, text/plain, */*",
-    "Accept-Language": "en-US,en;q=0.9,pt-BR;q=0.8,pt;q=0.7",
-    "Cache-Control": "no-cache",
-    Pragma: "no-cache",
-    Referer: "https://securehabbo.com/",
-    Origin: "https://securehabbo.com",
-    "User-Agent":
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
-  };
 
   try {
     const response = await fetch(url, {
       method: options.method || "GET",
       headers: {
-        ...defaultHeaders,
+        Accept: "application/json, text/plain, */*",
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
         ...(options.headers || {}),
       },
       body: options.body,
@@ -39,24 +29,23 @@ async function fetchJson(url, options = {}) {
     });
 
     if (!response.ok) {
+      if ((response.status === 429 || response.status === 503) && !options.__isRetry) {
+        const retryAfterHeader = response.headers.get("retry-after");
+        const retryAfterMs = retryAfterHeader ? Number(retryAfterHeader) * 1000 : 1500;
+        await new Promise((resolve) => setTimeout(resolve, Number.isFinite(retryAfterMs) ? retryAfterMs : 1500));
+
+        return fetchJson(url, {
+          ...options,
+          __isRetry: true,
+        });
+      }
+
       throw new Error(`HTTP ${response.status} for ${url}`);
     }
 
     return await response.json();
   } finally {
     clearTimeout(timeout);
-  }
-}
-
-async function fetchSecurehabboJson(url) {
-  try {
-    return await fetchJson(url);
-  } catch (error) {
-    if (!String(error.message || "").includes("HTTP 403")) {
-      throw error;
-    }
-
-    return fetchJsonThroughBrowser(url);
   }
 }
 
@@ -196,33 +185,79 @@ function groupOwnedListings(ownedListings) {
     .sort((left, right) => left.name.localeCompare(right.name));
 }
 
-async function fetchMarketListingsByProduct(group) {
-  const url = new URL(`${SECUREHABBO_TURBO_BASE}/market/listings-zkevm`);
-  url.searchParams.set("sell_item_contract_address", group.contractAddress);
-  url.searchParams.set("search", group.productCode);
+async function loadGroupedListings(walletAddress) {
+  const [inventory, activeListings] = await Promise.all([
+    fetchWalletInventory(walletAddress),
+    fetchWalletActiveListings(walletAddress),
+  ]);
 
-  const payload = await fetchSecurehabboJson(url.toString());
-  const listings = Array.isArray(payload?.data?.result) ? payload.data.result : [];
+  const merged = mergeInventoryWithListings(inventory, activeListings);
+  return groupOwnedListings(merged);
+}
 
-  return listings.map((listing) => {
-    const buyItem = listing.buy?.[0];
-    const tokenAttributes = listing.token_data?.metadata?.attributes || [];
-    return {
-      orderId: listing.id,
-      accountAddress: normalizeAddress(listing.account_address),
-      contractAddress: normalizeAddress(listing.sell?.[0]?.contract_address),
-      tokenId: String(listing.sell?.[0]?.token_id || ""),
-      productCode: getAttributeValue(tokenAttributes, "productCode"),
-      name: listing.token_data?.metadata?.name || group.name,
-      imageUrl: listing.token_data?.image_url || listing.token_data?.metadata?.image || group.imageUrl,
-      buyTokenContract: normalizeAddress(buyItem?.contract_address),
-      buyTokenSymbol: guessTokenSymbol(buyItem?.contract_address),
-      buyAmountRaw: String(buyItem?.amount || "0"),
-      buyAmountDisplay: formatTokenAmount(String(buyItem?.amount || "0")),
-      createdAt: listing.created_at,
-      updatedAt: listing.updated_at,
-    };
+async function runWithConcurrency(items, limit, worker) {
+  const queue = [...items];
+  const workers = Array.from({ length: Math.min(limit, items.length) }, async () => {
+    while (queue.length > 0) {
+      const nextItem = queue.shift();
+      await worker(nextItem);
+    }
   });
+
+  await Promise.all(workers);
+}
+
+function buildMarketListing(entry) {
+  const price = entry?.price_details;
+  const token = price?.token;
+
+  return {
+    orderId: entry?.listing_id || null,
+    accountAddress: normalizeAddress(entry?.creator),
+    contractAddress: normalizeAddress(entry?.contract_address),
+    tokenId: String(entry?.token_id || ""),
+    buyTokenContract: normalizeAddress(token?.contract_address),
+    buyTokenSymbol: token?.symbol || guessTokenSymbol(token?.contract_address),
+    buyAmountRaw: String(price?.amount || "0"),
+    buyAmountDisplay: formatTokenAmount(String(price?.amount || "0")),
+  };
+}
+
+async function fetchMarketStack(group) {
+  const url = new URL(`${IMMUTABLE_API_BASE}/search/stacks`);
+  url.searchParams.set("contract_address", group.contractAddress);
+  url.searchParams.set("only_if_has_active_listings", "true");
+  url.searchParams.set("page_size", "6");
+  url.searchParams.set("keyword", group.name);
+
+  const payload = await fetchJson(url.toString());
+  const results = Array.isArray(payload.result) ? payload.result : [];
+
+  return results.find((entry) => {
+    return (
+      normalizeAddress(entry?.stack?.contract_address) === normalizeAddress(group.contractAddress) &&
+      getAttributeValue(entry?.stack?.attributes || [], "productCode") === group.productCode
+    );
+  });
+}
+
+async function loadMarketListingsIndex(groups) {
+  const index = new Map();
+
+  await runWithConcurrency(groups, 2, async (group) => {
+    const stackMatch = await fetchMarketStack(group);
+    const listings = Array.isArray(stackMatch?.listings) ? stackMatch.listings : [];
+
+    index.set(
+      group.key,
+      listings
+        .map(buildMarketListing)
+        .filter((listing) => listing.orderId && listing.buyTokenContract && listing.buyAmountRaw !== "0")
+        .sort((left, right) => compareRawAmounts(left.buyAmountRaw, right.buyAmountRaw))
+    );
+  });
+
+  return index;
 }
 
 function findCheaperCompetitor(group, marketListings, walletAddress) {
@@ -247,18 +282,8 @@ function findCheaperCompetitor(group, marketListings, walletAddress) {
   };
 }
 
-async function loadGroupedListings(walletAddress) {
-  const [inventory, activeListings] = await Promise.all([
-    fetchWalletInventory(walletAddress),
-    fetchWalletActiveListings(walletAddress),
-  ]);
-
-  const merged = mergeInventoryWithListings(inventory, activeListings);
-  return groupOwnedListings(merged);
-}
-
 module.exports = {
-  fetchMarketListingsByProduct,
   findCheaperCompetitor,
   loadGroupedListings,
+  loadMarketListingsIndex,
 };

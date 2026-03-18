@@ -140,7 +140,7 @@ const server = http.createServer(async (request, response) => {
       await sendTelegramMessage(
         process.env.TELEGRAM_BOT_TOKEN,
         process.env.TELEGRAM_CHAT_ID,
-        "Teste do monitor SecureHabbo: o envio pelo Telegram esta funcionando."
+        "Teste do monitor Immutable zkEVM: o envio pelo Telegram esta funcionando."
       );
 
       jsonResponse(response, 200, { ok: true });
@@ -204,7 +204,7 @@ const server = http.createServer(async (request, response) => {
 
 const port = Number(process.env.PORT || 3000);
 server.listen(port, async () => {
-  console.log(`SecureHabbo monitor on http://localhost:${port}`);
+  console.log(`Immutable zkEVM monitor on http://localhost:${port}`);
 
   try {
     await refreshData(false);

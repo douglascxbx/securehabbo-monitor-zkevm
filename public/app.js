@@ -6,7 +6,10 @@ const undercutCount = document.getElementById("undercutCount");
 const enabledCount = document.getElementById("enabledCount");
 const totalCount = document.getElementById("totalCount");
 const healthyCount = document.getElementById("healthyCount");
+const sentAlertsCount = document.getElementById("sentAlertsCount");
 const runtimeMode = document.getElementById("runtimeMode");
+const runtimePill = document.getElementById("runtimePill");
+const headlineStatus = document.getElementById("headlineStatus");
 const flashMessage = document.getElementById("flashMessage");
 const heroActions = document.getElementById("heroActions");
 const refreshButton = document.getElementById("refreshButton");
@@ -39,102 +42,161 @@ async function fetchJson(url, options) {
   return payload;
 }
 
+function escapeHtml(value) {
+  return String(value || "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
 function formatAddress(value) {
-  if (!value || value.length < 16) {
+  if (!value || value.length < 18) {
     return value || "-";
   }
 
-  return `${value.slice(0, 8)}...${value.slice(-6)}`;
+  return `${value.slice(0, 10)}...${value.slice(-6)}`;
+}
+
+function formatDate(value) {
+  if (!value) {
+    return "Ainda nao sincronizado";
+  }
+
+  return new Intl.DateTimeFormat("pt-BR", {
+    dateStyle: "short",
+    timeStyle: "short",
+  }).format(new Date(value));
 }
 
 function applyDashboardMeta(data) {
-  walletAddress.textContent = formatAddress(data.walletAddress);
-  lastRefresh.textContent = data.lastRefreshAt ? new Date(data.lastRefreshAt).toLocaleString("pt-BR") : "Ainda não";
+  walletAddress.textContent = data.walletAddress || "-";
+  lastRefresh.textContent = formatDate(data.lastRefreshAt);
   undercutCount.textContent = String(data.undercutItems || 0);
   enabledCount.textContent = String(data.enabledItems || 0);
   totalCount.textContent = String(data.totalItems || 0);
   healthyCount.textContent = String(data.healthyItems || 0);
-  runtimeMode.textContent = state.interactiveApi ? "Local interativo" : "Publicado 24h";
+  sentAlertsCount.textContent = String(data.sentAlertsInLastRefresh || 0);
+
+  const runtimeText = state.interactiveApi ? "Painel local com controle" : "Painel publicado 24h";
+  runtimeMode.textContent = runtimeText;
+  runtimePill.textContent = runtimeText;
 
   if (data.telegramConfigured) {
-    telegramStatus.textContent = "bot + chat configurados";
+    telegramStatus.textContent = "Bot e chat prontos";
   } else if (data.telegramBotConfigured) {
-    telegramStatus.textContent = "falta chat_id";
+    telegramStatus.textContent = "Falta definir o chat_id";
   } else {
-    telegramStatus.textContent = "falta token";
+    telegramStatus.textContent = "Token ainda nao configurado";
+  }
+
+  if ((data.undercutItems || 0) > 0) {
+    headlineStatus.textContent = `${data.undercutItems} item(ns) estao abaixo do seu preco agora.`;
+  } else if ((data.totalItems || 0) > 0) {
+    headlineStatus.textContent = "No momento, nenhum concorrente esta abaixo do seu floor.";
+  } else {
+    headlineStatus.textContent = "Nenhuma listing ativa foi encontrada nessa carteira.";
   }
 }
 
+function renderThumb(item) {
+  if (item.imageUrl) {
+    return `<img class="thumb" src="${escapeHtml(item.imageUrl)}" alt="${escapeHtml(item.name)}" loading="lazy" />`;
+  }
+
+  return `<div class="thumb-placeholder" aria-hidden="true">${escapeHtml((item.name || "?").slice(0, 1).toUpperCase())}</div>`;
+}
+
+function buildToggle(item) {
+  if (!state.interactiveApi) {
+    return `<span class="monitor-chip ${item.enabled ? "on" : "off"}">${item.enabled ? "Monitorando" : "Desligado"}</span>`;
+  }
+
+  return `
+    <label class="toggle" aria-label="Ativar monitor do item ${escapeHtml(item.name)}">
+      <input type="checkbox" data-key="${escapeHtml(item.key)}" ${item.enabled ? "checked" : ""} />
+      <span></span>
+    </label>
+  `;
+}
+
 function renderItems(data) {
-  const items = Array.isArray(data.items) ? data.items : [];
+  const items = Array.isArray(data.items) ? [...data.items] : [];
   if (!items.length) {
-    itemsGrid.innerHTML = '<div class="empty-state">Nenhuma listing ativa encontrada.</div>';
+    itemsGrid.innerHTML = '<div class="empty-state">Nenhuma listing ativa encontrada para essa carteira.</div>';
     return;
   }
+
+  items.sort((left, right) => {
+    const alertScore = Number(Boolean(right.cheaperCompetitor)) - Number(Boolean(left.cheaperCompetitor));
+    if (alertScore !== 0) {
+      return alertScore;
+    }
+
+    const enabledScore = Number(Boolean(right.enabled)) - Number(Boolean(left.enabled));
+    if (enabledScore !== 0) {
+      return enabledScore;
+    }
+
+    return String(left.name || "").localeCompare(String(right.name || ""));
+  });
 
   itemsGrid.innerHTML = items
     .map((item) => {
       const competitor = item.cheaperCompetitor;
       const hasAlert = Boolean(competitor);
-      const footerText = competitor
-        ? `Concorrente em ${competitor.buyAmountDisplay} ${competitor.buyTokenSymbol}`
-        : "Você continua no menor preço";
-
-      const toggleMarkup = state.interactiveApi
-        ? `
-            <label class="toggle">
-              <input type="checkbox" data-key="${item.key}" ${item.enabled ? "checked" : ""} />
-              <span></span>
-            </label>
-          `
-        : `
-            <span class="monitor-pill ${item.enabled ? "on" : "off"}">
-              ${item.enabled ? "Monitorando" : "Desligado"}
-            </span>
-          `;
+      const competitorText = competitor
+        ? `Concorrente ${formatAddress(competitor.accountAddress)} em ${competitor.buyAmountDisplay} ${competitor.buyTokenSymbol}.`
+        : "Voce ainda esta no menor preco desse item.";
 
       return `
-        <article class="item-card ${hasAlert ? "alert" : "safe"}">
-          <div class="item-top">
-            <img class="item-thumb" src="${item.imageUrl}" alt="${item.name}" />
+        <article class="listing-card ${hasAlert ? "alert" : "safe"}">
+          <div class="listing-top">
+            ${renderThumb(item)}
 
-            <div class="item-body">
-              <div class="item-heading">
-                <div>
-                  <p class="item-kicker">${item.collectionName}</p>
-                  <h3>${item.name}</h3>
-                </div>
-                ${toggleMarkup}
+            <div class="listing-copy">
+              <div class="listing-meta">
+                <p class="collection-tag">${escapeHtml(item.collectionName || "Collection")}</p>
+                <span class="state-badge ${hasAlert ? "alert" : "safe"}">
+                  ${hasAlert ? "Undercut detectado" : "Preco saudavel"}
+                </span>
               </div>
 
-              <p class="item-code">${item.productCode}</p>
+              <h3>${escapeHtml(item.name)}</h3>
+              <p class="product-code">${escapeHtml(item.productCode)}</p>
+            </div>
+
+            <div class="listing-toggle">
+              ${buildToggle(item)}
             </div>
           </div>
 
-          <div class="stats-grid">
-            <div class="stat-box">
-              <span>Seu menor preço</span>
-              <strong>${item.ownFloorPriceDisplay} ${item.buyTokenSymbol}</strong>
+          <div class="price-grid">
+            <div class="price-card">
+              <span>Seu floor</span>
+              <strong>${escapeHtml(item.ownFloorPriceDisplay)} ${escapeHtml(item.buyTokenSymbol)}</strong>
             </div>
-            <div class="stat-box">
+            <div class="price-card">
               <span>Floor do mercado</span>
-              <strong>${competitor ? `${competitor.buyAmountDisplay} ${competitor.buyTokenSymbol}` : "Sem undercut"}</strong>
+              <strong>${
+                competitor
+                  ? `${escapeHtml(competitor.buyAmountDisplay)} ${escapeHtml(competitor.buyTokenSymbol)}`
+                  : "Sem undercut"
+              }</strong>
             </div>
-            <div class="stat-box">
-              <span>Diferença</span>
-              <strong>${competitor ? `${competitor.priceDeltaDisplay} ${item.buyTokenSymbol}` : "0"}</strong>
-            </div>
-            <div class="stat-box">
-              <span>Suas listings</span>
-              <strong>${item.ownListingCount}</strong>
+            <div class="price-card">
+              <span>Diferenca</span>
+              <strong>${competitor ? `${escapeHtml(competitor.priceDeltaDisplay)} ${escapeHtml(item.buyTokenSymbol)}` : "0"}</strong>
             </div>
           </div>
 
-          <div class="item-footer">
-            <span class="badge ${hasAlert ? "danger" : "success"}">
-              ${hasAlert ? "Undercut detectado" : "Preço saudável"}
-            </span>
-            <span class="footer-note">${footerText}</span>
+          <div class="listing-foot">
+            <div class="foot-meta">
+              <span class="micro-pill">${item.ownListingCount} listing(s) suas</span>
+              <span class="micro-pill">${item.marketListingCount || 0} listing(s) no mercado</span>
+            </div>
+            <p class="competitor-note">${escapeHtml(competitorText)}</p>
           </div>
         </article>
       `;
@@ -147,6 +209,8 @@ function renderItems(data) {
 
   for (const checkbox of itemsGrid.querySelectorAll("input[type='checkbox']")) {
     checkbox.addEventListener("change", async (event) => {
+      const input = event.target;
+
       try {
         await fetchJson("/api/monitors", {
           method: "POST",
@@ -154,15 +218,15 @@ function renderItems(data) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            key: event.target.dataset.key,
-            enabled: event.target.checked,
+            key: input.dataset.key,
+            enabled: input.checked,
           }),
         });
 
         await loadDashboardData();
         showMessage("Monitor atualizado.");
       } catch (error) {
-        event.target.checked = !event.target.checked;
+        input.checked = !input.checked;
         showMessage(error.message, true);
       }
     });
@@ -183,10 +247,17 @@ async function detectInteractiveApi() {
 }
 
 async function loadDashboardData() {
-  const data = await fetchJson(`/dashboard-data.json?ts=${Date.now()}`);
+  const dashboardUrl = new URL("./dashboard-data.json", window.location.href);
+  dashboardUrl.searchParams.set("ts", Date.now());
+
+  const data = await fetchJson(dashboardUrl.toString());
   state.dashboard = data;
   applyDashboardMeta(data);
   renderItems(data);
+
+  if (data.lastError) {
+    showMessage(data.lastError, true);
+  }
 }
 
 refreshButton.addEventListener("click", async () => {
@@ -194,7 +265,7 @@ refreshButton.addEventListener("click", async () => {
     refreshButton.disabled = true;
     await fetchJson("/api/refresh", { method: "POST" });
     await loadDashboardData();
-    showMessage("Atualização concluída.");
+    showMessage("Atualizacao concluida.");
   } catch (error) {
     showMessage(error.message, true);
   } finally {

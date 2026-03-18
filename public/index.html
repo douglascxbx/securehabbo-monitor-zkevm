@@ -3,82 +3,115 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SecureHabbo Monitor</title>
+    <title>Immutable zkEVM Monitor</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Fraunces:opsz,wght@9..144,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main class="app-shell">
-      <section class="hero">
+    <div class="ambient ambient-left"></div>
+    <div class="ambient ambient-right"></div>
+
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Immutable zkEVM listing monitor</p>
+          <h1>Veja rapido quando alguem te passa no preco.</h1>
+        </div>
+        <span id="runtimePill" class="runtime-pill">Carregando</span>
+      </header>
+
+      <section class="hero-panel">
         <div class="hero-copy">
-          <p class="eyebrow">SecureHabbo Monitor</p>
-          <h1>Seu floor em um relance.</h1>
           <p class="hero-text">
-            Acompanhe suas listings, veja onde já existe undercut e use o Telegram para receber os alertas sem depender
-            do PC ligado.
+            O painel compara suas listings ativas com o floor atual do mesmo item direto na infraestrutura da
+            Immutable zkEVM e manda alerta no Telegram quando surgir um anuncio mais barato.
           </p>
+
+          <div class="wallet-chip">
+            <span>Carteira monitorada</span>
+            <strong id="walletAddress">-</strong>
+          </div>
         </div>
 
-        <div class="hero-actions" id="heroActions">
-          <button id="refreshButton" class="button button-primary">Atualizar</button>
-          <button id="telegramButton" class="button button-secondary">Testar Telegram</button>
+        <aside class="hero-side">
+          <div class="action-row" id="heroActions">
+            <button id="refreshButton" class="button button-primary">Atualizar agora</button>
+            <button id="telegramButton" class="button button-secondary">Testar Telegram</button>
+          </div>
+
+          <div class="source-card">
+            <span class="meta-label">Fonte de dados</span>
+            <strong>Immutable zkEVM API</strong>
+            <p>
+              Telegram pronto para alertas. WhatsApp continua fora daqui porque sem API oficial nao fica estavel.
+            </p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card highlight">
+          <span class="meta-label">Undercuts agora</span>
+          <strong id="undercutCount">0</strong>
+          <p id="headlineStatus">Nenhum sinal carregado.</p>
+        </article>
+
+        <article class="stat-card">
+          <span class="meta-label">Itens monitorados</span>
+          <strong id="enabledCount">0</strong>
+          <p>Voce escolhe quais itens disparam alerta.</p>
+        </article>
+
+        <article class="stat-card">
+          <span class="meta-label">Itens totais</span>
+          <strong id="totalCount">0</strong>
+          <p>Grupos encontrados na sua carteira.</p>
+        </article>
+
+        <article class="stat-card">
+          <span class="meta-label">Saudaveis</span>
+          <strong id="healthyCount">0</strong>
+          <p>Itens sem concorrente abaixo do seu floor.</p>
+        </article>
+
+        <article class="stat-card">
+          <span class="meta-label">Alertas enviados</span>
+          <strong id="sentAlertsCount">0</strong>
+          <p>Mensagens disparadas no refresh mais recente.</p>
+        </article>
+      </section>
+
+      <section class="meta-strip">
+        <div class="meta-block">
+          <span class="meta-label">Ultima sincronizacao</span>
+          <strong id="lastRefresh">-</strong>
         </div>
-      </section>
 
-      <section class="meta-row">
-        <article class="meta-card wide">
-          <span class="meta-label">Carteira</span>
-          <strong id="walletAddress" class="meta-value wallet">-</strong>
-        </article>
-
-        <article class="meta-card">
-          <span class="meta-label">Última sync</span>
-          <strong id="lastRefresh" class="meta-value">-</strong>
-        </article>
-
-        <article class="meta-card">
-          <span class="meta-label">Undercuts</span>
-          <strong id="undercutCount" class="meta-value">0</strong>
-        </article>
-
-        <article class="meta-card">
-          <span class="meta-label">Monitorados</span>
-          <strong id="enabledCount" class="meta-value">0</strong>
-        </article>
-      </section>
-
-      <section class="status-strip">
-        <div class="status-block">
-          <span class="status-label">Telegram</span>
+        <div class="meta-block">
+          <span class="meta-label">Telegram</span>
           <strong id="telegramStatus">-</strong>
         </div>
-        <div class="status-block">
-          <span class="status-label">Itens totais</span>
-          <strong id="totalCount">0</strong>
-        </div>
-        <div class="status-block">
-          <span class="status-label">Saudáveis</span>
-          <strong id="healthyCount">0</strong>
-        </div>
-        <div class="status-block">
-          <span class="status-label">Modo</span>
+
+        <div class="meta-block">
+          <span class="meta-label">Modo</span>
           <strong id="runtimeMode">-</strong>
         </div>
       </section>
 
       <p id="flashMessage" class="flash-message"></p>
 
-      <section class="inventory-section">
+      <section class="inventory-panel">
         <div class="section-head">
           <div>
-            <p class="section-kicker">Listings</p>
-            <h2>Itens acompanhados</h2>
+            <p class="eyebrow">Portfolio watch</p>
+            <h2>Suas listings acompanhadas</h2>
           </div>
+          <p class="section-note">Undercuts aparecem primeiro. No desktop voce pode gerenciar, e no celular continua legivel.</p>
         </div>
 
         <div id="itemsGrid" class="items-grid">
@@ -87,6 +120,6 @@
       </section>
     </main>
 
-    <script src="/app.js"></script>
+    <script src="./app.js"></script>
   </body>
 </html>

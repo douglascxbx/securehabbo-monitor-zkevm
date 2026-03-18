@@ -1,6 +1,6 @@
 const path = require("path");
 
-const { fetchMarketListingsByProduct, findCheaperCompetitor, loadGroupedListings } = require("./marketplace");
+const { findCheaperCompetitor, loadGroupedListings, loadMarketListingsIndex } = require("./marketplace");
 const { readJson, writeJson } = require("./store");
 const { sendTelegramMessage } = require("./telegram");
 
@@ -91,7 +91,7 @@ async function maybeSendAlert(item, state, walletAddress) {
   }
 
   const message = [
-    "Alerta SecureHabbo",
+    "Alerta Immutable zkEVM",
     "",
     `Item: ${item.name}`,
     `ProductCode: ${item.productCode}`,
@@ -116,6 +116,7 @@ async function maybeSendAlert(item, state, walletAddress) {
 async function runMonitorCycle(rootDir, options = {}) {
   const config = getConfig(rootDir);
   const groupedListings = await loadGroupedListings(config.walletAddress);
+  const marketListingsIndex = await loadMarketListingsIndex(groupedListings);
   let configChanged = false;
   const items = [];
 
@@ -125,7 +126,7 @@ async function runMonitorCycle(rootDir, options = {}) {
       configChanged = true;
     }
 
-    const marketListings = await fetchMarketListingsByProduct(group);
+    const marketListings = marketListingsIndex.get(group.key) || [];
     const cheaperCompetitor = findCheaperCompetitor(group, marketListings, config.walletAddress);
 
     items.push({
