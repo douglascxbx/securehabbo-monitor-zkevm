@@ -7,6 +7,7 @@ const {
   normalizeAddress,
   shortAddress,
 } = require("./utils");
+const { fetchJsonThroughBrowser } = require("./securehabbo-browser");
 
 const IMMUTABLE_API_BASE = "https://api.immutable.com/v1/chains/imtbl-zkevm-mainnet";
 const SECUREHABBO_TURBO_BASE = "https://turbo.securehabbo.com";
@@ -44,6 +45,18 @@ async function fetchJson(url, options = {}) {
     return await response.json();
   } finally {
     clearTimeout(timeout);
+  }
+}
+
+async function fetchSecurehabboJson(url) {
+  try {
+    return await fetchJson(url);
+  } catch (error) {
+    if (!String(error.message || "").includes("HTTP 403")) {
+      throw error;
+    }
+
+    return fetchJsonThroughBrowser(url);
   }
 }
 
@@ -188,7 +201,7 @@ async function fetchMarketListingsByProduct(group) {
   url.searchParams.set("sell_item_contract_address", group.contractAddress);
   url.searchParams.set("search", group.productCode);
 
-  const payload = await fetchJson(url.toString());
+  const payload = await fetchSecurehabboJson(url.toString());
   const listings = Array.isArray(payload?.data?.result) ? payload.data.result : [];
 
   return listings.map((listing) => {
