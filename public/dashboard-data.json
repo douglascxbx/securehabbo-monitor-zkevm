@@ -5,13 +5,13 @@
   "telegramBotConfigured": true,
   "telegramChatConfigured": true,
   "whatsappSupported": false,
-  "lastRefreshAt": "2026-03-18T06:50:41.798Z",
+  "lastRefreshAt": "2026-03-18T06:55:42.112Z",
   "lastError": null,
   "refreshing": false,
   "totalItems": 7,
-  "enabledItems": 7,
-  "undercutItems": 4,
-  "healthyItems": 3,
+  "enabledItems": 6,
+  "undercutItems": 5,
+  "healthyItems": 2,
   "sentAlertsInLastRefresh": 0,
   "items": [
     {
@@ -109,9 +109,25 @@
       "ownFloorPriceRaw": "4837565000000000",
       "ownFloorPriceDisplay": "0.004837",
       "ownFloorOrderId": "019cfeed-9c46-5364-6f5d-d30a040c2508",
-      "enabled": true,
+      "enabled": false,
       "marketListingCount": 11,
-      "cheaperCompetitor": null
+      "cheaperCompetitor": {
+        "orderId": "019cffb9-b641-452b-ff7d-4f5d734a9cb6",
+        "accountAddress": "0xc39a5493acd84b4b038e9b09a50787185ea76404",
+        "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+        "tokenId": "1030207191555",
+        "productCode": "clothing_nftsnowreindeerbackpack",
+        "name": "Cuddly Reindeer Backpack",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/clothing_nftsnowreindeerbackpack.png",
+        "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
+        "buyTokenSymbol": "WETH",
+        "buyAmountRaw": "4837563000000000",
+        "buyAmountDisplay": "0.004837",
+        "createdAt": "2026-03-18T06:54:46.831537Z",
+        "updatedAt": "2026-03-18T06:54:47.026664Z",
+        "priceDeltaRaw": "2000000000",
+        "priceDeltaDisplay": "<0.000001"
+      }
     },
     {
       "key": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftvivideyes:0x52a6c53869ce09a731cd772f245b97a4401d3348",

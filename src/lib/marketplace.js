@@ -15,11 +15,24 @@ const REQUEST_TIMEOUT_MS = 20000;
 async function fetchJson(url, options = {}) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), options.timeoutMs || REQUEST_TIMEOUT_MS);
+  const defaultHeaders = {
+    Accept: "application/json, text/plain, */*",
+    "Accept-Language": "en-US,en;q=0.9,pt-BR;q=0.8,pt;q=0.7",
+    "Cache-Control": "no-cache",
+    Pragma: "no-cache",
+    Referer: "https://securehabbo.com/",
+    Origin: "https://securehabbo.com",
+    "User-Agent":
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+  };
 
   try {
     const response = await fetch(url, {
       method: options.method || "GET",
-      headers: options.headers || {},
+      headers: {
+        ...defaultHeaders,
+        ...(options.headers || {}),
+      },
       body: options.body,
       signal: controller.signal,
     });
