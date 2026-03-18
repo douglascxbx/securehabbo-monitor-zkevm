@@ -57,17 +57,11 @@ function sortItems(items) {
   });
 }
 
-function getSpotlightItem(items) {
-  const sorted = sortItems(items);
-  return sorted.find((item) => item.cheaperCompetitor) || sorted[0] || null;
-}
-
-function MetricCard({ label, value, detail }) {
+function SummaryCard({ label, value, tone = "default" }) {
   return (
-    <article className="metric-card">
+    <article className={`summary-card summary-card--${tone}`}>
       <span>{label}</span>
       <strong>{value}</strong>
-      <p>{detail}</p>
     </article>
   );
 }
@@ -75,12 +69,10 @@ function MetricCard({ label, value, detail }) {
 function AssetCard({ item, interactiveApi, onToggle, pendingKey }) {
   const hasUndercut = Boolean(item.cheaperCompetitor);
   const marketPrice = hasUndercut ? item.cheaperCompetitor.buyAmountUsdDisplay : "Sem undercut";
-  const deltaText = hasUndercut
-    ? `${item.cheaperCompetitor.priceDeltaUsdDisplay} abaixo`
-    : "Você ainda segura o menor preço";
-  const marketNote = hasUndercut
+  const statusText = hasUndercut ? "Abaixo do seu preço" : "Você ainda lidera";
+  const footText = hasUndercut
     ? `Concorrente em ${formatAddress(item.cheaperCompetitor.accountAddress)}`
-    : "Mercado alinhado ao seu anúncio";
+    : "Sem concorrente mais barato";
 
   return (
     <article className={`asset-card ${hasUndercut ? "is-alert" : ""}`}>
@@ -91,11 +83,11 @@ function AssetCard({ item, interactiveApi, onToggle, pendingKey }) {
           </div>
 
           <div className="asset-copy">
-            <p className="asset-name">{item.name}</p>
-            <div className="asset-subline">
-              <span>{formatCollectionName(item.collectionName)}</span>
-              <span>{item.enabled ? "Ativo" : "Pausado"}</span>
+            <div className="asset-copy__topline">
+              <span className="asset-collection">{formatCollectionName(item.collectionName)}</span>
+              <span className={`asset-status ${hasUndercut ? "is-alert" : ""}`}>{statusText}</span>
             </div>
+            <h3>{item.name}</h3>
           </div>
         </div>
 
@@ -113,25 +105,26 @@ function AssetCard({ item, interactiveApi, onToggle, pendingKey }) {
         )}
       </div>
 
-      <div className="price-strip">
-        <div className="price-block">
+      <div className="asset-prices">
+        <div className="price-panel">
           <span>Seu preço</span>
           <strong>{item.ownFloorUsdDisplay || "—"}</strong>
         </div>
-        <div className="price-block">
+        <div className="price-panel">
           <span>Mercado</span>
           <strong>{marketPrice}</strong>
         </div>
+        <div className="price-panel">
+          <span>Diferença</span>
+          <strong>{hasUndercut ? item.cheaperCompetitor.priceDeltaUsdDisplay : "$0.00"}</strong>
+        </div>
       </div>
 
-      <div className="asset-card__foot">
-        <div>
-          <p className={`asset-delta ${hasUndercut ? "asset-delta--alert" : ""}`}>{deltaText}</p>
-          <p className="asset-note">{marketNote}</p>
-        </div>
-        <div className="asset-counts">
+      <div className="asset-foot">
+        <p>{footText}</p>
+        <div className="asset-meta">
           <span>{item.ownListingCount} seu(s)</span>
-          <span>{item.marketListingCount || 0} mercado</span>
+          <span>{item.marketListingCount || 0} no mercado</span>
         </div>
       </div>
     </article>
@@ -145,7 +138,6 @@ export default function App() {
   const [pendingKey, setPendingKey] = useState("");
 
   const items = useMemo(() => sortItems(dashboard?.items || []), [dashboard]);
-  const spotlightItem = useMemo(() => getSpotlightItem(items), [items]);
 
   useEffect(() => {
     let timeoutId;
@@ -238,40 +230,15 @@ export default function App() {
     <div className="screen">
       <div className="shell">
         <header className="app-header">
-          <div className="app-title">
-            <span>Project</span>
+          <div className="brand">
+            <span className="brand__kicker">Project</span>
             <h1>LISTING WATCH</h1>
           </div>
-          <div className="live-pill">
-            <span className="live-dot" />
-            <span>LIVE</span>
-          </div>
-        </header>
 
-        <section className="overview-grid">
-          <div className="overview-copy">
-            <p className="eyebrow">Immutable zkEVM</p>
-            <h2>Seu painel de undercut, agora com layout de desktop de verdade.</h2>
-            <p className="overview-text">
-              Mantive a estética preta com verde-lima da referência, mas transformei isso num dashboard responsivo:
-              organizado no PC e ajustado no celular sem parecer uma tela mobile esticada.
-            </p>
-
-            <div className="metrics-row">
-              <MetricCard label="Em risco" value={dashboard?.undercutItems ?? 0} detail="Itens abaixo do seu preço" />
-              <MetricCard label="Monitorados" value={dashboard?.enabledItems ?? 0} detail="Itens com alerta ativo" />
-              <MetricCard label="ETH/USD" value={dashboard?.pricing?.ethUsdDisplay || "—"} detail="Cotação atual" />
-            </div>
-
-            <div className="meta-row">
-              <div>
-                <span>Carteira</span>
-                <strong>{formatAddress(dashboard?.walletAddress)}</strong>
-              </div>
-              <div>
-                <span>Atualizado</span>
-                <strong>{formatDate(dashboard?.lastRefreshAt)}</strong>
-              </div>
+          <div className="topbar">
+            <div className="live-pill">
+              <span className="live-dot" />
+              <span>LIVE</span>
             </div>
 
             {interactiveApi ? (
@@ -285,42 +252,50 @@ export default function App() {
               </div>
             ) : null}
           </div>
+        </header>
 
-          <aside className="spotlight-card">
-            <p className="eyebrow">Spotlight</p>
-            <h3>{spotlightItem?.name || "Carregando item"}</h3>
-            <p className="spotlight-price">
-              {spotlightItem?.cheaperCompetitor?.buyAmountUsdDisplay || spotlightItem?.ownFloorUsdDisplay || "—"}
+        <section className="hero-panel">
+          <div className="hero-copy">
+            <span className="hero-copy__kicker">Immutable zkEVM</span>
+            <h2>Seus itens organizados para desktop, com leitura rápida e sem excesso.</h2>
+            <p>
+              Preço em dólar, foco no que foi undercutado e uma grade limpa para você bater o olho e entender tudo em
+              segundos.
             </p>
-            <p className={`spotlight-delta ${spotlightItem?.cheaperCompetitor ? "is-alert" : ""}`}>
-              {spotlightItem?.cheaperCompetitor
-                ? `${spotlightItem.cheaperCompetitor.priceDeltaUsdDisplay} abaixo do seu preço`
-                : "Nenhum concorrente abaixo deste item"}
-            </p>
-
-            <div className="spotlight-media">
-              {spotlightItem?.imageUrl ? (
-                <img src={spotlightItem.imageUrl} alt={spotlightItem.name} />
-              ) : (
-                <div className="spotlight-fallback">NFT</div>
-              )}
-            </div>
-          </aside>
-        </section>
-
-        <section className="assets-section">
-          <div className="assets-head">
-            <div>
-              <h3>Assets</h3>
-              <p>{dashboard ? `${dashboard.totalItems} itens na carteira` : "Carregando itens"}</p>
-            </div>
-            <div className="assets-meta">
-              <span>Baseado na referência visual</span>
-              <strong>Adaptado para desktop e mobile</strong>
-            </div>
           </div>
 
-          {message ? <div className={`flash flash--${message.type}`}>{message.text}</div> : null}
+          <div className="hero-meta">
+            <div>
+              <span>Carteira</span>
+              <strong>{formatAddress(dashboard?.walletAddress)}</strong>
+            </div>
+            <div>
+              <span>Atualizado</span>
+              <strong>{formatDate(dashboard?.lastRefreshAt)}</strong>
+            </div>
+            <div>
+              <span>ETH/USD</span>
+              <strong>{dashboard?.pricing?.ethUsdDisplay || "—"}</strong>
+            </div>
+          </div>
+        </section>
+
+        <section className="summary-grid">
+          <SummaryCard label="Em risco" value={dashboard?.undercutItems ?? 0} tone="alert" />
+          <SummaryCard label="Monitorados" value={dashboard?.enabledItems ?? 0} />
+          <SummaryCard label="Seguros" value={dashboard?.healthyItems ?? 0} />
+          <SummaryCard label="Total" value={dashboard?.totalItems ?? 0} />
+        </section>
+
+        {message ? <div className={`flash flash--${message.type}`}>{message.text}</div> : null}
+
+        <section className="assets-section">
+          <div className="section-head">
+            <div>
+              <span>Assets</span>
+              <h3>Itens monitorados</h3>
+            </div>
+          </div>
 
           <div className="asset-grid">
             {items.length ? (
@@ -334,7 +309,7 @@ export default function App() {
                 />
               ))
             ) : (
-              <div className="empty-card">Nenhum item apareceu ainda. Estou lendo o dashboard, então isso não deve ficar vazio depois do carregamento.</div>
+              <div className="empty-card">Nenhum item apareceu ainda. Assim que os dados carregarem, a grade volta aqui.</div>
             )}
           </div>
         </section>
