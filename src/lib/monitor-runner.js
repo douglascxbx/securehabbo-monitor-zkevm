@@ -77,34 +77,30 @@ async function maybeSendAlert(item, state, walletAddress) {
     return false;
   }
 
-  const signature = [
-    item.cheaperCompetitor.orderId,
-    item.cheaperCompetitor.buyAmountRaw,
-    item.ownFloorPriceRaw,
-  ].join(":");
-
+  const signature = [item.cheaperCompetitor.orderId, item.cheaperCompetitor.buyAmountRaw, item.ownFloorPriceRaw].join(":");
   const previous = state.alerts[item.key];
+
   if (previous?.signature === signature) {
     return false;
   }
+
+  const ownPrice = item.ownFloorUsdDisplay !== "-" ? item.ownFloorUsdDisplay : `${item.ownFloorPriceDisplay} ${item.buyTokenSymbol}`;
+  const marketPrice =
+    item.cheaperCompetitor.buyAmountUsdDisplay !== "-"
+      ? item.cheaperCompetitor.buyAmountUsdDisplay
+      : `${item.cheaperCompetitor.buyAmountDisplay} ${item.cheaperCompetitor.buyTokenSymbol}`;
+  const difference =
+    item.cheaperCompetitor.priceDeltaUsdDisplay !== "-"
+      ? item.cheaperCompetitor.priceDeltaUsdDisplay
+      : `${item.cheaperCompetitor.priceDeltaDisplay} ${item.buyTokenSymbol}`;
 
   const message = [
     "Alerta Immutable zkEVM",
     "",
     `Item: ${item.name}`,
-    `Sua menor listing: ${
-      item.ownFloorUsdDisplay !== "—" ? item.ownFloorUsdDisplay : `${item.ownFloorPriceDisplay} ${item.buyTokenSymbol}`
-    }`,
-    `Mais barata do mercado: ${
-      item.cheaperCompetitor.buyAmountUsdDisplay !== "—"
-        ? item.cheaperCompetitor.buyAmountUsdDisplay
-        : `${item.cheaperCompetitor.buyAmountDisplay} ${item.cheaperCompetitor.buyTokenSymbol}`
-    }`,
-    `Diferença: ${
-      item.cheaperCompetitor.priceDeltaUsdDisplay !== "—"
-        ? item.cheaperCompetitor.priceDeltaUsdDisplay
-        : `${item.cheaperCompetitor.priceDeltaDisplay} ${item.buyTokenSymbol}`
-    }`,
+    `Sua menor listing: ${ownPrice}`,
+    `Mais barata do mercado: ${marketPrice}`,
+    `Diferença: ${difference}`,
     `Carteira monitorada: ${walletAddress}`,
     `Concorrente: ${item.cheaperCompetitor.accountAddress}`,
   ].join("\n");

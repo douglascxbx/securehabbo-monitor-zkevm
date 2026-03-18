@@ -115,6 +115,12 @@ const server = http.createServer(async (request, response) => {
       return;
     }
 
+    if (request.method === "GET" && requestUrl.pathname === "/api/dashboard") {
+      const data = runtime.dashboardData || (await refreshData(false));
+      jsonResponse(response, 200, data);
+      return;
+    }
+
     if (request.method === "GET" && requestUrl.pathname === "/api/items") {
       jsonResponse(response, 200, {
         items: runtime.dashboardData?.items || [],
@@ -172,16 +178,20 @@ const server = http.createServer(async (request, response) => {
       const body = await parseRequestBody(request);
       const config = getConfig(rootDir);
 
-      if (!body.key || !config.monitors[body.key]) {
-        jsonResponse(response, 404, { ok: false, error: "Monitor nao encontrado." });
+      if (!body.key) {
+        jsonResponse(response, 400, { ok: false, error: "Item de monitoramento não informado." });
         return;
+      }
+
+      if (!config.monitors[body.key]) {
+        config.monitors[body.key] = { enabled: false };
       }
 
       config.monitors[body.key].enabled = Boolean(body.enabled);
       fs.writeFileSync(path.join(rootDir, "data", "config.json"), `${JSON.stringify(config, null, 2)}\n`, "utf8");
-      await refreshData(false);
+      const data = await refreshData(false);
 
-      jsonResponse(response, 200, { ok: true });
+      jsonResponse(response, 200, { ok: true, dashboard: data });
       return;
     }
 

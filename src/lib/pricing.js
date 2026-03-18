@@ -38,7 +38,7 @@ async function fetchEthUsdPrice() {
 
 function formatUsd(value) {
   if (!Number.isFinite(value)) {
-    return "—";
+    return "-";
   }
 
   return new Intl.NumberFormat("en-US", {
@@ -54,8 +54,7 @@ function rawAmountToDecimal(rawAmount, decimals = 18) {
   const precision = 10n ** BigInt(decimals);
   const whole = value / precision;
   const fraction = value % precision;
-  const decimalValue = Number(whole) + Number(fraction) / Number(precision);
-  return decimalValue;
+  return Number(whole) + Number(fraction) / Number(precision);
 }
 
 function isEthLikeSymbol(symbol) {
@@ -67,14 +66,14 @@ function enrichItemWithUsdValues(item, ethUsdPrice) {
     return {
       ...item,
       ownFloorUsd: null,
-      ownFloorUsdDisplay: "—",
+      ownFloorUsdDisplay: "-",
       cheaperCompetitor: item.cheaperCompetitor
         ? {
             ...item.cheaperCompetitor,
             buyAmountUsd: null,
-            buyAmountUsdDisplay: "—",
+            buyAmountUsdDisplay: "-",
             priceDeltaUsd: null,
-            priceDeltaUsdDisplay: "—",
+            priceDeltaUsdDisplay: "-",
           }
         : null,
     };
