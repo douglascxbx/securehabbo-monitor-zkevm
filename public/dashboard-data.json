@@ -4,14 +4,10 @@
   "pricing": {
     "pair": "ETH/USD",
     "source": "Coinbase spot",
-    "ethUsd": 2204.305,
-    "ethUsdDisplay": "$2,204.31",
-    "fetchedAt": "2026-03-18T23:51:16.109Z",
+    "ethUsd": 2204.275,
+    "ethUsdDisplay": "$2,204.28",
+    "fetchedAt": "2026-03-18T23:55:16.212Z",
     "history": [
-      {
-        "amount": 2192.8,
-        "fetchedAt": "2026-03-18T22:29:42.036Z"
-      },
       {
         "amount": 2188.495,
         "fetchedAt": "2026-03-18T22:33:16.056Z"
@@ -103,10 +99,14 @@
       {
         "amount": 2204.305,
         "fetchedAt": "2026-03-18T23:51:16.109Z"
+      },
+      {
+        "amount": 2204.275,
+        "fetchedAt": "2026-03-18T23:55:16.212Z"
       }
     ]
   },
-  "lastRefreshAt": "2026-03-18T23:51:17.261Z",
+  "lastRefreshAt": "2026-03-18T23:55:16.738Z",
   "lastError": null,
   "refreshing": false,
   "totalItems": 7,
@@ -223,12 +223,12 @@
         "buyAmountDisplay": "0.004837",
         "priceDeltaRaw": "4000000000",
         "priceDeltaDisplay": "<0.000001",
-        "buyAmountUsd": 10.663459900104998,
+        "buyAmountUsd": 10.663314773275,
         "buyAmountUsdDisplay": "$10.66",
-        "priceDeltaUsd": 0.00000881722,
+        "priceDeltaUsd": 0.0000088171,
         "priceDeltaUsdDisplay": "$0.00"
       },
-      "ownFloorUsd": 10.663468717325,
+      "ownFloorUsd": 10.663323590375,
       "ownFloorUsdDisplay": "$10.66"
     },
     {
@@ -344,12 +344,12 @@
         "buyAmountDisplay": "0.055045",
         "priceDeltaRaw": "8799078440366970",
         "priceDeltaDisplay": "0.008799",
-        "buyAmountUsd": 121.33788990825688,
+        "buyAmountUsd": 121.3362385321101,
         "buyAmountUsdDisplay": "$121.34",
-        "priceDeltaUsd": 19.395852601493115,
+        "priceDeltaUsd": 19.395588629139905,
         "priceDeltaUsdDisplay": "$19.40"
       },
-      "ownFloorUsd": 140.73374250975,
+      "ownFloorUsd": 140.73182716125,
       "ownFloorUsdDisplay": "$140.73"
     },
     {
@@ -460,7 +460,7 @@
       "enabled": false,
       "marketListingCount": 3,
       "cheaperCompetitor": null,
-      "ownFloorUsd": 6.228673778229999,
+      "ownFloorUsd": 6.22858900765,
       "ownFloorUsdDisplay": "$6.23"
     },
     {
@@ -571,12 +571,12 @@
         "buyAmountDisplay": "0.000514",
         "priceDeltaRaw": "127260000000000",
         "priceDeltaDisplay": "0.000127",
-        "buyAmountUsd": 1.1350848166999998,
+        "buyAmountUsd": 1.1350693685,
         "buyAmountUsdDisplay": "$1.14",
-        "priceDeltaUsd": 0.2805198543,
+        "priceDeltaUsd": 0.2805160365,
         "priceDeltaUsdDisplay": "$0.2805"
       },
-      "ownFloorUsd": 1.4156046709999999,
+      "ownFloorUsd": 1.415585405,
       "ownFloorUsdDisplay": "$1.42"
     },
     {
@@ -692,12 +692,12 @@
         "buyAmountDisplay": "0.115838",
         "priceDeltaRaw": "4000000000",
         "priceDeltaDisplay": "<0.000001",
-        "buyAmountUsd": 255.34336269944998,
+        "buyAmountUsd": 255.33988754475,
         "buyAmountUsdDisplay": "$255.34",
-        "priceDeltaUsd": 0.00000881722,
+        "priceDeltaUsd": 0.0000088171,
         "priceDeltaUsdDisplay": "$0.00"
       },
-      "ownFloorUsd": 255.34337151666998,
+      "ownFloorUsd": 255.33989636185,
       "ownFloorUsdDisplay": "$255.34"
     },
     {
@@ -823,12 +823,12 @@
         "buyAmountDisplay": "0.000332",
         "priceDeltaRaw": "2000000000",
         "priceDeltaDisplay": "<0.000001",
-        "buyAmountUsd": 0.732417809435,
+        "buyAmountUsd": 0.732407841425,
         "buyAmountUsdDisplay": "$0.7324",
-        "priceDeltaUsd": 0.00000440861,
+        "priceDeltaUsd": 0.00000440855,
         "priceDeltaUsdDisplay": "$0.00"
       },
-      "ownFloorUsd": 0.732422218045,
+      "ownFloorUsd": 0.732412249975,
       "ownFloorUsdDisplay": "$0.7324"
     },
     {
@@ -939,12 +939,12 @@
         "buyAmountDisplay": "0.008836",
         "priceDeltaRaw": "2000000001",
         "priceDeltaDisplay": "<0.000001",
-        "buyAmountUsd": 19.478709251434996,
+        "buyAmountUsd": 19.478444151425,
         "buyAmountUsdDisplay": "$19.48",
-        "priceDeltaUsd": 0.0000044086100022043044,
+        "priceDeltaUsd": 0.000004408550002204275,
         "priceDeltaUsdDisplay": "$0.00"
       },
-      "ownFloorUsd": 19.478713660045,
+      "ownFloorUsd": 19.478448559975,
       "ownFloorUsdDisplay": "$19.48"
     }
   ]
