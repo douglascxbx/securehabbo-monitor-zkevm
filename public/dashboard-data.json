@@ -6,7 +6,7 @@
     "source": "Coinbase spot",
     "ethUsd": 2322.835,
     "ethUsdDisplay": "$2,322.84",
-    "fetchedAt": "2026-03-18T09:03:06.572Z",
+    "fetchedAt": "2026-03-18T09:03:14.632Z",
     "history": [
       {
         "amount": 2323.31,
@@ -39,14 +39,18 @@
       {
         "amount": 2322.835,
         "fetchedAt": "2026-03-18T09:03:06.572Z"
+      },
+      {
+        "amount": 2322.835,
+        "fetchedAt": "2026-03-18T09:03:14.632Z"
       }
     ]
   },
-  "lastRefreshAt": "2026-03-18T09:03:07.207Z",
+  "lastRefreshAt": "2026-03-18T09:03:15.257Z",
   "lastError": null,
   "refreshing": false,
   "totalItems": 7,
-  "enabledItems": 4,
+  "enabledItems": 5,
   "undercutItems": 4,
   "healthyItems": 3,
   "sentAlertsInLastRefresh": 0,
@@ -509,7 +513,7 @@
       "ownFloorPriceRaw": "642200000000000",
       "ownFloorPriceDisplay": "0.000642",
       "ownFloorOrderId": "019cbe5b-2d20-96d6-f91a-dda606720c17",
-      "enabled": false,
+      "enabled": true,
       "marketListingCount": 10,
       "cheaperCompetitor": {
         "orderId": "019d0024-2a98-05d6-208d-a802b02888cd",
