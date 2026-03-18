@@ -6,6 +6,10 @@ on:
     branches:
       - main
     paths:
+      - "frontend/**"
+      - "vite.config.js"
+      - "package.json"
+      - "package-lock.json"
       - "public/**"
       - ".github/workflows/pages.yml"
 
@@ -28,6 +32,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build dashboard
+        run: npm run build
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
