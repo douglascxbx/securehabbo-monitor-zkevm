@@ -26,26 +26,21 @@ async function fetchJsonThroughBrowser(url) {
     });
 
     await page.waitForTimeout(4000);
+    const response = await page.goto(url, {
+      waitUntil: "domcontentloaded",
+      timeout: 45000,
+    });
 
-    const result = await page.evaluate(async (targetUrl) => {
-      const response = await fetch(targetUrl, {
-        headers: {
-          Accept: "application/json, text/plain, */*",
-        },
-        credentials: "include",
-      });
-
-      return {
-        status: response.status,
-        body: await response.text(),
-      };
-    }, url);
-
-    if (result.status < 200 || result.status >= 300) {
-      throw new Error(`Browser fetch failed with status ${result.status}`);
+    if (!response) {
+      throw new Error("Browser navigation did not return a response.");
     }
 
-    return JSON.parse(result.body);
+    if (response.status() < 200 || response.status() >= 300) {
+      throw new Error(`Browser fetch failed with status ${response.status()}`);
+    }
+
+    const body = await page.locator("body").innerText();
+    return JSON.parse(body);
   } finally {
     await browser.close();
   }
