@@ -1,0 +1,10 @@
+{
+  "name": "securehabbo-telegram-monitor",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Monitor de listings da SecureHabbo / Immutable zkEVM com alerta via Telegram.",
+  "scripts": {
+    "start": "node src/server.js",
+    "monitor": "node scripts/run-monitor.js"
+  }
+}

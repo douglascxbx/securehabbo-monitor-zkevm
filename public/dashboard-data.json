@@ -1,0 +1,810 @@
+{
+  "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+  "pollIntervalMs": 180000,
+  "telegramConfigured": true,
+  "telegramBotConfigured": true,
+  "telegramChatConfigured": true,
+  "whatsappSupported": false,
+  "lastRefreshAt": "2026-03-18T06:50:41.798Z",
+  "lastError": null,
+  "refreshing": false,
+  "totalItems": 7,
+  "enabledItems": 7,
+  "undercutItems": 4,
+  "healthyItems": 3,
+  "sentAlertsInLastRefresh": 0,
+  "items": [
+    {
+      "key": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftsnowreindeerbackpack:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+      "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+      "productCode": "clothing_nftsnowreindeerbackpack",
+      "name": "Cuddly Reindeer Backpack",
+      "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/clothing_nftsnowreindeerbackpack.png",
+      "collectionName": "clothes",
+      "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
+      "buyTokenSymbol": "WETH",
+      "listings": [
+        {
+          "key": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftsnowreindeerbackpack:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+          "orderId": "019cfeed-9c46-5364-6f5d-d30a040c2508",
+          "orderHash": "0xb5b0c04203c6ed0d964ad88dd6d49bda8e1a4ad7628e5aafcd659f692558d12f",
+          "accountAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+          "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+          "tokenId": "1223144984228",
+          "productCode": "clothing_nftsnowreindeerbackpack",
+          "name": "Cuddly Reindeer Backpack",
+          "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/clothing_nftsnowreindeerbackpack.png",
+          "attributes": [
+            {
+              "display_type": null,
+              "trait_type": "blueprint",
+              "value": "clothing_nftsnowreindeerbackpack"
+            },
+            {
+              "display_type": null,
+              "trait_type": "collection",
+              "value": "clothes"
+            },
+            {
+              "display_type": null,
+              "trait_type": "isCraftMaterial",
+              "value": false
+            },
+            {
+              "display_type": null,
+              "trait_type": "isCraftedItem",
+              "value": false
+            },
+            {
+              "display_type": null,
+              "trait_type": "itemSubType",
+              "value": "Backpack"
+            },
+            {
+              "display_type": null,
+              "trait_type": "itemType",
+              "value": "Clothes"
+            },
+            {
+              "display_type": null,
+              "trait_type": "productCode",
+              "value": "clothing_nftsnowreindeerbackpack"
+            },
+            {
+              "display_type": null,
+              "trait_type": "productType",
+              "value": "Backpack"
+            },
+            {
+              "display_type": null,
+              "trait_type": "rarity",
+              "value": "Legendary"
+            },
+            {
+              "display_type": null,
+              "trait_type": "score",
+              "value": 500
+            },
+            {
+              "display_type": null,
+              "trait_type": "setId",
+              "value": "xmas_23_clothes"
+            },
+            {
+              "display_type": null,
+              "trait_type": "source",
+              "value": "Gift Box"
+            }
+          ],
+          "collectionName": "clothes",
+          "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
+          "buyTokenSymbol": "WETH",
+          "buyAmountRaw": "4837565000000000",
+          "buyAmountDisplay": "0.004837",
+          "createdAt": "2026-03-18T03:11:50.839266Z",
+          "updatedAt": "2026-03-18T03:12:25.894931Z"
+        }
+      ],
+      "ownListingCount": 1,
+      "ownFloorPriceRaw": "4837565000000000",
+      "ownFloorPriceDisplay": "0.004837",
+      "ownFloorOrderId": "019cfeed-9c46-5364-6f5d-d30a040c2508",
+      "enabled": true,
+      "marketListingCount": 11,
+      "cheaperCompetitor": null
+    },
+    {
+      "key": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftvivideyes:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+      "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+      "productCode": "clothing_nftvivideyes",
+      "name": "Lovely Vivid Eyes",
+      "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/clothing_nftvivideyes.gif",
+      "collectionName": "clothes",
+      "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
+      "buyTokenSymbol": "WETH",
+      "listings": [
+        {
+          "key": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftvivideyes:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+          "orderId": "019cf9f7-9d1e-3848-3c1e-f307a4718dac",
+          "orderHash": "0x3205a60d19a62f8e7fcbaeb2263896ee65a8d64cd7a2f807f1788f0d32614930",
+          "accountAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+          "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+          "tokenId": "275657211034",
+          "productCode": "clothing_nftvivideyes",
+          "name": "Lovely Vivid Eyes",
+          "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/clothing_nftvivideyes.gif",
+          "attributes": [
+            {
+              "display_type": null,
+              "trait_type": "blueprint",
+              "value": "clothing_nftvivideyes"
+            },
+            {
+              "display_type": null,
+              "trait_type": "collection",
+              "value": "clothes"
+            },
+            {
+              "display_type": null,
+              "trait_type": "isCraftMaterial",
+              "value": false
+            },
+            {
+              "display_type": null,
+              "trait_type": "isCraftedItem",
+              "value": false
+            },
+            {
+              "display_type": null,
+              "trait_type": "itemSubType",
+              "value": "Face"
+            },
+            {
+              "display_type": null,
+              "trait_type": "itemType",
+              "value": "Clothes"
+            },
+            {
+              "display_type": null,
+              "trait_type": "productCode",
+              "value": "clothing_nftvivideyes"
+            },
+            {
+              "display_type": null,
+              "trait_type": "productType",
+              "value": "Face"
+            },
+            {
+              "display_type": null,
+              "trait_type": "rarity",
+              "value": "Rare"
+            },
+            {
+              "display_type": null,
+              "trait_type": "score",
+              "value": 100
+            },
+            {
+              "display_type": null,
+              "trait_type": "setId",
+              "value": "autumn_23"
+            },
+            {
+              "display_type": null,
+              "trait_type": "source",
+              "value": "Shop"
+            },
+            {
+              "display_type": null,
+              "trait_type": "type",
+              "value": "Eye"
+            }
+          ],
+          "collectionName": "clothes",
+          "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
+          "buyTokenSymbol": "WETH",
+          "buyAmountRaw": "63844950000000000",
+          "buyAmountDisplay": "0.063844",
+          "createdAt": "2026-03-17T04:04:40.333069Z",
+          "updatedAt": "2026-03-17T04:04:40.52957Z"
+        }
+      ],
+      "ownListingCount": 1,
+      "ownFloorPriceRaw": "63844950000000000",
+      "ownFloorPriceDisplay": "0.063844",
+      "ownFloorOrderId": "019cf9f7-9d1e-3848-3c1e-f307a4718dac",
+      "enabled": true,
+      "marketListingCount": 9,
+      "cheaperCompetitor": {
+        "orderId": "019cfce3-242d-a870-aeaa-124eaaa4528b",
+        "accountAddress": "0x550ba6bdc569fc5741d2514ef31a93ac3c996ed4",
+        "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+        "tokenId": "311608340423",
+        "productCode": "clothing_nftvivideyes",
+        "name": "Lovely Vivid Eyes",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/clothing_nftvivideyes.gif",
+        "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
+        "buyTokenSymbol": "WETH",
+        "buyAmountRaw": "55045871559633030",
+        "buyAmountDisplay": "0.055045",
+        "createdAt": "2026-03-17T17:41:10.301207Z",
+        "updatedAt": "2026-03-17T17:41:53.455568Z",
+        "priceDeltaRaw": "8799078440366970",
+        "priceDeltaDisplay": "0.008799"
+      }
+    },
+    {
+      "key": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftreindeer:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+      "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+      "productCode": "clothing_nftreindeer",
+      "name": "Reindeer Dungarees",
+      "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/xmas22/clothing_nftreindeer.png",
+      "collectionName": "clothes",
+      "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
+      "buyTokenSymbol": "WETH",
+      "listings": [
+        {
+          "key": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftreindeer:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+          "orderId": "019ce72a-5a27-1c5e-bf2c-541208657767",
+          "orderHash": "0xd81e7f52725b4f6c49030840cef03cd33dfb3a6ddf8a4504cd2d5ab4bec9b017",
+          "accountAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+          "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+          "tokenId": "9640725338",
+          "productCode": "clothing_nftreindeer",
+          "name": "Reindeer Dungarees",
+          "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/xmas22/clothing_nftreindeer.png",
+          "attributes": [
+            {
+              "display_type": null,
+              "trait_type": "blueprint",
+              "value": "clothing_nftreindeer"
+            },
+            {
+              "display_type": null,
+              "trait_type": "collection",
+              "value": "clothes"
+            },
+            {
+              "display_type": null,
+              "trait_type": "isCraftMaterial",
+              "value": false
+            },
+            {
+              "display_type": null,
+              "trait_type": "isCraftedItem",
+              "value": true
+            },
+            {
+              "display_type": null,
+              "trait_type": "itemSubType",
+              "value": "Shirt"
+            },
+            {
+              "display_type": null,
+              "trait_type": "itemType",
+              "value": "Clothes"
+            },
+            {
+              "display_type": null,
+              "trait_type": "productCode",
+              "value": "clothing_nftreindeer"
+            },
+            {
+              "display_type": null,
+              "trait_type": "productType",
+              "value": "Shirt"
+            },
+            {
+              "display_type": null,
+              "trait_type": "rarity",
+              "value": "Rare"
+            },
+            {
+              "display_type": null,
+              "trait_type": "score",
+              "value": 150
+            },
+            {
+              "display_type": null,
+              "trait_type": "set",
+              "value": "XMas 2022: Craftables"
+            },
+            {
+              "display_type": null,
+              "trait_type": "setId",
+              "value": "xmas_22_clothes"
+            },
+            {
+              "display_type": null,
+              "trait_type": "source",
+              "value": "Crafting"
+            },
+            {
+              "display_type": null,
+              "trait_type": "type",
+              "value": 25
+            }
+          ],
+          "collectionName": "clothes",
+          "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
+          "buyTokenSymbol": "WETH",
+          "buyAmountRaw": "2825686000000000",
+          "buyAmountDisplay": "0.002825",
+          "createdAt": "2026-03-13T12:27:18.418607Z",
+          "updatedAt": "2026-03-13T12:27:18.691227Z"
+        }
+      ],
+      "ownListingCount": 1,
+      "ownFloorPriceRaw": "2825686000000000",
+      "ownFloorPriceDisplay": "0.002825",
+      "ownFloorOrderId": "019ce72a-5a27-1c5e-bf2c-541208657767",
+      "enabled": true,
+      "marketListingCount": 4,
+      "cheaperCompetitor": {
+        "orderId": "019ceceb-cd2b-a33b-2bda-0d2360109db8",
+        "accountAddress": "0x6c16b7bd3b747779843b4fa1c3e820c38c7694e5",
+        "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+        "tokenId": "833333489120",
+        "productCode": "clothing_nftreindeer",
+        "name": "Reindeer Dungarees",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/xmas22/clothing_nftreindeer.png",
+        "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
+        "buyTokenSymbol": "WETH",
+        "buyAmountRaw": "2385321100917431",
+        "buyAmountDisplay": "0.002385",
+        "createdAt": "2026-03-14T15:16:42.395988Z",
+        "updatedAt": "2026-03-14T15:16:42.705444Z",
+        "priceDeltaRaw": "440364899082569",
+        "priceDeltaDisplay": "0.00044"
+      }
+    },
+    {
+      "key": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h24_bday_silversamovar:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+      "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+      "productCode": "nft_h24_bday_silversamovar",
+      "name": "Silver Samovar",
+      "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/crafted/nft_h24_bday_silversamovar.png",
+      "collectionName": "furniture",
+      "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
+      "buyTokenSymbol": "WETH",
+      "listings": [
+        {
+          "key": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h24_bday_silversamovar:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+          "orderId": "019cbe5b-2d20-96d6-f91a-dda606720c17",
+          "orderHash": "0x215505737ee05d4239a55e3f4a6bd9374e98b95ee221beb4eef6e79397a36ad9",
+          "accountAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+          "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+          "tokenId": "285270414355",
+          "productCode": "nft_h24_bday_silversamovar",
+          "name": "Silver Samovar",
+          "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/crafted/nft_h24_bday_silversamovar.png",
+          "attributes": [
+            {
+              "display_type": null,
+              "trait_type": "blueprint",
+              "value": "nft_h24_bday_silversamovar"
+            },
+            {
+              "display_type": null,
+              "trait_type": "collection",
+              "value": "furniture"
+            },
+            {
+              "display_type": null,
+              "trait_type": "isCraftMaterial",
+              "value": false
+            },
+            {
+              "display_type": null,
+              "trait_type": "isCraftedItem",
+              "value": false
+            },
+            {
+              "display_type": null,
+              "trait_type": "itemSubType",
+              "value": "Samovar"
+            },
+            {
+              "display_type": null,
+              "trait_type": "itemType",
+              "value": "Furni"
+            },
+            {
+              "display_type": null,
+              "trait_type": "productCode",
+              "value": "nft_h24_bday_silversamovar"
+            },
+            {
+              "display_type": null,
+              "trait_type": "productType",
+              "value": "Samovar"
+            },
+            {
+              "display_type": null,
+              "trait_type": "rarity",
+              "value": "Uncommon"
+            },
+            {
+              "display_type": null,
+              "trait_type": "score",
+              "value": 15
+            },
+            {
+              "display_type": null,
+              "trait_type": "setId",
+              "value": "3rd_anniversary_premium"
+            },
+            {
+              "display_type": null,
+              "trait_type": "source",
+              "value": "Gift Box"
+            }
+          ],
+          "collectionName": "furniture",
+          "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
+          "buyTokenSymbol": "WETH",
+          "buyAmountRaw": "642200000000000",
+          "buyAmountDisplay": "0.000642",
+          "createdAt": "2026-03-05T14:16:12.303236Z",
+          "updatedAt": "2026-03-05T14:16:12.809602Z"
+        }
+      ],
+      "ownListingCount": 1,
+      "ownFloorPriceRaw": "642200000000000",
+      "ownFloorPriceDisplay": "0.000642",
+      "ownFloorOrderId": "019cbe5b-2d20-96d6-f91a-dda606720c17",
+      "enabled": true,
+      "marketListingCount": 24,
+      "cheaperCompetitor": {
+        "orderId": "019cff79-ff72-5907-f0b8-665c7688b47f",
+        "accountAddress": "0x24edfcc8240f0f54f648da5cb87102f2e085e51d",
+        "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+        "tokenId": "1162402851363",
+        "productCode": "nft_h24_bday_silversamovar",
+        "name": "Silver Samovar",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/crafted/nft_h24_bday_silversamovar.png",
+        "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
+        "buyTokenSymbol": "WETH",
+        "buyAmountRaw": "519620000000000",
+        "buyAmountDisplay": "0.000519",
+        "createdAt": "2026-03-18T05:45:11.265429Z",
+        "updatedAt": "2026-03-18T05:45:11.503541Z",
+        "priceDeltaRaw": "122580000000000",
+        "priceDeltaDisplay": "0.000122"
+      }
+    },
+    {
+      "key": "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f:chatstyle_bobba:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+      "contractAddress": "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f",
+      "productCode": "chatstyle_bobba",
+      "name": "The Bobba Bubble",
+      "imageUrl": "https://nft-tokens.habbo.com/collectibles/addons/images/chatstyle/chatstyle_bobba.png",
+      "collectionName": "addons",
+      "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
+      "buyTokenSymbol": "WETH",
+      "listings": [
+        {
+          "key": "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f:chatstyle_bobba:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+          "orderId": "019cfeed-27b6-1808-8674-1d34270bfee9",
+          "orderHash": "0xcadc0094cd7bdf0e4b755fe2ff04595a05296caa7d7e87168c1cc2612f882428",
+          "accountAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+          "contractAddress": "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f",
+          "tokenId": "1519028218378",
+          "productCode": "chatstyle_bobba",
+          "name": "The Bobba Bubble",
+          "imageUrl": "https://nft-tokens.habbo.com/collectibles/addons/images/chatstyle/chatstyle_bobba.png",
+          "attributes": [
+            {
+              "display_type": null,
+              "trait_type": "blueprint",
+              "value": "chatstyle_bobba"
+            },
+            {
+              "display_type": null,
+              "trait_type": "chatStyleId",
+              "value": 1020
+            },
+            {
+              "display_type": null,
+              "trait_type": "collection",
+              "value": "addons"
+            },
+            {
+              "display_type": null,
+              "trait_type": "isCraftMaterial",
+              "value": false
+            },
+            {
+              "display_type": null,
+              "trait_type": "isCraftedItem",
+              "value": false
+            },
+            {
+              "display_type": null,
+              "trait_type": "itemSubType",
+              "value": "Speech Bubble"
+            },
+            {
+              "display_type": null,
+              "trait_type": "itemType",
+              "value": "Speech Bubble"
+            },
+            {
+              "display_type": null,
+              "trait_type": "productCode",
+              "value": "chatstyle_bobba"
+            },
+            {
+              "display_type": null,
+              "trait_type": "productType",
+              "value": "Speech Bubble"
+            },
+            {
+              "display_type": null,
+              "trait_type": "rarity",
+              "value": "Epic"
+            },
+            {
+              "display_type": null,
+              "trait_type": "score",
+              "value": 5180
+            },
+            {
+              "display_type": null,
+              "trait_type": "setId",
+              "value": "habbo_merch_23"
+            },
+            {
+              "display_type": null,
+              "trait_type": "source",
+              "value": "Set Reward"
+            }
+          ],
+          "collectionName": "addons",
+          "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
+          "buyTokenSymbol": "WETH",
+          "buyAmountRaw": "115838494000000000",
+          "buyAmountDisplay": "0.115838",
+          "createdAt": "2026-03-18T03:11:20.995873Z",
+          "updatedAt": "2026-03-18T03:11:21.188237Z"
+        }
+      ],
+      "ownListingCount": 1,
+      "ownFloorPriceRaw": "115838494000000000",
+      "ownFloorPriceDisplay": "0.115838",
+      "ownFloorOrderId": "019cfeed-27b6-1808-8674-1d34270bfee9",
+      "enabled": true,
+      "marketListingCount": 9,
+      "cheaperCompetitor": null
+    },
+    {
+      "key": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h22_whaleposter:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+      "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+      "productCode": "nft_h22_whaleposter",
+      "name": "Whale Poster",
+      "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/poster/imx_whaleposter.gif",
+      "collectionName": "furniture",
+      "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
+      "buyTokenSymbol": "WETH",
+      "listings": [
+        {
+          "key": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h22_whaleposter:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+          "orderId": "019cf7a7-2d55-4406-e53e-9b15338cd560",
+          "orderHash": "0xd5dea352d71d302cee5fcf21f7cb49fc93a6ba51bc44715d5960c6c024a7985d",
+          "accountAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+          "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+          "tokenId": "898565464441",
+          "productCode": "nft_h22_whaleposter",
+          "name": "Whale Poster",
+          "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/poster/imx_whaleposter.gif",
+          "attributes": [
+            {
+              "display_type": null,
+              "trait_type": "blueprint",
+              "value": "nft_h22_whaleposter"
+            },
+            {
+              "display_type": null,
+              "trait_type": "collection",
+              "value": "furniture"
+            },
+            {
+              "display_type": null,
+              "trait_type": "isCraftMaterial",
+              "value": false
+            },
+            {
+              "display_type": null,
+              "trait_type": "isCraftedItem",
+              "value": false
+            },
+            {
+              "display_type": null,
+              "trait_type": "itemSubType",
+              "value": "Poster"
+            },
+            {
+              "display_type": null,
+              "trait_type": "itemType",
+              "value": "Wall Furni"
+            },
+            {
+              "display_type": null,
+              "trait_type": "material",
+              "value": "paper"
+            },
+            {
+              "display_type": null,
+              "trait_type": "productCode",
+              "value": "nft_h22_whaleposter"
+            },
+            {
+              "display_type": null,
+              "trait_type": "productType",
+              "value": "Poster"
+            },
+            {
+              "display_type": null,
+              "trait_type": "rarity",
+              "value": "Common"
+            },
+            {
+              "display_type": null,
+              "trait_type": "score",
+              "value": 10
+            },
+            {
+              "display_type": null,
+              "trait_type": "set",
+              "value": "Collector Rewards 2022-2023"
+            },
+            {
+              "display_type": null,
+              "trait_type": "setId",
+              "value": "collector_rewards_22_23"
+            },
+            {
+              "display_type": null,
+              "trait_type": "source",
+              "value": "Airdrop"
+            },
+            {
+              "display_type": null,
+              "trait_type": "type",
+              "value": 10
+            }
+          ],
+          "collectionName": "furniture",
+          "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
+          "buyTokenSymbol": "WETH",
+          "buyAmountRaw": "332269000000000",
+          "buyAmountDisplay": "0.000332",
+          "createdAt": "2026-03-16T17:17:34.407669Z",
+          "updatedAt": "2026-03-16T17:17:34.627598Z"
+        }
+      ],
+      "ownListingCount": 1,
+      "ownFloorPriceRaw": "332269000000000",
+      "ownFloorPriceDisplay": "0.000332",
+      "ownFloorOrderId": "019cf7a7-2d55-4406-e53e-9b15338cd560",
+      "enabled": true,
+      "marketListingCount": 71,
+      "cheaperCompetitor": null
+    },
+    {
+      "key": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+      "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+      "productCode": "clothing_nftgardenshoes1",
+      "name": "White Garden Shoes",
+      "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/clothing_nftgardenshoes1.png",
+      "collectionName": "clothes",
+      "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
+      "buyTokenSymbol": "WETH",
+      "listings": [
+        {
+          "key": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+          "orderId": "019cfeed-5d26-083f-a565-7ac1e17bb1c5",
+          "orderHash": "0xbde2611f8954269ef5daeb4f8dd0db053356b25bf819a8e686f0a243b4e02889",
+          "accountAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+          "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+          "tokenId": "1486984184562",
+          "productCode": "clothing_nftgardenshoes1",
+          "name": "White Garden Shoes",
+          "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/clothing_nftgardenshoes1.png",
+          "attributes": [
+            {
+              "display_type": null,
+              "trait_type": "blueprint",
+              "value": "clothing_nftgardenshoes1"
+            },
+            {
+              "display_type": null,
+              "trait_type": "collection",
+              "value": "clothes"
+            },
+            {
+              "display_type": null,
+              "trait_type": "isCraftMaterial",
+              "value": false
+            },
+            {
+              "display_type": null,
+              "trait_type": "isCraftedItem",
+              "value": false
+            },
+            {
+              "display_type": null,
+              "trait_type": "itemSubType",
+              "value": "Shoes"
+            },
+            {
+              "display_type": null,
+              "trait_type": "itemType",
+              "value": "Clothes"
+            },
+            {
+              "display_type": null,
+              "trait_type": "productCode",
+              "value": "clothing_nftgardenshoes1"
+            },
+            {
+              "display_type": null,
+              "trait_type": "productType",
+              "value": "Shoes"
+            },
+            {
+              "display_type": null,
+              "trait_type": "rarity",
+              "value": "Common"
+            },
+            {
+              "display_type": null,
+              "trait_type": "score",
+              "value": 20
+            },
+            {
+              "display_type": null,
+              "trait_type": "setId",
+              "value": "summer_2024_clothing"
+            },
+            {
+              "display_type": null,
+              "trait_type": "source",
+              "value": "Gift Box"
+            }
+          ],
+          "collectionName": "clothes",
+          "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
+          "buyTokenSymbol": "WETH",
+          "buyAmountRaw": "8836673000000000",
+          "buyAmountDisplay": "0.008836",
+          "createdAt": "2026-03-18T03:11:34.676719Z",
+          "updatedAt": "2026-03-18T03:11:34.911314Z"
+        }
+      ],
+      "ownListingCount": 1,
+      "ownFloorPriceRaw": "8836673000000000",
+      "ownFloorPriceDisplay": "0.008836",
+      "ownFloorOrderId": "019cfeed-5d26-083f-a565-7ac1e17bb1c5",
+      "enabled": true,
+      "marketListingCount": 12,
+      "cheaperCompetitor": {
+        "orderId": "019cff19-64f5-08b6-9ad3-c6545903208e",
+        "accountAddress": "0xc141db434de4aaa833191dc4e048de9a76aa87cb",
+        "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+        "tokenId": "1348171031243",
+        "productCode": "clothing_nftgardenshoes1",
+        "name": "White Garden Shoes",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/clothing_nftgardenshoes1.png",
+        "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
+        "buyTokenSymbol": "WETH",
+        "buyAmountRaw": "8836671000000001",
+        "buyAmountDisplay": "0.008836",
+        "createdAt": "2026-03-18T03:59:40.260799Z",
+        "updatedAt": "2026-03-18T03:59:40.457713Z",
+        "priceDeltaRaw": "1999999999",
+        "priceDeltaDisplay": "<0.000001"
+      }
+    }
+  ]
+}
