@@ -57,9 +57,13 @@ function sortItems(items) {
   });
 }
 
-function SummaryCard({ label, value, tone = "default" }) {
+function SideIcon({ active = false, children }) {
+  return <button className={`side-icon ${active ? "is-active" : ""}`}>{children}</button>;
+}
+
+function SummaryCard({ label, value, accent = false }) {
   return (
-    <article className={`summary-card summary-card--${tone}`}>
+    <article className={`summary-card ${accent ? "is-accent" : ""}`}>
       <span>{label}</span>
       <strong>{value}</strong>
     </article>
@@ -68,64 +72,50 @@ function SummaryCard({ label, value, tone = "default" }) {
 
 function AssetCard({ item, interactiveApi, onToggle, pendingKey }) {
   const hasUndercut = Boolean(item.cheaperCompetitor);
-  const marketPrice = hasUndercut ? item.cheaperCompetitor.buyAmountUsdDisplay : "Sem undercut";
-  const statusText = hasUndercut ? "Abaixo do seu preço" : "Você ainda lidera";
-  const footText = hasUndercut
-    ? `Concorrente em ${formatAddress(item.cheaperCompetitor.accountAddress)}`
-    : "Sem concorrente mais barato";
+  const monitorLabel = pendingKey === item.key ? "Salvando" : item.enabled ? "Monitorando" : "Ativar";
+  const footerText = hasUndercut
+    ? `Concorrente ${formatAddress(item.cheaperCompetitor.accountAddress)}`
+    : "Sem concorrente abaixo";
 
   return (
     <article className={`asset-card ${hasUndercut ? "is-alert" : ""}`}>
-      <div className="asset-card__top">
-        <div className="asset-card__identity">
-          <div className="asset-thumb">
-            {item.imageUrl ? <img src={item.imageUrl} alt={item.name} /> : <span>{item.name?.slice(0, 1) || "?"}</span>}
-          </div>
+      <div className="asset-card__head">
+        <span className="asset-tag">{formatCollectionName(item.collectionName)}</span>
+        {hasUndercut ? <span className="asset-alert">Undercut detectado</span> : null}
+      </div>
 
-          <div className="asset-copy">
-            <div className="asset-copy__topline">
-              <span className="asset-collection">{formatCollectionName(item.collectionName)}</span>
-              <span className={`asset-status ${hasUndercut ? "is-alert" : ""}`}>{statusText}</span>
-            </div>
-            <h3>{item.name}</h3>
-          </div>
+      <div className="asset-card__body">
+        <div className="asset-thumb">
+          {item.imageUrl ? <img src={item.imageUrl} alt={item.name} /> : <span>{item.name?.slice(0, 1) || "?"}</span>}
+        </div>
+
+        <div className="asset-price-stack">
+          <p className="asset-price">{item.ownFloorUsdDisplay || "—"}</p>
+          <p className={`asset-market ${hasUndercut ? "is-negative" : ""}`}>
+            {hasUndercut ? `${item.cheaperCompetitor.priceDeltaUsdDisplay} abaixo` : "Liderando"}
+          </p>
+          <p className="asset-market-note">Mercado: {hasUndercut ? item.cheaperCompetitor.buyAmountUsdDisplay : "Sem undercut"}</p>
+        </div>
+      </div>
+
+      <div className="asset-card__footer">
+        <div>
+          <h3>{item.name}</h3>
+          <p>{footerText}</p>
         </div>
 
         {interactiveApi ? (
           <button
             type="button"
-            className={`monitor-chip ${item.enabled ? "is-on" : ""}`}
+            className={`asset-action ${item.enabled ? "is-active" : ""}`}
             onClick={() => onToggle(item)}
             disabled={pendingKey === item.key}
           >
-            {pendingKey === item.key ? "Salvando" : item.enabled ? "Monitorando" : "Ativar"}
+            {monitorLabel}
           </button>
         ) : (
-          <span className={`monitor-chip ${item.enabled ? "is-on" : ""}`}>{item.enabled ? "Monitorando" : "Pausado"}</span>
+          <span className={`asset-action ${item.enabled ? "is-active" : ""}`}>{item.enabled ? "Monitorando" : "Pausado"}</span>
         )}
-      </div>
-
-      <div className="asset-prices">
-        <div className="price-panel">
-          <span>Seu preço</span>
-          <strong>{item.ownFloorUsdDisplay || "—"}</strong>
-        </div>
-        <div className="price-panel">
-          <span>Mercado</span>
-          <strong>{marketPrice}</strong>
-        </div>
-        <div className="price-panel">
-          <span>Diferença</span>
-          <strong>{hasUndercut ? item.cheaperCompetitor.priceDeltaUsdDisplay : "$0.00"}</strong>
-        </div>
-      </div>
-
-      <div className="asset-foot">
-        <p>{footText}</p>
-        <div className="asset-meta">
-          <span>{item.ownListingCount} seu(s)</span>
-          <span>{item.marketListingCount || 0} no mercado</span>
-        </div>
       </div>
     </article>
   );
@@ -228,91 +218,97 @@ export default function App() {
 
   return (
     <div className="screen">
-      <div className="shell">
-        <header className="app-header">
-          <div className="brand">
-            <span className="brand__kicker">Project</span>
-            <h1>LISTING WATCH</h1>
+      <div className="workspace">
+        <aside className="sidebar">
+          <div className="sidebar__rail" />
+          <div className="sidebar__actions">
+            <SideIcon active>
+              <span className="icon-grid" />
+            </SideIcon>
+            <SideIcon>
+              <span className="icon-wallet" />
+            </SideIcon>
+            <SideIcon>
+              <span className="icon-clock" />
+            </SideIcon>
+            <SideIcon>
+              <span className="icon-gear" />
+            </SideIcon>
           </div>
+        </aside>
 
-          <div className="topbar">
-            <div className="live-pill">
-              <span className="live-dot" />
-              <span>LIVE</span>
+        <main className="content">
+          <header className="header">
+            <div>
+              <span className="header__kicker">Management panel</span>
+              <h1>Trade Monitor</h1>
             </div>
 
-            {interactiveApi ? (
-              <div className="action-row">
-                <button type="button" onClick={handleRefresh}>
-                  Atualizar
-                </button>
-                <button type="button" onClick={handleTelegramTest}>
-                  Testar Telegram
-                </button>
+            <div className="header__right">
+              <div className="live-pill">
+                <span className="live-dot" />
+                <span>Auto-sync</span>
               </div>
-            ) : null}
-          </div>
-        </header>
 
-        <section className="hero-panel">
-          <div className="hero-copy">
-            <span className="hero-copy__kicker">Immutable zkEVM</span>
-            <h2>Seus itens organizados para desktop, com leitura rápida e sem excesso.</h2>
-            <p>
-              Preço em dólar, foco no que foi undercutado e uma grade limpa para você bater o olho e entender tudo em
-              segundos.
-            </p>
-          </div>
-
-          <div className="hero-meta">
-            <div>
-              <span>Carteira</span>
-              <strong>{formatAddress(dashboard?.walletAddress)}</strong>
+              {interactiveApi ? (
+                <div className="header__actions">
+                  <button type="button" onClick={handleRefresh}>
+                    Atualizar
+                  </button>
+                  <button type="button" onClick={handleTelegramTest}>
+                    Telegram
+                  </button>
+                </div>
+              ) : null}
             </div>
-            <div>
-              <span>Atualizado</span>
-              <strong>{formatDate(dashboard?.lastRefreshAt)}</strong>
+          </header>
+
+          <section className="top-grid">
+            <div className="title-block">
+              <span>LISTING WATCH</span>
+              <h2>Seu monitor de preço, limpo e direto.</h2>
             </div>
-            <div>
-              <span>ETH/USD</span>
-              <strong>{dashboard?.pricing?.ethUsdDisplay || "—"}</strong>
+
+            <div className="summary-grid">
+              <SummaryCard label="Em risco" value={dashboard?.undercutItems ?? 0} accent />
+              <SummaryCard label="Monitorados" value={dashboard?.enabledItems ?? 0} />
+              <SummaryCard label="ETH/USD" value={dashboard?.pricing?.ethUsdDisplay || "—"} />
+              <SummaryCard label="Atualizado" value={formatDate(dashboard?.lastRefreshAt)} />
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="summary-grid">
-          <SummaryCard label="Em risco" value={dashboard?.undercutItems ?? 0} tone="alert" />
-          <SummaryCard label="Monitorados" value={dashboard?.enabledItems ?? 0} />
-          <SummaryCard label="Seguros" value={dashboard?.healthyItems ?? 0} />
-          <SummaryCard label="Total" value={dashboard?.totalItems ?? 0} />
-        </section>
+          {message ? <div className={`flash flash--${message.type}`}>{message.text}</div> : null}
 
-        {message ? <div className={`flash flash--${message.type}`}>{message.text}</div> : null}
+          <section className="assets-section">
+            <div className="section-head">
+              <div>
+                <span>Assets</span>
+                <h3>Itens monitorados</h3>
+              </div>
 
-        <section className="assets-section">
-          <div className="section-head">
-            <div>
-              <span>Assets</span>
-              <h3>Itens monitorados</h3>
+              <div className="section-meta">
+                <span>Carteira</span>
+                <strong>{formatAddress(dashboard?.walletAddress)}</strong>
+              </div>
             </div>
-          </div>
 
-          <div className="asset-grid">
-            {items.length ? (
-              items.map((item) => (
-                <AssetCard
-                  key={item.key}
-                  item={item}
-                  interactiveApi={interactiveApi}
-                  onToggle={handleToggle}
-                  pendingKey={pendingKey}
-                />
-              ))
-            ) : (
-              <div className="empty-card">Nenhum item apareceu ainda. Assim que os dados carregarem, a grade volta aqui.</div>
-            )}
-          </div>
-        </section>
+            <div className="asset-grid">
+              {items.length ? (
+                items.map((item) => (
+                  <AssetCard
+                    key={item.key}
+                    item={item}
+                    interactiveApi={interactiveApi}
+                    onToggle={handleToggle}
+                    pendingKey={pendingKey}
+                  />
+                ))
+              ) : (
+                <div className="empty-card">Nenhum item apareceu ainda. Assim que os dados carregarem, os cards entram aqui.</div>
+              )}
+            </div>
+          </section>
+        </main>
       </div>
     </div>
   );
