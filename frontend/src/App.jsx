@@ -53,29 +53,6 @@ function formatAddress(value) {
   return `${value.slice(0, 6)}...${value.slice(-4)}`;
 }
 
-function formatUpdatedAtParts(value) {
-  if (!value) {
-    return {
-      date: "Aguardando",
-      time: "sincronização",
-    };
-  }
-
-  const date = new Date(value);
-
-  return {
-    date: new Intl.DateTimeFormat("pt-BR", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-    }).format(date),
-    time: new Intl.DateTimeFormat("pt-BR", {
-      hour: "2-digit",
-      minute: "2-digit",
-    }).format(date),
-  };
-}
-
 function formatUsd(value) {
   if (value === null || value === undefined || Number.isNaN(Number(value))) {
     return "-";
@@ -100,6 +77,41 @@ function formatCollectionName(value) {
   };
 
   return labels[String(value || "").toLowerCase()] || "Coleção";
+}
+
+function formatUpdatedAtParts(value, now = Date.now()) {
+  if (!value) {
+    return {
+      date: "Aguardando",
+      time: "sincronização",
+    };
+  }
+
+  const date = new Date(value);
+  const diffMs = Math.max(0, now - date.getTime());
+  const diffMinutes = Math.floor(diffMs / 60000);
+
+  let relativeText = "agora";
+  if (diffMinutes === 1) {
+    relativeText = "há 1 min";
+  } else if (diffMinutes > 1 && diffMinutes < 60) {
+    relativeText = `há ${diffMinutes} min`;
+  } else if (diffMinutes >= 60) {
+    const diffHours = Math.floor(diffMinutes / 60);
+    relativeText = diffHours === 1 ? "há 1 hora" : `há ${diffHours} horas`;
+  }
+
+  return {
+    date: new Intl.DateTimeFormat("pt-BR", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    }).format(date),
+    time: `${new Intl.DateTimeFormat("pt-BR", {
+      hour: "2-digit",
+      minute: "2-digit",
+    }).format(date)} · ${relativeText}`,
+  };
 }
 
 function sortItems(items) {
@@ -128,11 +140,7 @@ function getFilterCount(items, filter) {
     return items.filter((item) => item.cheaperCompetitor).length;
   }
 
-  if (filter === "enabled") {
-    return items.filter((item) => item.enabled).length;
-  }
-
-  return items.filter((item) => !item.cheaperCompetitor).length;
+  return items.filter((item) => item.enabled).length;
 }
 
 function filterItems(items, filter) {
@@ -142,10 +150,6 @@ function filterItems(items, filter) {
 
   if (filter === "enabled") {
     return items.filter((item) => item.enabled);
-  }
-
-  if (filter === "healthy") {
-    return items.filter((item) => !item.cheaperCompetitor);
   }
 
   return items;
@@ -174,12 +178,96 @@ function withUpdatedItem(currentDashboard, targetKey, updater) {
   };
 }
 
+function getPriceTrend(history) {
+  const points = Array.isArray(history) ? history.filter((entry) => Number.isFinite(Number(entry?.amount))) : [];
+  if (points.length < 2) {
+    return {
+      direction: "flat",
+      deltaPct: null,
+      points,
+    };
+  }
+
+  const first = Number(points[0].amount);
+  const last = Number(points[points.length - 1].amount);
+  const deltaPct = first > 0 ? ((last - first) / first) * 100 : 0;
+  const direction = deltaPct > 0.02 ? "up" : deltaPct < -0.02 ? "down" : "flat";
+
+  return {
+    direction,
+    deltaPct,
+    points,
+  };
+}
+
+function Sparkline({ points, direction }) {
+  if (!points.length) {
+    return <div className="sparkline sparkline--empty" />;
+  }
+
+  const amounts = points.map((entry) => Number(entry.amount));
+  if (amounts.length === 1) {
+    return (
+      <svg className={`sparkline sparkline--${direction}`} viewBox="0 0 100 28" preserveAspectRatio="none" aria-hidden="true">
+        <polyline fill="none" strokeWidth="2.5" points="0,14 100,14" />
+      </svg>
+    );
+  }
+
+  const min = Math.min(...amounts);
+  const max = Math.max(...amounts);
+  const range = max - min || 1;
+  const polyline = amounts
+    .map((amount, index) => {
+      const x = (index / Math.max(1, amounts.length - 1)) * 100;
+      const y = 28 - ((amount - min) / range) * 28;
+      return `${x},${y}`;
+    })
+    .join(" ");
+
+  return (
+    <svg className={`sparkline sparkline--${direction}`} viewBox="0 0 100 28" preserveAspectRatio="none" aria-hidden="true">
+      <polyline fill="none" strokeWidth="2.5" points={polyline} />
+    </svg>
+  );
+}
+
 function MetricCard({ label, value, note, accent = false, compact = false }) {
   return (
     <article className={`metric-card ${accent ? "is-accent" : ""} ${compact ? "is-compact" : ""}`}>
       <span className="eyebrow">{label}</span>
       <strong>{value}</strong>
       {note ? <p>{note}</p> : null}
+    </article>
+  );
+}
+
+function PriceMetricCard({ pricing }) {
+  const trend = getPriceTrend(pricing?.history);
+
+  let note = "Sem histórico recente";
+  if (trend.deltaPct !== null) {
+    const absolutePct = Math.abs(trend.deltaPct).toFixed(2);
+    if (trend.direction === "up") {
+      note = `Alta recente · +${absolutePct}%`;
+    } else if (trend.direction === "down") {
+      note = `Queda recente · -${absolutePct}%`;
+    } else {
+      note = "Faixa lateral recente";
+    }
+  }
+
+  return (
+    <article className="metric-card metric-card--price is-compact">
+      <span className="eyebrow">ETH / USD</span>
+      <div className="metric-price-row">
+        <div>
+          <strong>{pricing?.ethUsdDisplay || "-"}</strong>
+          <p>{note}</p>
+        </div>
+
+        <Sparkline points={trend.points} direction={trend.direction} />
+      </div>
     </article>
   );
 }
@@ -195,25 +283,22 @@ function FilterChip({ active, children, count, onClick }) {
 
 function AssetCard({ item, interactiveApi, pendingKey, onToggle }) {
   const hasUndercut = Boolean(item.cheaperCompetitor);
-  const actionLabel = pendingKey === item.key ? "Salvando..." : item.enabled ? "Monitorando" : "Ativar alerta";
-  const undercutText = hasUndercut
+  const isPending = pendingKey === item.key;
+  const actionLabel = isPending ? "Salvando..." : item.enabled ? "Desativar" : "Ativar";
+  const marketText = hasUndercut ? `Mercado em ${formatUsd(item.cheaperCompetitor.buyAmountUsd)}` : "Sem undercut no momento";
+  const marketNote = hasUndercut
     ? `${formatUsd(item.cheaperCompetitor.priceDeltaUsd)} abaixo`
-    : "Nenhum anúncio abaixo do seu";
-  const marketText = hasUndercut
-    ? `Mercado em ${formatUsd(item.cheaperCompetitor.buyAmountUsd)}`
-    : "Você está na frente neste item";
+    : `${item.marketListingCount} listings no mercado`;
 
   return (
-    <article className={`asset-card ${hasUndercut ? "is-alert" : "is-safe"} ${item.enabled ? "" : "is-paused"}`}>
+    <article className={`asset-card ${hasUndercut ? "is-alert" : ""} ${item.enabled ? "" : "is-paused"}`}>
       <div className="asset-card__top">
         <div className="asset-card__title-wrap">
           <span className="asset-tag">{formatCollectionName(item.collectionName)}</span>
           <h3>{item.name}</h3>
         </div>
 
-        <span className={`asset-state ${hasUndercut ? "is-alert" : "is-safe"}`}>
-          {hasUndercut ? "Em risco" : "Liderando"}
-        </span>
+        {hasUndercut ? <span className="asset-state is-alert">Em risco</span> : null}
       </div>
 
       <div className="asset-card__body">
@@ -231,7 +316,7 @@ function AssetCard({ item, interactiveApi, pendingKey, onToggle }) {
           <div className="price-block">
             <span className="eyebrow">Mercado</span>
             <strong>{hasUndercut ? formatUsd(item.cheaperCompetitor.buyAmountUsd) : formatUsd(item.ownFloorUsd)}</strong>
-            <p className={hasUndercut ? "is-alert" : ""}>{undercutText}</p>
+            <p className={hasUndercut ? "is-alert" : ""}>{marketNote}</p>
           </div>
         </div>
       </div>
@@ -239,23 +324,18 @@ function AssetCard({ item, interactiveApi, pendingKey, onToggle }) {
       <div className="asset-card__footer">
         <div className="asset-meta">
           <p>{marketText}</p>
-          <span>
-            {hasUndercut ? `Concorrente ${formatAddress(item.cheaperCompetitor.accountAddress)}` : `${item.marketListingCount} listings no mercado`}
-          </span>
+          <span>{hasUndercut ? `Concorrente ${formatAddress(item.cheaperCompetitor.accountAddress)}` : "Nenhum anúncio abaixo do seu"}</span>
         </div>
 
-        {interactiveApi ? (
-          <button
-            type="button"
-            className={`asset-action ${item.enabled ? "is-active" : ""}`}
-            onClick={() => onToggle(item)}
-            disabled={pendingKey === item.key}
-          >
-            {actionLabel}
-          </button>
-        ) : (
-          <span className={`asset-action ${item.enabled ? "is-active" : ""}`}>{item.enabled ? "Monitorando" : "Pausado"}</span>
-        )}
+        <button
+          type="button"
+          className={`asset-action ${item.enabled ? "is-active" : ""}`}
+          onClick={() => onToggle(item)}
+          disabled={!interactiveApi || isPending}
+          title={!interactiveApi ? "Esse controle só funciona no painel local." : undefined}
+        >
+          {interactiveApi ? actionLabel : item.enabled ? "Monitorando" : "Local only"}
+        </button>
       </div>
     </article>
   );
@@ -268,10 +348,11 @@ export default function App() {
   const [pendingKey, setPendingKey] = useState("");
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [filter, setFilter] = useState("all");
+  const [clockNow, setClockNow] = useState(Date.now());
 
   const items = useMemo(() => sortItems(dashboard?.items || []), [dashboard]);
   const filteredItems = useMemo(() => filterItems(items, filter), [filter, items]);
-  const updatedAt = useMemo(() => formatUpdatedAtParts(dashboard?.lastRefreshAt), [dashboard]);
+  const updatedAt = useMemo(() => formatUpdatedAtParts(dashboard?.lastRefreshAt, clockNow), [clockNow, dashboard]);
 
   useEffect(() => {
     let timeoutId;
@@ -282,6 +363,14 @@ export default function App() {
 
     return () => window.clearTimeout(timeoutId);
   }, [message]);
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setClockNow(Date.now());
+    }, 60000);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -381,7 +470,7 @@ export default function App() {
 
       setMessage({
         type: "success",
-        text: item.enabled ? "Monitoramento pausado." : "Monitoramento ativado.",
+        text: item.enabled ? "Monitoramento desativado." : "Monitoramento ativado.",
       });
     } catch (error) {
       setDashboard(previousDashboard);
@@ -418,8 +507,7 @@ export default function App() {
         <section className="metrics-grid">
           <MetricCard label="Em risco" value={dashboard?.undercutItems ?? 0} note="Itens com anúncio abaixo do seu" accent />
           <MetricCard label="Monitorados" value={dashboard?.enabledItems ?? 0} note="Alertas ativos agora" />
-          <MetricCard label="Liderando" value={dashboard?.healthyItems ?? 0} note="Sem undercut neste momento" />
-          <MetricCard label="ETH / USD" value={dashboard?.pricing?.ethUsdDisplay || "-"} note="Cotação spot" compact />
+          <PriceMetricCard pricing={dashboard?.pricing} />
           <MetricCard label="Atualizado" value={updatedAt.date} note={updatedAt.time} compact />
         </section>
 
@@ -448,9 +536,6 @@ export default function App() {
               </FilterChip>
               <FilterChip active={filter === "enabled"} count={getFilterCount(items, "enabled")} onClick={() => setFilter("enabled")}>
                 Ativos
-              </FilterChip>
-              <FilterChip active={filter === "healthy"} count={getFilterCount(items, "healthy")} onClick={() => setFilter("healthy")}>
-                Liderando
               </FilterChip>
             </div>
 

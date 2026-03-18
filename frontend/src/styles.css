@@ -181,7 +181,7 @@ img {
 
 .metrics-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
   margin-top: 18px;
 }
@@ -216,6 +216,53 @@ img {
   font-size: clamp(1.2rem, 1.6vw, 1.7rem);
   line-height: 1.25;
   letter-spacing: -0.05em;
+}
+
+.metric-card--price {
+  overflow: hidden;
+}
+
+.metric-price-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 112px;
+  gap: 12px;
+  align-items: end;
+}
+
+.metric-price-row strong {
+  margin-top: 18px;
+}
+
+.metric-price-row p {
+  margin-top: 12px;
+}
+
+.sparkline {
+  width: 112px;
+  height: 34px;
+  align-self: center;
+}
+
+.sparkline polyline {
+  stroke: rgba(255, 255, 255, 0.75);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sparkline--up polyline {
+  stroke: var(--accent);
+}
+
+.sparkline--down polyline {
+  stroke: var(--warning);
+}
+
+.sparkline--flat polyline {
+  stroke: rgba(255, 255, 255, 0.54);
+}
+
+.sparkline--empty {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .flash,
@@ -344,10 +391,6 @@ img {
 
 .asset-card.is-alert {
   border-color: rgba(255, 138, 29, 0.26);
-}
-
-.asset-card.is-safe {
-  border-color: rgba(204, 255, 0, 0.14);
 }
 
 .asset-card.is-paused {
@@ -499,7 +542,12 @@ img {
 }
 
 .asset-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  min-width: 112px;
+  white-space: nowrap;
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -519,7 +567,7 @@ img {
 
 @media (max-width: 1280px) {
   .metrics-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -592,6 +640,14 @@ img {
   .asset-card__body,
   .asset-price-grid {
     grid-template-columns: 1fr;
+  }
+
+  .metric-price-row {
+    grid-template-columns: 1fr;
+  }
+
+  .sparkline {
+    width: 100%;
   }
 
   .asset-thumb {

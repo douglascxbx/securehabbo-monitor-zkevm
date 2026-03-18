@@ -38,13 +38,33 @@ function saveConfig(rootDir, config) {
 }
 
 function getState(rootDir) {
-  const state = readJson(getStatePath(rootDir), { alerts: {} });
+  const state = readJson(getStatePath(rootDir), { alerts: {}, priceHistory: [] });
   state.alerts = state.alerts && typeof state.alerts === "object" ? state.alerts : {};
+  state.priceHistory = Array.isArray(state.priceHistory) ? state.priceHistory : [];
   return state;
 }
 
 function saveState(rootDir, state) {
   writeJson(getStatePath(rootDir), state);
+}
+
+function updatePriceHistory(state, ethUsdPrice) {
+  if (!ethUsdPrice) {
+    return state.priceHistory;
+  }
+
+  const nextEntry = {
+    amount: Number(ethUsdPrice.amount),
+    fetchedAt: ethUsdPrice.fetchedAt,
+  };
+
+  const history = [...state.priceHistory];
+  const previous = history[history.length - 1];
+  if (!previous || previous.fetchedAt !== nextEntry.fetchedAt) {
+    history.push(nextEntry);
+  }
+
+  return history.slice(-24);
 }
 
 function buildDashboardData({ config, items, pricing, lastRefreshAt, lastError, sentAlertsInLastRefresh }) {
@@ -154,6 +174,7 @@ async function runMonitorCycle(rootDir, options = {}) {
   }
 
   const state = getState(rootDir);
+  state.priceHistory = updatePriceHistory(state, ethUsdPrice);
   let sentAlertsInLastRefresh = 0;
 
   if (options.sendAlerts !== false && process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID) {
@@ -176,6 +197,7 @@ async function runMonitorCycle(rootDir, options = {}) {
           ethUsd: ethUsdPrice.amount,
           ethUsdDisplay: formatUsd(ethUsdPrice.amount),
           fetchedAt: ethUsdPrice.fetchedAt,
+          history: state.priceHistory,
         }
       : null,
     lastRefreshAt: new Date().toISOString(),

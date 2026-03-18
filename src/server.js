@@ -16,6 +16,33 @@ const runtime = {
   refreshing: false,
 };
 
+function getDashboardAgeMs() {
+  if (!runtime.dashboardData?.lastRefreshAt) {
+    return Number.POSITIVE_INFINITY;
+  }
+
+  return Date.now() - new Date(runtime.dashboardData.lastRefreshAt).getTime();
+}
+
+async function getFreshDashboard({ force = false, sendAlerts = false } = {}) {
+  const maxAgeMs = Number(getConfig(rootDir).pollIntervalMs || 180000);
+  const shouldRefresh = force || !runtime.dashboardData || getDashboardAgeMs() > maxAgeMs + 15000;
+
+  if (!shouldRefresh) {
+    return runtime.dashboardData;
+  }
+
+  try {
+    return await refreshData(sendAlerts);
+  } catch (error) {
+    if (runtime.dashboardData) {
+      return runtime.dashboardData;
+    }
+
+    throw error;
+  }
+}
+
 function jsonResponse(response, statusCode, payload) {
   response.writeHead(statusCode, {
     "Content-Type": "application/json; charset=utf-8",
@@ -111,12 +138,13 @@ const server = http.createServer(async (request, response) => {
     const requestUrl = new URL(request.url, "http://localhost");
 
     if (request.method === "GET" && requestUrl.pathname === "/api/status") {
-      jsonResponse(response, 200, runtime.dashboardData || { ...getConfig(rootDir), refreshing: runtime.refreshing });
+      const data = await getFreshDashboard();
+      jsonResponse(response, 200, data || { ...getConfig(rootDir), refreshing: runtime.refreshing });
       return;
     }
 
     if (request.method === "GET" && requestUrl.pathname === "/api/dashboard") {
-      const data = runtime.dashboardData || (await refreshData(false));
+      const data = await getFreshDashboard();
       jsonResponse(response, 200, data);
       return;
     }
