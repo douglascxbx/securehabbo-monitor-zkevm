@@ -6,7 +6,7 @@
     "source": "Coinbase spot",
     "ethUsd": 2322.585,
     "ethUsdDisplay": "$2,322.59",
-    "fetchedAt": "2026-03-18T09:02:19.617Z",
+    "fetchedAt": "2026-03-18T09:02:23.939Z",
     "history": [
       {
         "amount": 2323.31,
@@ -27,10 +27,14 @@
       {
         "amount": 2322.585,
         "fetchedAt": "2026-03-18T09:02:19.617Z"
+      },
+      {
+        "amount": 2322.585,
+        "fetchedAt": "2026-03-18T09:02:23.939Z"
       }
     ]
   },
-  "lastRefreshAt": "2026-03-18T09:02:20.147Z",
+  "lastRefreshAt": "2026-03-18T09:02:24.445Z",
   "lastError": null,
   "refreshing": false,
   "totalItems": 7,
