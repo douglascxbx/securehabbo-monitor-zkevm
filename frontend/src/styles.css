@@ -167,6 +167,13 @@ img {
   transform: translateY(-1px);
 }
 
+.hero-panel__actions button:disabled,
+.asset-action:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
+}
+
 .hero-panel__actions button:first-child {
   border-color: rgba(204, 255, 0, 0.24);
   color: var(--accent);
@@ -500,12 +507,6 @@ img {
   border-color: rgba(204, 255, 0, 0.24);
   background: rgba(204, 255, 0, 0.08);
   color: var(--accent);
-}
-
-.asset-action:disabled {
-  cursor: wait;
-  opacity: 0.7;
-  transform: none;
 }
 
 .empty-card {

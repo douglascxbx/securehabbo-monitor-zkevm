@@ -151,6 +151,29 @@ function filterItems(items, filter) {
   return items;
 }
 
+function isDashboardPayload(payload) {
+  return Boolean(payload && Array.isArray(payload.items));
+}
+
+function withUpdatedItem(currentDashboard, targetKey, updater) {
+  if (!isDashboardPayload(currentDashboard)) {
+    return currentDashboard;
+  }
+
+  const items = currentDashboard.items.map((item) => (item.key === targetKey ? updater(item) : item));
+  const enabledItems = items.filter((item) => item.enabled).length;
+  const undercutItems = items.filter((item) => item.cheaperCompetitor).length;
+
+  return {
+    ...currentDashboard,
+    items,
+    totalItems: items.length,
+    enabledItems,
+    undercutItems,
+    healthyItems: items.length - undercutItems,
+  };
+}
+
 function MetricCard({ label, value, note, accent = false, compact = false }) {
   return (
     <article className={`metric-card ${accent ? "is-accent" : ""} ${compact ? "is-compact" : ""}`}>
@@ -243,6 +266,7 @@ export default function App() {
   const [interactiveApi, setInteractiveApi] = useState(false);
   const [message, setMessage] = useState(null);
   const [pendingKey, setPendingKey] = useState("");
+  const [isRefreshing, setIsRefreshing] = useState(false);
   const [filter, setFilter] = useState("all");
 
   const items = useMemo(() => sortItems(dashboard?.items || []), [dashboard]);
@@ -271,7 +295,7 @@ export default function App() {
       setInteractiveApi(hasApi);
 
       const payload = await loadDashboardPayload(hasApi);
-      if (!cancelled) {
+      if (!cancelled && isDashboardPayload(payload)) {
         setDashboard(payload);
       }
     }
@@ -285,7 +309,7 @@ export default function App() {
     const intervalId = window.setInterval(() => {
       loadDashboardPayload(interactiveApi)
         .then((payload) => {
-          if (!cancelled) {
+          if (!cancelled && isDashboardPayload(payload)) {
             setDashboard(payload);
           }
         })
@@ -300,15 +324,21 @@ export default function App() {
 
   async function reloadDashboard(preferApi = interactiveApi) {
     const payload = await loadDashboardPayload(preferApi);
+    if (!isDashboardPayload(payload)) {
+      throw new Error("O painel retornou dados incompletos.");
+    }
+
     setDashboard(payload);
     return payload;
   }
 
   async function handleRefresh() {
+    setIsRefreshing(true);
+
     try {
       if (interactiveApi) {
-        const payload = await fetchJson("/api/refresh", { method: "POST" });
-        setDashboard(payload.status || payload.dashboard || dashboard);
+        await fetchJson("/api/refresh", { method: "POST" });
+        await reloadDashboard(true);
       } else {
         await reloadDashboard(false);
       }
@@ -316,20 +346,20 @@ export default function App() {
       setMessage({ type: "success", text: "Painel atualizado." });
     } catch (error) {
       setMessage({ type: "error", text: error.message });
-    }
-  }
-
-  async function handleTelegramTest() {
-    try {
-      await fetchJson("/api/test-telegram", { method: "POST" });
-      setMessage({ type: "success", text: "Teste enviado no Telegram." });
-    } catch (error) {
-      setMessage({ type: "error", text: error.message });
+    } finally {
+      setIsRefreshing(false);
     }
   }
 
   async function handleToggle(item) {
+    const previousDashboard = dashboard;
     setPendingKey(item.key);
+    setDashboard((current) =>
+      withUpdatedItem(current, item.key, (currentItem) => ({
+        ...currentItem,
+        enabled: !currentItem.enabled,
+      }))
+    );
 
     try {
       const payload = await fetchJson("/api/monitors", {
@@ -343,7 +373,7 @@ export default function App() {
         }),
       });
 
-      if (payload.dashboard) {
+      if (isDashboardPayload(payload.dashboard)) {
         setDashboard(payload.dashboard);
       } else {
         await reloadDashboard(true);
@@ -354,6 +384,7 @@ export default function App() {
         text: item.enabled ? "Monitoramento pausado." : "Monitoramento ativado.",
       });
     } catch (error) {
+      setDashboard(previousDashboard);
       setMessage({ type: "error", text: error.message });
     } finally {
       setPendingKey("");
@@ -377,14 +408,9 @@ export default function App() {
             </div>
 
             <div className="hero-panel__actions">
-              <button type="button" onClick={handleRefresh}>
-                Atualizar
+              <button type="button" onClick={handleRefresh} disabled={isRefreshing}>
+                {isRefreshing ? "Atualizando..." : "Atualizar"}
               </button>
-              {interactiveApi ? (
-                <button type="button" onClick={handleTelegramTest}>
-                  Telegram
-                </button>
-              ) : null}
             </div>
           </div>
         </header>
