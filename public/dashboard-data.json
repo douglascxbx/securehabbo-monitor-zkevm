@@ -4,11 +4,17 @@
   "pricing": {
     "pair": "ETH/USD",
     "source": "Coinbase spot",
-    "ethUsd": 2320.96,
-    "ethUsdDisplay": "$2,320.96",
-    "fetchedAt": "2026-03-18T08:26:14.372Z"
+    "ethUsd": 2323.31,
+    "ethUsdDisplay": "$2,323.31",
+    "fetchedAt": "2026-03-18T09:00:42.458Z",
+    "history": [
+      {
+        "amount": 2323.31,
+        "fetchedAt": "2026-03-18T09:00:42.458Z"
+      }
+    ]
   },
-  "lastRefreshAt": "2026-03-18T08:26:14.623Z",
+  "lastRefreshAt": "2026-03-18T09:00:43.167Z",
   "lastError": null,
   "refreshing": false,
   "totalItems": 7,
@@ -125,13 +131,13 @@
         "buyAmountDisplay": "0.004837",
         "priceDeltaRaw": "2000000000",
         "priceDeltaDisplay": "<0.000001",
-        "buyAmountUsd": 11.22779022048,
-        "buyAmountUsdDisplay": "$11.23",
-        "priceDeltaUsd": 0.00000464192,
+        "buyAmountUsd": 11.239158493529999,
+        "buyAmountUsdDisplay": "$11.24",
+        "priceDeltaUsd": 0.00000464662,
         "priceDeltaUsdDisplay": "$0.00"
       },
-      "ownFloorUsd": 11.227794862400001,
-      "ownFloorUsdDisplay": "$11.23"
+      "ownFloorUsd": 11.23916314015,
+      "ownFloorUsdDisplay": "$11.24"
     },
     {
       "key": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftvivideyes:0x52a6c53869ce09a731cd772f245b97a4401d3348",
@@ -246,13 +252,13 @@
         "buyAmountDisplay": "0.055045",
         "priceDeltaRaw": "8799078440366970",
         "priceDeltaDisplay": "0.008799",
-        "buyAmountUsd": 127.75926605504588,
-        "buyAmountUsdDisplay": "$127.76",
-        "priceDeltaUsd": 20.422309096954123,
-        "priceDeltaUsdDisplay": "$20.42"
+        "buyAmountUsd": 127.88862385321102,
+        "buyAmountUsdDisplay": "$127.89",
+        "priceDeltaUsd": 20.442986931288985,
+        "priceDeltaUsdDisplay": "$20.44"
       },
-      "ownFloorUsd": 148.181575152,
-      "ownFloorUsdDisplay": "$148.18"
+      "ownFloorUsd": 148.3316107845,
+      "ownFloorUsdDisplay": "$148.33"
     },
     {
       "key": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftreindeer:0x52a6c53869ce09a731cd772f245b97a4401d3348",
@@ -372,12 +378,12 @@
         "buyAmountDisplay": "0.002385",
         "priceDeltaRaw": "440364899082569",
         "priceDeltaDisplay": "0.00044",
-        "buyAmountUsd": 5.53623486238532,
+        "buyAmountUsd": 5.541840366972476,
         "buyAmountUsdDisplay": "$5.54",
-        "priceDeltaUsd": 1.0220693161746792,
+        "priceDeltaUsd": 1.0231041736875233,
         "priceDeltaUsdDisplay": "$1.02"
       },
-      "ownFloorUsd": 6.55830417856,
+      "ownFloorUsd": 6.56494454066,
       "ownFloorUsdDisplay": "$6.56"
     },
     {
@@ -478,22 +484,22 @@
       "enabled": false,
       "marketListingCount": 10,
       "cheaperCompetitor": {
-        "orderId": "019cff79-ff72-5907-f0b8-665c7688b47f",
+        "orderId": "019d0024-2a98-05d6-208d-a802b02888cd",
         "accountAddress": "0x24edfcc8240f0f54f648da5cb87102f2e085e51d",
         "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
-        "tokenId": "1162402851363",
+        "tokenId": "258189404249",
         "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
         "buyTokenSymbol": "ETH",
-        "buyAmountRaw": "519620000000000",
+        "buyAmountRaw": "519100000000000",
         "buyAmountDisplay": "0.000519",
-        "priceDeltaRaw": "122580000000000",
-        "priceDeltaDisplay": "0.000122",
-        "buyAmountUsd": 1.2060172352,
+        "priceDeltaRaw": "123100000000000",
+        "priceDeltaDisplay": "0.000123",
+        "buyAmountUsd": 1.206030221,
         "buyAmountUsdDisplay": "$1.21",
-        "priceDeltaUsd": 0.28450327680000004,
-        "priceDeltaUsdDisplay": "$0.2845"
+        "priceDeltaUsd": 0.285999461,
+        "priceDeltaUsdDisplay": "$0.286"
       },
-      "ownFloorUsd": 1.490520512,
+      "ownFloorUsd": 1.4920296819999999,
       "ownFloorUsdDisplay": "$1.49"
     },
     {
@@ -599,8 +605,8 @@
       "enabled": true,
       "marketListingCount": 9,
       "cheaperCompetitor": null,
-      "ownFloorUsd": 268.85651103424,
-      "ownFloorUsdDisplay": "$268.86"
+      "ownFloorUsd": 269.12873149514,
+      "ownFloorUsdDisplay": "$269.13"
     },
     {
       "key": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h22_whaleposter:0x52a6c53869ce09a731cd772f245b97a4401d3348",
@@ -715,8 +721,8 @@
       "enabled": false,
       "marketListingCount": 10,
       "cheaperCompetitor": null,
-      "ownFloorUsd": 0.77118305824,
-      "ownFloorUsdDisplay": "$0.7712"
+      "ownFloorUsd": 0.77196389039,
+      "ownFloorUsdDisplay": "$0.772"
     },
     {
       "key": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1:0x52a6c53869ce09a731cd772f245b97a4401d3348",
@@ -816,8 +822,8 @@
       "enabled": true,
       "marketListingCount": 10,
       "cheaperCompetitor": null,
-      "ownFloorUsd": 20.50955528224,
-      "ownFloorUsdDisplay": "$20.51"
+      "ownFloorUsd": 20.53032145439,
+      "ownFloorUsdDisplay": "$20.53"
     }
   ]
 }
