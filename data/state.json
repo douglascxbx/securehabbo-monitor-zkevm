@@ -3,22 +3,22 @@
     "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftsnowreindeerbackpack:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "clear",
       "signature": null,
-      "updatedAt": "2026-03-20T21:17:42.089Z"
+      "updatedAt": "2026-03-20T21:49:39.232Z"
     },
     "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftvivideyes:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "alerted",
-      "signature": "019d0d08-63a3-d1df-1975-53fc0b7c2538:61933024000000000:63844950000000000",
-      "updatedAt": "2026-03-20T21:17:42.543Z"
+      "signature": "019d0d34-ac3f-2022-2114-097a15cfc5e0:61933020000000000:63844950000000000",
+      "updatedAt": "2026-03-20T21:49:39.643Z"
     },
     "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftreindeer:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "clear",
       "signature": null,
-      "updatedAt": "2026-03-20T21:17:42.543Z"
+      "updatedAt": "2026-03-20T21:49:39.643Z"
     },
     "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h24_bday_silversamovar:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "clear",
       "signature": null,
-      "updatedAt": "2026-03-20T21:17:42.543Z"
+      "updatedAt": "2026-03-20T21:49:39.643Z"
     },
     "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f:chatstyle_bobba:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "alerted",
@@ -28,19 +28,15 @@
     "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h22_whaleposter:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "clear",
       "signature": null,
-      "updatedAt": "2026-03-20T21:17:42.543Z"
+      "updatedAt": "2026-03-20T21:49:39.643Z"
     },
     "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "clear",
       "signature": null,
-      "updatedAt": "2026-03-20T21:17:42.543Z"
+      "updatedAt": "2026-03-20T21:49:39.643Z"
     }
   },
   "priceHistory": [
-    {
-      "amount": 2136.955,
-      "fetchedAt": "2026-03-19T23:48:52.346Z"
-    },
     {
       "amount": 2150.435,
       "fetchedAt": "2026-03-20T01:05:08.574Z"
@@ -132,6 +128,10 @@
     {
       "amount": 2137.185,
       "fetchedAt": "2026-03-20T21:17:41.962Z"
+    },
+    {
+      "amount": 2145.445,
+      "fetchedAt": "2026-03-20T21:49:39.102Z"
     }
   ]
 }
