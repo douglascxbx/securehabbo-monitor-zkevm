@@ -7,28 +7,28 @@
     },
     "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftvivideyes:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "alerted",
-      "signature": "019d0af1-2dc8-1412-f496-a9e7e11949e0:62244033000000000:63844950000000000",
-      "updatedAt": "2026-03-20T11:45:45.069Z"
+      "signature": "019d0b42-a734-d26a-9572-609486e5ace2:62244029000000000:63844950000000000",
+      "updatedAt": "2026-03-20T13:42:23.154Z"
     },
     "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftreindeer:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "clear",
       "signature": null,
-      "updatedAt": "2026-03-20T12:26:16.459Z"
+      "updatedAt": "2026-03-20T13:42:23.154Z"
     },
     "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h24_bday_silversamovar:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "clear",
       "signature": null,
-      "updatedAt": "2026-03-20T12:26:16.459Z"
+      "updatedAt": "2026-03-20T13:42:23.154Z"
     },
     "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f:chatstyle_bobba:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "clear",
       "signature": null,
-      "updatedAt": "2026-03-20T12:26:16.459Z"
+      "updatedAt": "2026-03-20T13:42:23.154Z"
     },
     "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h22_whaleposter:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "clear",
       "signature": null,
-      "updatedAt": "2026-03-20T12:26:16.459Z"
+      "updatedAt": "2026-03-20T13:42:23.154Z"
     },
     "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "alerted",
@@ -37,10 +37,6 @@
     }
   },
   "priceHistory": [
-    {
-      "amount": 2124.75,
-      "fetchedAt": "2026-03-19T18:12:20.074Z"
-    },
     {
       "amount": 2127.135,
       "fetchedAt": "2026-03-19T18:16:20.047Z"
@@ -132,6 +128,10 @@
     {
       "amount": 2143.33,
       "fetchedAt": "2026-03-20T12:26:16.338Z"
+    },
+    {
+      "amount": 2132.35,
+      "fetchedAt": "2026-03-20T13:42:22.596Z"
     }
   ]
 }
