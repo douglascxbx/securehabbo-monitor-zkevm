@@ -13,12 +13,12 @@
     "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftreindeer:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "clear",
       "signature": null,
-      "updatedAt": "2026-03-21T21:55:10.599Z"
+      "updatedAt": "2026-03-21T22:31:47.259Z"
     },
     "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h24_bday_silversamovar:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "clear",
       "signature": null,
-      "updatedAt": "2026-03-21T21:55:10.599Z"
+      "updatedAt": "2026-03-21T22:31:47.259Z"
     },
     "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f:chatstyle_bobba:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "alerted",
@@ -28,7 +28,7 @@
     "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h22_whaleposter:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "clear",
       "signature": null,
-      "updatedAt": "2026-03-21T21:55:10.599Z"
+      "updatedAt": "2026-03-21T22:31:47.259Z"
     },
     "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "clear",
@@ -130,45 +130,45 @@
       "fetchedAt": "2026-03-20T23:53:42.978Z"
     },
     {
-      "amount": 2153.715,
-      "fetchedAt": "2026-03-21T21:55:10.435Z"
+      "amount": 2150.165,
+      "fetchedAt": "2026-03-21T22:31:47.116Z"
     }
   ],
   "itemPriceHistory": {
     "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftsnowreindeerbackpack:0x52a6c53869ce09a731cd772f245b97a4401d3348": [
       {
-        "amount": 10.418723381685,
-        "fetchedAt": "2026-03-21T21:55:10.435Z"
+        "amount": 10.401550047235,
+        "fetchedAt": "2026-03-21T22:31:47.116Z"
       }
     ],
     "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftvivideyes:0x52a6c53869ce09a731cd772f245b97a4401d3348": [
       {
-        "amount": 137.50382648925,
-        "fetchedAt": "2026-03-21T21:55:10.435Z"
+        "amount": 137.27717691675,
+        "fetchedAt": "2026-03-21T22:31:47.116Z"
       }
     ],
     "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftreindeer:0x52a6c53869ce09a731cd772f245b97a4401d3348": [
       {
-        "amount": 6.085722323490001,
-        "fetchedAt": "2026-03-21T21:55:10.435Z"
+        "amount": 6.07569113819,
+        "fetchedAt": "2026-03-21T22:31:47.116Z"
       }
     ],
     "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h24_bday_silversamovar:0x52a6c53869ce09a731cd772f245b97a4401d3348": [
       {
-        "amount": 1.383115773,
-        "fetchedAt": "2026-03-21T21:55:10.435Z"
+        "amount": 1.380835963,
+        "fetchedAt": "2026-03-21T22:31:47.116Z"
       }
     ],
     "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f:chatstyle_bobba:0x52a6c53869ce09a731cd772f245b97a4401d3348": [
       {
-        "amount": 249.48304180119,
-        "fetchedAt": "2026-03-21T21:55:10.435Z"
+        "amount": 249.07181524689,
+        "fetchedAt": "2026-03-21T22:31:47.116Z"
       }
     ],
     "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h22_whaleposter:0x52a6c53869ce09a731cd772f245b97a4401d3348": [
       {
-        "amount": 0.7156127293350001,
-        "fetchedAt": "2026-03-21T21:55:10.435Z"
+        "amount": 0.714433174385,
+        "fetchedAt": "2026-03-21T22:31:47.116Z"
       }
     ],
     "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1:0x52a6c53869ce09a731cd772f245b97a4401d3348": [
