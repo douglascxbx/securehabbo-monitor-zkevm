@@ -13,7 +13,7 @@
     "source": "Coinbase spot",
     "ethUsd": 2149.825,
     "ethUsdDisplay": "$2,149.83",
-    "fetchedAt": "2026-03-21T02:20:50.355Z",
+    "fetchedAt": "2026-03-21T02:20:51.514Z",
     "history": [
       {
         "amount": 2150.895,
@@ -109,7 +109,7 @@
       },
       {
         "amount": 2149.825,
-        "fetchedAt": "2026-03-21T02:20:50.355Z"
+        "fetchedAt": "2026-03-21T02:20:51.514Z"
       }
     ],
     "priceChanges": {
@@ -1774,7 +1774,7 @@
     "overdueCount": 0,
     "finishedCount": 0
   },
-  "lastRefreshAt": "2026-03-21T02:20:50.877Z",
+  "lastRefreshAt": "2026-03-21T02:20:52.078Z",
   "lastError": null,
   "refreshing": false,
   "totalItems": 7,
@@ -1903,7 +1903,7 @@
       "priceHistory": [
         {
           "amount": 10.399905277175,
-          "fetchedAt": "2026-03-21T02:20:50.355Z"
+          "fetchedAt": "2026-03-21T02:20:51.514Z"
         }
       ],
       "priceChanges": {
@@ -2052,7 +2052,7 @@
       "priceHistory": [
         {
           "amount": 137.25546963374998,
-          "fetchedAt": "2026-03-21T02:20:50.355Z"
+          "fetchedAt": "2026-03-21T02:20:51.514Z"
         }
       ],
       "priceChanges": {
@@ -2191,7 +2191,7 @@
       "priceHistory": [
         {
           "amount": 6.0747304049499995,
-          "fetchedAt": "2026-03-21T02:20:50.355Z"
+          "fetchedAt": "2026-03-21T02:20:51.514Z"
         }
       ],
       "priceChanges": {
@@ -2335,7 +2335,7 @@
       "priceHistory": [
         {
           "amount": 1.3806176149999998,
-          "fetchedAt": "2026-03-21T02:20:50.355Z"
+          "fetchedAt": "2026-03-21T02:20:51.514Z"
         }
       ],
       "priceChanges": {
@@ -2484,7 +2484,7 @@
       "priceHistory": [
         {
           "amount": 249.03243016845,
-          "fetchedAt": "2026-03-21T02:20:50.355Z"
+          "fetchedAt": "2026-03-21T02:20:51.514Z"
         }
       ],
       "priceChanges": {
@@ -2643,7 +2643,7 @@
       "priceHistory": [
         {
           "amount": 0.714320202925,
-          "fetchedAt": "2026-03-21T02:20:50.355Z"
+          "fetchedAt": "2026-03-21T02:20:51.514Z"
         }
       ],
       "priceChanges": {
@@ -2772,7 +2772,7 @@
       "priceHistory": [
         {
           "amount": 18.074294666725,
-          "fetchedAt": "2026-03-21T02:20:50.355Z"
+          "fetchedAt": "2026-03-21T02:20:51.514Z"
         }
       ],
       "priceChanges": {
