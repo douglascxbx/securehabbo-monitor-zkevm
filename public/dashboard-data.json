@@ -1,12 +1,19 @@
 {
   "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+  "trackedWallets": [
+    "0xea869164a6d5fc0b52c347562e08e82e503bcd48"
+  ],
+  "walletSettings": {
+    "primaryWalletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+    "additionalWallets": []
+  },
   "pollIntervalMs": 180000,
   "pricing": {
     "pair": "ETH/USD",
     "source": "Coinbase spot",
-    "ethUsd": 2148.055,
-    "ethUsdDisplay": "$2,148.06",
-    "fetchedAt": "2026-03-21T02:07:46.411Z",
+    "ethUsd": 2149.825,
+    "ethUsdDisplay": "$2,149.83",
+    "fetchedAt": "2026-03-21T02:20:50.355Z",
     "history": [
       {
         "amount": 2150.895,
@@ -101,22 +108,1684 @@
         "fetchedAt": "2026-03-20T23:53:42.978Z"
       },
       {
-        "amount": 2148.055,
-        "fetchedAt": "2026-03-21T02:07:46.411Z"
+        "amount": 2149.825,
+        "fetchedAt": "2026-03-21T02:20:50.355Z"
       }
-    ]
+    ],
+    "priceChanges": {
+      "7": {
+        "days": 7,
+        "deltaPct": null,
+        "direction": "flat",
+        "baselineAt": null
+      },
+      "15": {
+        "days": 15,
+        "deltaPct": null,
+        "direction": "flat",
+        "baselineAt": null
+      },
+      "31": {
+        "days": 31,
+        "deltaPct": null,
+        "direction": "flat",
+        "baselineAt": null
+      }
+    }
   },
-  "lastRefreshAt": "2026-03-21T02:07:48.037Z",
+  "inventory": {
+    "wallets": [
+      {
+        "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+        "totalUnits": 54,
+        "distinctItems": 38,
+        "listedUnits": 7,
+        "rentedUnits": 0,
+        "availableUnits": 54,
+        "items": [
+          {
+            "inventoryKey": "0xe06f06a4128373ecc5444881a6a26fc18723487a:credit10",
+            "contractAddress": "0xe06f06a4128373ecc5444881a6a26fc18723487a",
+            "productCode": "Credit10",
+            "name": "10 NFTC",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/tokens/images/credit10.png",
+            "collectionName": "tokens",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 0,
+            "tokenIds": [
+              "3381111117224345389560538340644544"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h25_4thbdayduck1",
+            "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+            "productCode": "nft_h25_4thbdayduck1",
+            "name": "Anniversary Duck",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/nft_h25_4thbdayduck1.png",
+            "collectionName": "furniture",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 2,
+            "listedCount": 0,
+            "tokenIds": [
+              "1237345420448",
+              "834435500036"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 2,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 2
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_sc24_batcandybowl",
+            "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+            "productCode": "nft_sc24_batcandybowl",
+            "name": "Bat Candy Bowl",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/crafted/nft_sc24_batcandybowl.png",
+            "collectionName": "furniture",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 0,
+            "tokenIds": [
+              "981440961104"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftbeebackpack",
+            "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+            "productCode": "clothing_nftbeebackpack",
+            "name": "Bee Backpack",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/crafted/clothing_nftbeebackpack.png",
+            "collectionName": "clothes",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 2,
+            "listedCount": 0,
+            "tokenIds": [
+              "1370634603781",
+              "621622473622"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 2,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 2
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftbeetails",
+            "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+            "productCode": "clothing_nftbeetails",
+            "name": "Bee Buns",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/crafted/clothing_nftbeetails.png",
+            "collectionName": "clothes",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 2,
+            "listedCount": 0,
+            "tokenIds": [
+              "1465631765721",
+              "920303794547"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 2,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 2
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h23_xmas_bigpresent",
+            "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+            "productCode": "nft_h23_xmas_bigpresent",
+            "name": "Big Gift Tent",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/nft_h23_xmas_bigpresent.png",
+            "collectionName": "furniture",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 0,
+            "tokenIds": [
+              "729574609091"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h25_bluexmaslollipop",
+            "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+            "productCode": "nft_h25_bluexmaslollipop",
+            "name": "Blue Christmas Lollipop",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/nft_h25_bluexmaslollipop.png",
+            "collectionName": "furniture",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 0,
+            "tokenIds": [
+              "1531565052478"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h25_bronzepiranha",
+            "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+            "productCode": "nft_h25_bronzepiranha",
+            "name": "Bronze Collectible Piranha",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/nft_h25_bronzepiranha.png",
+            "collectionName": "furniture",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 0,
+            "tokenIds": [
+              "863031636523"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h26_bronzecontroller",
+            "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+            "productCode": "nft_h26_bronzecontroller",
+            "name": "Bronze Controller",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/nft_h26_bronzecontroller.png",
+            "collectionName": "furniture",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 0,
+            "tokenIds": [
+              "81491660223469"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h26_bronzedvd",
+            "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+            "productCode": "nft_h26_bronzedvd",
+            "name": "Bronze DVD",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/nft_h26_bronzedvd.png",
+            "collectionName": "furniture",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 0,
+            "tokenIds": [
+              "139679252603981"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftbabychickbackpack",
+            "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+            "productCode": "clothing_nftbabychickbackpack",
+            "name": "Chick Backpack",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/crafted/clothing_nftbabychickbackpack.png",
+            "collectionName": "clothes",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 3,
+            "listedCount": 0,
+            "tokenIds": [
+              "1425448052610",
+              "1563911599112",
+              "804144965246"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 3,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 3
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_sc25_chickballoon",
+            "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+            "productCode": "nft_sc25_chickballoon",
+            "name": "Chick Balloon",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/crafted/nft_sc25_chickballoon.png",
+            "collectionName": "furniture",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 2,
+            "listedCount": 0,
+            "tokenIds": [
+              "708107246016",
+              "78307157114"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 2,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 2
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftsnowreindeerbackpack",
+            "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+            "productCode": "clothing_nftsnowreindeerbackpack",
+            "name": "Cuddly Reindeer Backpack",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/clothing_nftsnowreindeerbackpack.png",
+            "collectionName": "clothes",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 1,
+            "tokenIds": [
+              "1223144984228"
+            ],
+            "linkedMonitorKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftsnowreindeerbackpack:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0xe06f06a4128373ecc5444881a6a26fc18723487a:nft_emerald_10",
+            "contractAddress": "0xe06f06a4128373ecc5444881a6a26fc18723487a",
+            "productCode": "nft_emerald_10",
+            "name": "Emerald Stone (10 Emeralds)",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/tokens/images/nft_emerald_10.png",
+            "collectionName": "tokens",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 2,
+            "listedCount": 0,
+            "tokenIds": [
+              "3449495347714151571833353994227511",
+              "3357211809602355509000109315563253"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 2,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 2
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_cf25_fabricscissors",
+            "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+            "productCode": "nft_cf25_fabricscissors",
+            "name": "Fabric Scissors",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/nft_cf25_fabricscissors.png",
+            "collectionName": "furniture",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 0,
+            "tokenIds": [
+              "1544243076205"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_sc24_frozentree",
+            "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+            "productCode": "nft_sc24_frozentree",
+            "name": "Frozen Bonsai Tree",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/crafted/nft_sc24_frozentree.png",
+            "collectionName": "furniture",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 2,
+            "listedCount": 0,
+            "tokenIds": [
+              "115872821265",
+              "807106525617"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 2,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 2
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_sc24_frozensakura",
+            "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+            "productCode": "nft_sc24_frozensakura",
+            "name": "Frozen Sakura Tree",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/crafted/nft_sc24_frozensakura.png",
+            "collectionName": "furniture",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 2,
+            "listedCount": 0,
+            "tokenIds": [
+              "662955152944",
+              "673532293901"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 2,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 2
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0xe06f06a4128373ecc5444881a6a26fc18723487a:habbomint",
+            "contractAddress": "0xe06f06a4128373ecc5444881a6a26fc18723487a",
+            "productCode": "HABBOMINT",
+            "name": "Habbo Mint Token",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/tokens/images/mintToken.png",
+            "collectionName": "tokens",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 0,
+            "tokenIds": [
+              "412109251323"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgiantbunnytail",
+            "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+            "productCode": "clothing_nftgiantbunnytail",
+            "name": "Habbo-sized Bunny Tail",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/crafted/clothing_nftgiantbunnytail.png",
+            "collectionName": "clothes",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 0,
+            "tokenIds": [
+              "116140142654"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftlongflowyhair",
+            "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+            "productCode": "clothing_nftlongflowyhair",
+            "name": "Hollywood Glamour Hair",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/crafted/clothing_nftlongflowyhair.png",
+            "collectionName": "clothes",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 0,
+            "tokenIds": [
+              "233550892511"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nfthoneyjar",
+            "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+            "productCode": "clothing_nfthoneyjar",
+            "name": "Honey Jar Bag",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/crafted/clothing_nfthoneyjar.png",
+            "collectionName": "clothes",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 0,
+            "tokenIds": [
+              "76137131303"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftkissmark",
+            "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+            "productCode": "clothing_nftkissmark",
+            "name": "Kiss Mark",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/clothing_nftkissmark.png",
+            "collectionName": "clothes",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 0,
+            "tokenIds": [
+              "224042278057484"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftvivideyes",
+            "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+            "productCode": "clothing_nftvivideyes",
+            "name": "Lovely Vivid Eyes",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/clothing_nftvivideyes.gif",
+            "collectionName": "clothes",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 1,
+            "tokenIds": [
+              "275657211034"
+            ],
+            "linkedMonitorKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftvivideyes:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftmarshmallowsocks",
+            "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+            "productCode": "clothing_nftmarshmallowsocks",
+            "name": "Marshmallow Socks",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/crafted/clothing_nftmarshmallowsocks.png",
+            "collectionName": "clothes",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 0,
+            "tokenIds": [
+              "1441831310377"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftunicornhorn",
+            "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+            "productCode": "clothing_nftunicornhorn",
+            "name": "Marshmallow Unicorn Horn",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/crafted/clothing_nftunicornhorn.png",
+            "collectionName": "clothes",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 3,
+            "listedCount": 0,
+            "tokenIds": [
+              "1330405504645",
+              "1243323232437",
+              "651748009528"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 3,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 3
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftneondevilmask",
+            "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+            "productCode": "clothing_nftneondevilmask",
+            "name": "Neon Devil Mask",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/crafted/clothing_nftneondevilmask.png",
+            "collectionName": "clothes",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 3,
+            "listedCount": 0,
+            "tokenIds": [
+              "1453277059979",
+              "1449969406379",
+              "1153285384712"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 3,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 3
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_cf25_nylon",
+            "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+            "productCode": "nft_cf25_nylon",
+            "name": "Nylon",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/nft_cf25_nylon.png",
+            "collectionName": "furniture",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 2,
+            "listedCount": 0,
+            "tokenIds": [
+              "891276056323",
+              "1364150665123"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 2,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 2
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftseashellp1",
+            "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+            "productCode": "clothing_nftseashellp1",
+            "name": "Orange Sea Shell Necklace",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/clothing_nftseashellp1.png",
+            "collectionName": "clothes",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 0,
+            "tokenIds": [
+              "1471402515201"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nfteastereggcrown",
+            "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+            "productCode": "clothing_nfteastereggcrown",
+            "name": "Painted Egg Crown",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/crafted/clothing_nfteastereggcrown.png",
+            "collectionName": "clothes",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 3,
+            "listedCount": 0,
+            "tokenIds": [
+              "53430542501",
+              "981361701226",
+              "659591093243"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 3,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 3
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_a0_clubrug",
+            "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+            "productCode": "nft_a0_clubrug",
+            "name": "Persian Carpet",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/crafted/nft_a0_clubrug.png",
+            "collectionName": "furniture",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 0,
+            "tokenIds": [
+              "551394056408"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftqueenbee",
+            "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+            "productCode": "clothing_nftqueenbee",
+            "name": "Queen Bee",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/crafted/clothing_nftqueenbee.png",
+            "collectionName": "clothes",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 0,
+            "tokenIds": [
+              "1015113210123"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftreindeer",
+            "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+            "productCode": "clothing_nftreindeer",
+            "name": "Reindeer Dungarees",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/xmas22/clothing_nftreindeer.png",
+            "collectionName": "clothes",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 1,
+            "tokenIds": [
+              "9640725338"
+            ],
+            "linkedMonitorKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftreindeer:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h24_bday_donniebook",
+            "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+            "productCode": "nft_h24_bday_donniebook",
+            "name": "Santini Picture Book",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/crafted/nft_h24_bday_donniebook.png",
+            "collectionName": "furniture",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 0,
+            "tokenIds": [
+              "1228527050733"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h24_bday_silversamovar",
+            "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+            "productCode": "nft_h24_bday_silversamovar",
+            "name": "Silver Samovar",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/crafted/nft_h24_bday_silversamovar.png",
+            "collectionName": "furniture",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 1,
+            "tokenIds": [
+              "285270414355"
+            ],
+            "linkedMonitorKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h24_bday_silversamovar:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f:chatstyle_bobba",
+            "contractAddress": "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f",
+            "productCode": "chatstyle_bobba",
+            "name": "The Bobba Bubble",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/addons/images/chatstyle/chatstyle_bobba.png",
+            "collectionName": "addons",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 1,
+            "tokenIds": [
+              "1519028218378"
+            ],
+            "linkedMonitorKey": "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f:chatstyle_bobba:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f:nft_avatar_effect222",
+            "contractAddress": "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f",
+            "productCode": "nft_avatar_effect222",
+            "name": "Trippy Halo",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/addons/images/effects/nft_avatar_effect222.gif",
+            "collectionName": "addons",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 0,
+            "tokenIds": [
+              "1326385313205"
+            ],
+            "linkedMonitorKey": null,
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h22_whaleposter",
+            "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+            "productCode": "nft_h22_whaleposter",
+            "name": "Whale Poster",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/poster/imx_whaleposter.gif",
+            "collectionName": "furniture",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 1,
+            "tokenIds": [
+              "898565464441"
+            ],
+            "linkedMonitorKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h22_whaleposter:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1",
+            "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+            "productCode": "clothing_nftgardenshoes1",
+            "name": "White Garden Shoes",
+            "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/clothing_nftgardenshoes1.png",
+            "collectionName": "clothes",
+            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1,
+            "listedCount": 1,
+            "tokenIds": [
+              "1486984184562"
+            ],
+            "linkedMonitorKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+            "activeRentalCount": 0,
+            "availableQuantity": 1,
+            "wallets": [
+              {
+                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+                "quantity": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "allItems": [
+      {
+        "inventoryKey": "0xe06f06a4128373ecc5444881a6a26fc18723487a:credit10",
+        "contractAddress": "0xe06f06a4128373ecc5444881a6a26fc18723487a",
+        "productCode": "Credit10",
+        "name": "10 NFTC",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/tokens/images/credit10.png",
+        "collectionName": "tokens",
+        "quantity": 1,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h25_4thbdayduck1",
+        "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+        "productCode": "nft_h25_4thbdayduck1",
+        "name": "Anniversary Duck",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/nft_h25_4thbdayduck1.png",
+        "collectionName": "furniture",
+        "quantity": 2,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 2,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_sc24_batcandybowl",
+        "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+        "productCode": "nft_sc24_batcandybowl",
+        "name": "Bat Candy Bowl",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/crafted/nft_sc24_batcandybowl.png",
+        "collectionName": "furniture",
+        "quantity": 1,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftbeebackpack",
+        "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+        "productCode": "clothing_nftbeebackpack",
+        "name": "Bee Backpack",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/crafted/clothing_nftbeebackpack.png",
+        "collectionName": "clothes",
+        "quantity": 2,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 2,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftbeetails",
+        "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+        "productCode": "clothing_nftbeetails",
+        "name": "Bee Buns",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/crafted/clothing_nftbeetails.png",
+        "collectionName": "clothes",
+        "quantity": 2,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 2,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h23_xmas_bigpresent",
+        "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+        "productCode": "nft_h23_xmas_bigpresent",
+        "name": "Big Gift Tent",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/nft_h23_xmas_bigpresent.png",
+        "collectionName": "furniture",
+        "quantity": 1,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h25_bluexmaslollipop",
+        "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+        "productCode": "nft_h25_bluexmaslollipop",
+        "name": "Blue Christmas Lollipop",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/nft_h25_bluexmaslollipop.png",
+        "collectionName": "furniture",
+        "quantity": 1,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h25_bronzepiranha",
+        "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+        "productCode": "nft_h25_bronzepiranha",
+        "name": "Bronze Collectible Piranha",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/nft_h25_bronzepiranha.png",
+        "collectionName": "furniture",
+        "quantity": 1,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h26_bronzecontroller",
+        "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+        "productCode": "nft_h26_bronzecontroller",
+        "name": "Bronze Controller",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/nft_h26_bronzecontroller.png",
+        "collectionName": "furniture",
+        "quantity": 1,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h26_bronzedvd",
+        "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+        "productCode": "nft_h26_bronzedvd",
+        "name": "Bronze DVD",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/nft_h26_bronzedvd.png",
+        "collectionName": "furniture",
+        "quantity": 1,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftbabychickbackpack",
+        "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+        "productCode": "clothing_nftbabychickbackpack",
+        "name": "Chick Backpack",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/crafted/clothing_nftbabychickbackpack.png",
+        "collectionName": "clothes",
+        "quantity": 3,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 3,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_sc25_chickballoon",
+        "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+        "productCode": "nft_sc25_chickballoon",
+        "name": "Chick Balloon",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/crafted/nft_sc25_chickballoon.png",
+        "collectionName": "furniture",
+        "quantity": 2,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 2,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftsnowreindeerbackpack",
+        "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+        "productCode": "clothing_nftsnowreindeerbackpack",
+        "name": "Cuddly Reindeer Backpack",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/clothing_nftsnowreindeerbackpack.png",
+        "collectionName": "clothes",
+        "quantity": 1,
+        "listedCount": 1,
+        "linkedMonitorKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftsnowreindeerbackpack:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0xe06f06a4128373ecc5444881a6a26fc18723487a:nft_emerald_10",
+        "contractAddress": "0xe06f06a4128373ecc5444881a6a26fc18723487a",
+        "productCode": "nft_emerald_10",
+        "name": "Emerald Stone (10 Emeralds)",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/tokens/images/nft_emerald_10.png",
+        "collectionName": "tokens",
+        "quantity": 2,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 2,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_cf25_fabricscissors",
+        "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+        "productCode": "nft_cf25_fabricscissors",
+        "name": "Fabric Scissors",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/nft_cf25_fabricscissors.png",
+        "collectionName": "furniture",
+        "quantity": 1,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_sc24_frozentree",
+        "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+        "productCode": "nft_sc24_frozentree",
+        "name": "Frozen Bonsai Tree",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/crafted/nft_sc24_frozentree.png",
+        "collectionName": "furniture",
+        "quantity": 2,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 2,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_sc24_frozensakura",
+        "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+        "productCode": "nft_sc24_frozensakura",
+        "name": "Frozen Sakura Tree",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/crafted/nft_sc24_frozensakura.png",
+        "collectionName": "furniture",
+        "quantity": 2,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 2,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0xe06f06a4128373ecc5444881a6a26fc18723487a:habbomint",
+        "contractAddress": "0xe06f06a4128373ecc5444881a6a26fc18723487a",
+        "productCode": "HABBOMINT",
+        "name": "Habbo Mint Token",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/tokens/images/mintToken.png",
+        "collectionName": "tokens",
+        "quantity": 1,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgiantbunnytail",
+        "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+        "productCode": "clothing_nftgiantbunnytail",
+        "name": "Habbo-sized Bunny Tail",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/crafted/clothing_nftgiantbunnytail.png",
+        "collectionName": "clothes",
+        "quantity": 1,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftlongflowyhair",
+        "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+        "productCode": "clothing_nftlongflowyhair",
+        "name": "Hollywood Glamour Hair",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/crafted/clothing_nftlongflowyhair.png",
+        "collectionName": "clothes",
+        "quantity": 1,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nfthoneyjar",
+        "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+        "productCode": "clothing_nfthoneyjar",
+        "name": "Honey Jar Bag",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/crafted/clothing_nfthoneyjar.png",
+        "collectionName": "clothes",
+        "quantity": 1,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftkissmark",
+        "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+        "productCode": "clothing_nftkissmark",
+        "name": "Kiss Mark",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/clothing_nftkissmark.png",
+        "collectionName": "clothes",
+        "quantity": 1,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftvivideyes",
+        "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+        "productCode": "clothing_nftvivideyes",
+        "name": "Lovely Vivid Eyes",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/clothing_nftvivideyes.gif",
+        "collectionName": "clothes",
+        "quantity": 1,
+        "listedCount": 1,
+        "linkedMonitorKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftvivideyes:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftmarshmallowsocks",
+        "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+        "productCode": "clothing_nftmarshmallowsocks",
+        "name": "Marshmallow Socks",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/crafted/clothing_nftmarshmallowsocks.png",
+        "collectionName": "clothes",
+        "quantity": 1,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftunicornhorn",
+        "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+        "productCode": "clothing_nftunicornhorn",
+        "name": "Marshmallow Unicorn Horn",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/crafted/clothing_nftunicornhorn.png",
+        "collectionName": "clothes",
+        "quantity": 3,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 3,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftneondevilmask",
+        "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+        "productCode": "clothing_nftneondevilmask",
+        "name": "Neon Devil Mask",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/crafted/clothing_nftneondevilmask.png",
+        "collectionName": "clothes",
+        "quantity": 3,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 3,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_cf25_nylon",
+        "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+        "productCode": "nft_cf25_nylon",
+        "name": "Nylon",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/nft_cf25_nylon.png",
+        "collectionName": "furniture",
+        "quantity": 2,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 2,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftseashellp1",
+        "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+        "productCode": "clothing_nftseashellp1",
+        "name": "Orange Sea Shell Necklace",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/clothing_nftseashellp1.png",
+        "collectionName": "clothes",
+        "quantity": 1,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nfteastereggcrown",
+        "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+        "productCode": "clothing_nfteastereggcrown",
+        "name": "Painted Egg Crown",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/crafted/clothing_nfteastereggcrown.png",
+        "collectionName": "clothes",
+        "quantity": 3,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 3,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_a0_clubrug",
+        "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+        "productCode": "nft_a0_clubrug",
+        "name": "Persian Carpet",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/crafted/nft_a0_clubrug.png",
+        "collectionName": "furniture",
+        "quantity": 1,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftqueenbee",
+        "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+        "productCode": "clothing_nftqueenbee",
+        "name": "Queen Bee",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/crafted/clothing_nftqueenbee.png",
+        "collectionName": "clothes",
+        "quantity": 1,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftreindeer",
+        "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+        "productCode": "clothing_nftreindeer",
+        "name": "Reindeer Dungarees",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/xmas22/clothing_nftreindeer.png",
+        "collectionName": "clothes",
+        "quantity": 1,
+        "listedCount": 1,
+        "linkedMonitorKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftreindeer:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h24_bday_donniebook",
+        "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+        "productCode": "nft_h24_bday_donniebook",
+        "name": "Santini Picture Book",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/crafted/nft_h24_bday_donniebook.png",
+        "collectionName": "furniture",
+        "quantity": 1,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h24_bday_silversamovar",
+        "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+        "productCode": "nft_h24_bday_silversamovar",
+        "name": "Silver Samovar",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/crafted/nft_h24_bday_silversamovar.png",
+        "collectionName": "furniture",
+        "quantity": 1,
+        "listedCount": 1,
+        "linkedMonitorKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h24_bday_silversamovar:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f:chatstyle_bobba",
+        "contractAddress": "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f",
+        "productCode": "chatstyle_bobba",
+        "name": "The Bobba Bubble",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/addons/images/chatstyle/chatstyle_bobba.png",
+        "collectionName": "addons",
+        "quantity": 1,
+        "listedCount": 1,
+        "linkedMonitorKey": "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f:chatstyle_bobba:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f:nft_avatar_effect222",
+        "contractAddress": "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f",
+        "productCode": "nft_avatar_effect222",
+        "name": "Trippy Halo",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/addons/images/effects/nft_avatar_effect222.gif",
+        "collectionName": "addons",
+        "quantity": 1,
+        "listedCount": 0,
+        "linkedMonitorKey": null,
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h22_whaleposter",
+        "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
+        "productCode": "nft_h22_whaleposter",
+        "name": "Whale Poster",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/furni/images/poster/imx_whaleposter.gif",
+        "collectionName": "furniture",
+        "quantity": 1,
+        "listedCount": 1,
+        "linkedMonitorKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h22_whaleposter:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1",
+        "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
+        "productCode": "clothing_nftgardenshoes1",
+        "name": "White Garden Shoes",
+        "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/clothing_nftgardenshoes1.png",
+        "collectionName": "clothes",
+        "quantity": 1,
+        "listedCount": 1,
+        "linkedMonitorKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+        "activeRentalCount": 0,
+        "availableQuantity": 1,
+        "wallets": [
+          {
+            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
+            "quantity": 1
+          }
+        ]
+      }
+    ],
+    "totalWallets": 1,
+    "totalUnits": 54,
+    "totalDistinctItems": 38,
+    "listedUnits": 7,
+    "rentedUnits": 0,
+    "availableUnits": 54
+  },
+  "rentals": {
+    "items": [],
+    "activeCount": 0,
+    "upcomingCount": 0,
+    "overdueCount": 0,
+    "finishedCount": 0
+  },
+  "lastRefreshAt": "2026-03-21T02:20:50.877Z",
   "lastError": null,
   "refreshing": false,
   "totalItems": 7,
   "enabledItems": 4,
   "undercutItems": 5,
   "healthyItems": 2,
-  "sentAlertsInLastRefresh": 2,
+  "sentAlertsInLastRefresh": 0,
   "items": [
     {
       "key": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftsnowreindeerbackpack:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+      "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftsnowreindeerbackpack",
       "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
       "productCode": "clothing_nftsnowreindeerbackpack",
       "name": "Cuddly Reindeer Backpack",
@@ -126,6 +1795,7 @@
       "buyTokenSymbol": "WETH",
       "listings": [
         {
+          "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftsnowreindeerbackpack",
           "key": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftsnowreindeerbackpack:0x52a6c53869ce09a731cd772f245b97a4401d3348",
           "orderId": "019d0b90-0e63-8bfd-b2a8-0d403d6a0e57",
           "orderHash": "0x02f6eedd20bbabafcc8dfde8cc6ef0709adcc836fa0911def05f343f33b8dd4e",
@@ -223,16 +1893,43 @@
         "buyAmountDisplay": "0.004837",
         "priceDeltaRaw": "2000000000",
         "priceDeltaDisplay": "<0.000001",
-        "buyAmountUsd": 10.391338501635,
-        "buyAmountUsdDisplay": "$10.39",
-        "priceDeltaUsd": 0.00000429611,
+        "buyAmountUsd": 10.399900977525,
+        "buyAmountUsdDisplay": "$10.40",
+        "priceDeltaUsd": 0.0000042996499999999996,
         "priceDeltaUsdDisplay": "$0.00"
       },
-      "ownFloorUsd": 10.391342797744999,
-      "ownFloorUsdDisplay": "$10.39"
+      "ownFloorUsd": 10.399905277175,
+      "ownFloorUsdDisplay": "$10.40",
+      "priceHistory": [
+        {
+          "amount": 10.399905277175,
+          "fetchedAt": "2026-03-21T02:20:50.355Z"
+        }
+      ],
+      "priceChanges": {
+        "7": {
+          "days": 7,
+          "deltaPct": null,
+          "direction": "flat",
+          "baselineAt": null
+        },
+        "15": {
+          "days": 15,
+          "deltaPct": null,
+          "direction": "flat",
+          "baselineAt": null
+        },
+        "31": {
+          "days": 31,
+          "deltaPct": null,
+          "direction": "flat",
+          "baselineAt": null
+        }
+      }
     },
     {
       "key": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftvivideyes:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+      "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftvivideyes",
       "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
       "productCode": "clothing_nftvivideyes",
       "name": "Lovely Vivid Eyes",
@@ -242,6 +1939,7 @@
       "buyTokenSymbol": "WETH",
       "listings": [
         {
+          "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftvivideyes",
           "key": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftvivideyes:0x52a6c53869ce09a731cd772f245b97a4401d3348",
           "orderId": "019cf9f7-9d1e-3848-3c1e-f307a4718dac",
           "orderHash": "0x3205a60d19a62f8e7fcbaeb2263896ee65a8d64cd7a2f807f1788f0d32614930",
@@ -344,16 +2042,43 @@
         "buyAmountDisplay": "0.060142",
         "priceDeltaRaw": "3702289000000000",
         "priceDeltaDisplay": "0.003702",
-        "buyAmountUsd": 129.189743674355,
-        "buyAmountUsdDisplay": "$129.19",
-        "priceDeltaUsd": 7.952720397895,
-        "priceDeltaUsdDisplay": "$7.95"
+        "buyAmountUsd": 129.296196184325,
+        "buyAmountUsdDisplay": "$129.30",
+        "priceDeltaUsd": 7.959273449425,
+        "priceDeltaUsdDisplay": "$7.96"
       },
-      "ownFloorUsd": 137.14246407225,
-      "ownFloorUsdDisplay": "$137.14"
+      "ownFloorUsd": 137.25546963374998,
+      "ownFloorUsdDisplay": "$137.26",
+      "priceHistory": [
+        {
+          "amount": 137.25546963374998,
+          "fetchedAt": "2026-03-21T02:20:50.355Z"
+        }
+      ],
+      "priceChanges": {
+        "7": {
+          "days": 7,
+          "deltaPct": null,
+          "direction": "flat",
+          "baselineAt": null
+        },
+        "15": {
+          "days": 15,
+          "deltaPct": null,
+          "direction": "flat",
+          "baselineAt": null
+        },
+        "31": {
+          "days": 31,
+          "deltaPct": null,
+          "direction": "flat",
+          "baselineAt": null
+        }
+      }
     },
     {
       "key": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftreindeer:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+      "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftreindeer",
       "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
       "productCode": "clothing_nftreindeer",
       "name": "Reindeer Dungarees",
@@ -363,6 +2088,7 @@
       "buyTokenSymbol": "WETH",
       "listings": [
         {
+          "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftreindeer",
           "key": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftreindeer:0x52a6c53869ce09a731cd772f245b97a4401d3348",
           "orderId": "019ce72a-5a27-1c5e-bf2c-541208657767",
           "orderHash": "0xd81e7f52725b4f6c49030840cef03cd33dfb3a6ddf8a4504cd2d5ab4bec9b017",
@@ -460,11 +2186,38 @@
       "enabled": false,
       "marketListingCount": 3,
       "cheaperCompetitor": null,
-      "ownFloorUsd": 6.069728940729999,
-      "ownFloorUsdDisplay": "$6.07"
+      "ownFloorUsd": 6.0747304049499995,
+      "ownFloorUsdDisplay": "$6.07",
+      "priceHistory": [
+        {
+          "amount": 6.0747304049499995,
+          "fetchedAt": "2026-03-21T02:20:50.355Z"
+        }
+      ],
+      "priceChanges": {
+        "7": {
+          "days": 7,
+          "deltaPct": null,
+          "direction": "flat",
+          "baselineAt": null
+        },
+        "15": {
+          "days": 15,
+          "deltaPct": null,
+          "direction": "flat",
+          "baselineAt": null
+        },
+        "31": {
+          "days": 31,
+          "deltaPct": null,
+          "direction": "flat",
+          "baselineAt": null
+        }
+      }
     },
     {
       "key": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h24_bday_silversamovar:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+      "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h24_bday_silversamovar",
       "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
       "productCode": "nft_h24_bday_silversamovar",
       "name": "Silver Samovar",
@@ -474,6 +2227,7 @@
       "buyTokenSymbol": "WETH",
       "listings": [
         {
+          "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h24_bday_silversamovar",
           "key": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h24_bday_silversamovar:0x52a6c53869ce09a731cd772f245b97a4401d3348",
           "orderId": "019cbe5b-2d20-96d6-f91a-dda606720c17",
           "orderHash": "0x215505737ee05d4239a55e3f4a6bd9374e98b95ee221beb4eef6e79397a36ad9",
@@ -571,16 +2325,43 @@
         "buyAmountDisplay": "0.000511",
         "priceDeltaRaw": "130460000000000",
         "priceDeltaDisplay": "0.00013",
-        "buyAmountUsd": 1.0992456656999998,
+        "buyAmountUsd": 1.1001514454999999,
         "buyAmountUsdDisplay": "$1.10",
-        "priceDeltaUsd": 0.2802352553,
-        "priceDeltaUsdDisplay": "$0.2802"
+        "priceDeltaUsd": 0.2804661695,
+        "priceDeltaUsdDisplay": "$0.2805"
       },
-      "ownFloorUsd": 1.3794809209999999,
-      "ownFloorUsdDisplay": "$1.38"
+      "ownFloorUsd": 1.3806176149999998,
+      "ownFloorUsdDisplay": "$1.38",
+      "priceHistory": [
+        {
+          "amount": 1.3806176149999998,
+          "fetchedAt": "2026-03-21T02:20:50.355Z"
+        }
+      ],
+      "priceChanges": {
+        "7": {
+          "days": 7,
+          "deltaPct": null,
+          "direction": "flat",
+          "baselineAt": null
+        },
+        "15": {
+          "days": 15,
+          "deltaPct": null,
+          "direction": "flat",
+          "baselineAt": null
+        },
+        "31": {
+          "days": 31,
+          "deltaPct": null,
+          "direction": "flat",
+          "baselineAt": null
+        }
+      }
     },
     {
       "key": "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f:chatstyle_bobba:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+      "inventoryKey": "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f:chatstyle_bobba",
       "contractAddress": "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f",
       "productCode": "chatstyle_bobba",
       "name": "The Bobba Bubble",
@@ -590,6 +2371,7 @@
       "buyTokenSymbol": "WETH",
       "listings": [
         {
+          "inventoryKey": "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f:chatstyle_bobba",
           "key": "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f:chatstyle_bobba:0x52a6c53869ce09a731cd772f245b97a4401d3348",
           "orderId": "019d0af9-dbcd-3c48-8af5-7e44cb9bb44d",
           "orderHash": "0x48cc78c70dbf4370b0d4391f34cb8d63986495feb84433b7310b4c1659f48c53",
@@ -692,16 +2474,43 @@
         "buyAmountDisplay": "0.115838",
         "priceDeltaRaw": "4000000000",
         "priceDeltaDisplay": "<0.000001",
-        "buyAmountUsd": 248.82738749140998,
-        "buyAmountUsdDisplay": "$248.83",
-        "priceDeltaUsd": 0.00000859222,
+        "buyAmountUsd": 249.03242156915,
+        "buyAmountUsdDisplay": "$249.03",
+        "priceDeltaUsd": 0.000008599299999999999,
         "priceDeltaUsdDisplay": "$0.00"
       },
-      "ownFloorUsd": 248.82739608363,
-      "ownFloorUsdDisplay": "$248.83"
+      "ownFloorUsd": 249.03243016845,
+      "ownFloorUsdDisplay": "$249.03",
+      "priceHistory": [
+        {
+          "amount": 249.03243016845,
+          "fetchedAt": "2026-03-21T02:20:50.355Z"
+        }
+      ],
+      "priceChanges": {
+        "7": {
+          "days": 7,
+          "deltaPct": null,
+          "direction": "flat",
+          "baselineAt": null
+        },
+        "15": {
+          "days": 15,
+          "deltaPct": null,
+          "direction": "flat",
+          "baselineAt": null
+        },
+        "31": {
+          "days": 31,
+          "deltaPct": null,
+          "direction": "flat",
+          "baselineAt": null
+        }
+      }
     },
     {
       "key": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h22_whaleposter:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+      "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h22_whaleposter",
       "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
       "productCode": "nft_h22_whaleposter",
       "name": "Whale Poster",
@@ -711,6 +2520,7 @@
       "buyTokenSymbol": "WETH",
       "listings": [
         {
+          "inventoryKey": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h22_whaleposter",
           "key": "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h22_whaleposter:0x52a6c53869ce09a731cd772f245b97a4401d3348",
           "orderId": "019cf7a7-2d55-4406-e53e-9b15338cd560",
           "orderHash": "0xd5dea352d71d302cee5fcf21f7cb49fc93a6ba51bc44715d5960c6c024a7985d",
@@ -823,16 +2633,43 @@
         "buyAmountDisplay": "0.000332",
         "priceDeltaRaw": "2000000000",
         "priceDeltaDisplay": "<0.000001",
-        "buyAmountUsd": 0.713727790685,
-        "buyAmountUsdDisplay": "$0.7137",
-        "priceDeltaUsd": 0.00000429611,
+        "buyAmountUsd": 0.7143159032749999,
+        "buyAmountUsdDisplay": "$0.7143",
+        "priceDeltaUsd": 0.0000042996499999999996,
         "priceDeltaUsdDisplay": "$0.00"
       },
-      "ownFloorUsd": 0.713732086795,
-      "ownFloorUsdDisplay": "$0.7137"
+      "ownFloorUsd": 0.714320202925,
+      "ownFloorUsdDisplay": "$0.7143",
+      "priceHistory": [
+        {
+          "amount": 0.714320202925,
+          "fetchedAt": "2026-03-21T02:20:50.355Z"
+        }
+      ],
+      "priceChanges": {
+        "7": {
+          "days": 7,
+          "deltaPct": null,
+          "direction": "flat",
+          "baselineAt": null
+        },
+        "15": {
+          "days": 15,
+          "deltaPct": null,
+          "direction": "flat",
+          "baselineAt": null
+        },
+        "31": {
+          "days": 31,
+          "deltaPct": null,
+          "direction": "flat",
+          "baselineAt": null
+        }
+      }
     },
     {
       "key": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1:0x52a6c53869ce09a731cd772f245b97a4401d3348",
+      "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1",
       "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
       "productCode": "clothing_nftgardenshoes1",
       "name": "White Garden Shoes",
@@ -842,6 +2679,7 @@
       "buyTokenSymbol": "WETH",
       "listings": [
         {
+          "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1",
           "key": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1:0x52a6c53869ce09a731cd772f245b97a4401d3348",
           "orderId": "019d0b8f-d687-4e62-2ecc-252532b92de4",
           "orderHash": "0x7245dec3cd4b6a63524c78df0ab5350392926f5df8c53838c2b6d4da30d78755",
@@ -929,8 +2767,34 @@
       "enabled": true,
       "marketListingCount": 10,
       "cheaperCompetitor": null,
-      "ownFloorUsd": 18.059413687314997,
-      "ownFloorUsdDisplay": "$18.06"
+      "ownFloorUsd": 18.074294666725,
+      "ownFloorUsdDisplay": "$18.07",
+      "priceHistory": [
+        {
+          "amount": 18.074294666725,
+          "fetchedAt": "2026-03-21T02:20:50.355Z"
+        }
+      ],
+      "priceChanges": {
+        "7": {
+          "days": 7,
+          "deltaPct": null,
+          "direction": "flat",
+          "baselineAt": null
+        },
+        "15": {
+          "days": 15,
+          "deltaPct": null,
+          "direction": "flat",
+          "baselineAt": null
+        },
+        "31": {
+          "days": 31,
+          "deltaPct": null,
+          "direction": "flat",
+          "baselineAt": null
+        }
+      }
     }
   ]
 }
