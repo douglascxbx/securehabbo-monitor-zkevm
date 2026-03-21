@@ -11,9 +11,9 @@
   "pricing": {
     "pair": "ETH/USD",
     "source": "Coinbase spot",
-    "ethUsd": 2148.325,
-    "ethUsdDisplay": "$2,148.33",
-    "fetchedAt": "2026-03-21T17:35:01.426Z",
+    "ethUsd": 2148.945,
+    "ethUsdDisplay": "$2,148.95",
+    "fetchedAt": "2026-03-21T17:56:21.594Z",
     "history": [
       {
         "amount": 2150.895,
@@ -108,8 +108,8 @@
         "fetchedAt": "2026-03-20T23:53:42.978Z"
       },
       {
-        "amount": 2148.325,
-        "fetchedAt": "2026-03-21T17:35:01.426Z"
+        "amount": 2148.945,
+        "fetchedAt": "2026-03-21T17:56:21.594Z"
       }
     ],
     "priceChanges": {
@@ -137,11 +137,11 @@
     "wallets": [
       {
         "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
-        "totalUnits": 54,
-        "distinctItems": 38,
-        "listedUnits": 7,
+        "totalUnits": 53,
+        "distinctItems": 37,
+        "listedUnits": 6,
         "rentedUnits": 0,
-        "availableUnits": 54,
+        "availableUnits": 53,
         "items": [
           {
             "inventoryKey": "0xe06f06a4128373ecc5444881a6a26fc18723487a:credit10",
@@ -1009,29 +1009,6 @@
                 "quantity": 1
               }
             ]
-          },
-          {
-            "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1",
-            "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
-            "productCode": "clothing_nftgardenshoes1",
-            "name": "White Garden Shoes",
-            "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/clothing_nftgardenshoes1.png",
-            "collectionName": "clothes",
-            "walletAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
-            "quantity": 1,
-            "listedCount": 1,
-            "tokenIds": [
-              "1486984184562"
-            ],
-            "linkedMonitorKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1:0x52a6c53869ce09a731cd772f245b97a4401d3348",
-            "activeRentalCount": 0,
-            "availableQuantity": 1,
-            "wallets": [
-              {
-                "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
-                "quantity": 1
-              }
-            ]
           }
         ]
       }
@@ -1739,33 +1716,14 @@
             "quantity": 1
           }
         ]
-      },
-      {
-        "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1",
-        "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
-        "productCode": "clothing_nftgardenshoes1",
-        "name": "White Garden Shoes",
-        "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/clothing_nftgardenshoes1.png",
-        "collectionName": "clothes",
-        "quantity": 1,
-        "listedCount": 1,
-        "linkedMonitorKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1:0x52a6c53869ce09a731cd772f245b97a4401d3348",
-        "activeRentalCount": 0,
-        "availableQuantity": 1,
-        "wallets": [
-          {
-            "address": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
-            "quantity": 1
-          }
-        ]
       }
     ],
     "totalWallets": 1,
-    "totalUnits": 54,
-    "totalDistinctItems": 38,
-    "listedUnits": 7,
+    "totalUnits": 53,
+    "totalDistinctItems": 37,
+    "listedUnits": 6,
     "rentedUnits": 0,
-    "availableUnits": 54
+    "availableUnits": 53
   },
   "rentals": {
     "items": [],
@@ -1774,13 +1732,13 @@
     "overdueCount": 0,
     "finishedCount": 0
   },
-  "lastRefreshAt": "2026-03-21T17:35:03.882Z",
+  "lastRefreshAt": "2026-03-21T17:56:22.578Z",
   "lastError": null,
   "refreshing": false,
-  "totalItems": 7,
-  "enabledItems": 4,
+  "totalItems": 6,
+  "enabledItems": 3,
   "undercutItems": 6,
-  "healthyItems": 1,
+  "healthyItems": 0,
   "sentAlertsInLastRefresh": 1,
   "items": [
     {
@@ -1893,17 +1851,17 @@
         "buyAmountDisplay": "0.004837",
         "priceDeltaRaw": "4000000000",
         "priceDeltaDisplay": "<0.000001",
-        "buyAmountUsd": 10.392640345375,
-        "buyAmountUsdDisplay": "$10.39",
-        "priceDeltaUsd": 0.0000085933,
+        "buyAmountUsd": 10.395639629475001,
+        "buyAmountUsdDisplay": "$10.40",
+        "priceDeltaUsd": 0.000008595780000000002,
         "priceDeltaUsdDisplay": "$0.00"
       },
-      "ownFloorUsd": 10.392648938674999,
-      "ownFloorUsdDisplay": "$10.39",
+      "ownFloorUsd": 10.395648225255,
+      "ownFloorUsdDisplay": "$10.40",
       "priceHistory": [
         {
-          "amount": 10.392648938674999,
-          "fetchedAt": "2026-03-21T17:35:01.426Z"
+          "amount": 10.395648225255,
+          "fetchedAt": "2026-03-21T17:56:21.594Z"
         }
       ],
       "priceChanges": {
@@ -2032,27 +1990,27 @@
       "enabled": true,
       "marketListingCount": 9,
       "cheaperCompetitor": {
-        "orderId": "019d1167-48fa-071f-4da7-2b41862e627e",
-        "accountAddress": "0x113fb6b4c41ef4f9007c9ccf72497109c04ef64f",
+        "orderId": "019d1187-a8f4-3ce5-2e54-756d208619c3",
+        "accountAddress": "0xa0b93dedb503525f32602d68882cc2f325005810",
         "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
-        "tokenId": "417353772347",
+        "tokenId": "1596255141010",
         "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
         "buyTokenSymbol": "ETH",
-        "buyAmountRaw": "61622018000000000",
+        "buyAmountRaw": "61622016000000000",
         "buyAmountDisplay": "0.061622",
-        "priceDeltaRaw": "2222932000000000",
+        "priceDeltaRaw": "2222934000000000",
         "priceDeltaDisplay": "0.002222",
-        "buyAmountUsd": 132.38412181984998,
-        "buyAmountUsdDisplay": "$132.38",
-        "priceDeltaUsd": 4.7755803889,
+        "buyAmountUsd": 132.42232317312002,
+        "buyAmountUsdDisplay": "$132.42",
+        "priceDeltaUsd": 4.77696290463,
         "priceDeltaUsdDisplay": "$4.78"
       },
-      "ownFloorUsd": 137.15970220875,
-      "ownFloorUsdDisplay": "$137.16",
+      "ownFloorUsd": 137.19928607775,
+      "ownFloorUsdDisplay": "$137.20",
       "priceHistory": [
         {
-          "amount": 137.15970220875,
-          "fetchedAt": "2026-03-21T17:35:01.426Z"
+          "amount": 137.19928607775,
+          "fetchedAt": "2026-03-21T17:56:21.594Z"
         }
       ],
       "priceChanges": {
@@ -2196,17 +2154,17 @@
         "buyAmountDisplay": "0.002825",
         "priceDeltaRaw": "2000000000",
         "priceDeltaDisplay": "<0.000001",
-        "buyAmountUsd": 6.0704875793,
+        "buyAmountUsd": 6.0722395033800005,
         "buyAmountUsdDisplay": "$6.07",
-        "priceDeltaUsd": 0.00000429665,
+        "priceDeltaUsd": 0.000004297890000000001,
         "priceDeltaUsdDisplay": "$0.00"
       },
-      "ownFloorUsd": 6.070491875949999,
+      "ownFloorUsd": 6.072243801270001,
       "ownFloorUsdDisplay": "$6.07",
       "priceHistory": [
         {
-          "amount": 6.070491875949999,
-          "fetchedAt": "2026-03-21T17:35:01.426Z"
+          "amount": 6.072243801270001,
+          "fetchedAt": "2026-03-21T17:56:21.594Z"
         }
       ],
       "priceChanges": {
@@ -2330,27 +2288,27 @@
       "enabled": false,
       "marketListingCount": 10,
       "cheaperCompetitor": {
-        "orderId": "019d1173-af19-d3c3-b134-b81ced314c50",
+        "orderId": "019d1180-df80-0b26-5c55-51fba2474ee6",
         "accountAddress": "0x24edfcc8240f0f54f648da5cb87102f2e085e51d",
         "contractAddress": "0x33976ee1477c75171b2b34814d75ebc37413e589",
-        "tokenId": "1435962819868",
+        "tokenId": "1076501347551",
         "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
         "buyTokenSymbol": "ETH",
-        "buyAmountRaw": "511230000000000",
-        "buyAmountDisplay": "0.000511",
-        "priceDeltaRaw": "130970000000000",
-        "priceDeltaDisplay": "0.00013",
-        "buyAmountUsd": 1.0982881897499999,
+        "buyAmountRaw": "510720000000000",
+        "buyAmountDisplay": "0.00051",
+        "priceDeltaRaw": "131480000000000",
+        "priceDeltaDisplay": "0.000131",
+        "buyAmountUsd": 1.0975091904,
         "buyAmountUsdDisplay": "$1.10",
-        "priceDeltaUsd": 0.28136612525,
-        "priceDeltaUsdDisplay": "$0.2814"
+        "priceDeltaUsd": 0.28254328860000005,
+        "priceDeltaUsdDisplay": "$0.2825"
       },
-      "ownFloorUsd": 1.3796543149999998,
+      "ownFloorUsd": 1.3800524790000002,
       "ownFloorUsdDisplay": "$1.38",
       "priceHistory": [
         {
-          "amount": 1.3796543149999998,
-          "fetchedAt": "2026-03-21T17:35:01.426Z"
+          "amount": 1.3800524790000002,
+          "fetchedAt": "2026-03-21T17:56:21.594Z"
         }
       ],
       "priceChanges": {
@@ -2489,17 +2447,17 @@
         "buyAmountDisplay": "0.115838",
         "priceDeltaRaw": "10000000000",
         "priceDeltaDisplay": "<0.000001",
-        "buyAmountUsd": 248.8586509862,
-        "buyAmountUsdDisplay": "$248.86",
-        "priceDeltaUsd": 0.000021483249999999998,
+        "buyAmountUsd": 248.93047082892002,
+        "buyAmountUsdDisplay": "$248.93",
+        "priceDeltaUsd": 0.00002148945,
         "priceDeltaUsdDisplay": "$0.00"
       },
-      "ownFloorUsd": 248.85867246944997,
-      "ownFloorUsdDisplay": "$248.86",
+      "ownFloorUsd": 248.93049231837003,
+      "ownFloorUsdDisplay": "$248.93",
       "priceHistory": [
         {
-          "amount": 248.85867246944997,
-          "fetchedAt": "2026-03-21T17:35:01.426Z"
+          "amount": 248.93049231837003,
+          "fetchedAt": "2026-03-21T17:56:21.594Z"
         }
       ],
       "priceChanges": {
@@ -2648,146 +2606,17 @@
         "buyAmountDisplay": "0.000332",
         "priceDeltaRaw": "2000000000",
         "priceDeltaDisplay": "<0.000001",
-        "buyAmountUsd": 0.713817502775,
-        "buyAmountUsdDisplay": "$0.7138",
-        "priceDeltaUsd": 0.00000429665,
+        "buyAmountUsd": 0.714023508315,
+        "buyAmountUsdDisplay": "$0.714",
+        "priceDeltaUsd": 0.000004297890000000001,
         "priceDeltaUsdDisplay": "$0.00"
       },
-      "ownFloorUsd": 0.7138217994249999,
-      "ownFloorUsdDisplay": "$0.7138",
+      "ownFloorUsd": 0.7140278062050001,
+      "ownFloorUsdDisplay": "$0.714",
       "priceHistory": [
         {
-          "amount": 0.7138217994249999,
-          "fetchedAt": "2026-03-21T17:35:01.426Z"
-        }
-      ],
-      "priceChanges": {
-        "7": {
-          "days": 7,
-          "deltaPct": null,
-          "direction": "flat",
-          "baselineAt": null
-        },
-        "15": {
-          "days": 15,
-          "deltaPct": null,
-          "direction": "flat",
-          "baselineAt": null
-        },
-        "31": {
-          "days": 31,
-          "deltaPct": null,
-          "direction": "flat",
-          "baselineAt": null
-        }
-      }
-    },
-    {
-      "key": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1:0x52a6c53869ce09a731cd772f245b97a4401d3348",
-      "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1",
-      "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
-      "productCode": "clothing_nftgardenshoes1",
-      "name": "White Garden Shoes",
-      "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/clothing_nftgardenshoes1.png",
-      "collectionName": "clothes",
-      "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
-      "buyTokenSymbol": "WETH",
-      "listings": [
-        {
-          "inventoryKey": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1",
-          "key": "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1:0x52a6c53869ce09a731cd772f245b97a4401d3348",
-          "orderId": "019d1144-129f-d83b-b99a-1c3d4001c009",
-          "orderHash": "0x480229817f5c4ae157288049680c8f4908d2c3dfc38f90dd05180b780a7f220d",
-          "accountAddress": "0xea869164a6d5fc0b52c347562e08e82e503bcd48",
-          "contractAddress": "0xdbf185750d135ea5581f9853db9f9657fb843a62",
-          "tokenId": "1486984184562",
-          "productCode": "clothing_nftgardenshoes1",
-          "name": "White Garden Shoes",
-          "imageUrl": "https://nft-tokens.habbo.com/collectibles/clothes/images/clothing_nftgardenshoes1.png",
-          "attributes": [
-            {
-              "display_type": null,
-              "trait_type": "blueprint",
-              "value": "clothing_nftgardenshoes1"
-            },
-            {
-              "display_type": null,
-              "trait_type": "collection",
-              "value": "clothes"
-            },
-            {
-              "display_type": null,
-              "trait_type": "isCraftMaterial",
-              "value": false
-            },
-            {
-              "display_type": null,
-              "trait_type": "isCraftedItem",
-              "value": false
-            },
-            {
-              "display_type": null,
-              "trait_type": "itemSubType",
-              "value": "Shoes"
-            },
-            {
-              "display_type": null,
-              "trait_type": "itemType",
-              "value": "Clothes"
-            },
-            {
-              "display_type": null,
-              "trait_type": "productCode",
-              "value": "clothing_nftgardenshoes1"
-            },
-            {
-              "display_type": null,
-              "trait_type": "productType",
-              "value": "Shoes"
-            },
-            {
-              "display_type": null,
-              "trait_type": "rarity",
-              "value": "Common"
-            },
-            {
-              "display_type": null,
-              "trait_type": "score",
-              "value": 20
-            },
-            {
-              "display_type": null,
-              "trait_type": "setId",
-              "value": "summer_2024_clothing"
-            },
-            {
-              "display_type": null,
-              "trait_type": "source",
-              "value": "Gift Box"
-            }
-          ],
-          "collectionName": "clothes",
-          "buyTokenContract": "0x52a6c53869ce09a731cd772f245b97a4401d3348",
-          "buyTokenSymbol": "WETH",
-          "buyAmountRaw": "8407331000000001",
-          "buyAmountDisplay": "0.008407",
-          "createdAt": "2026-03-21T16:39:27.119179Z",
-          "updatedAt": "2026-03-21T16:39:27.346708Z"
-        }
-      ],
-      "ownListingCount": 1,
-      "ownFloorPriceRaw": "8407331000000001",
-      "ownFloorPriceDisplay": "0.008407",
-      "ownFloorOrderId": "019d1144-129f-d83b-b99a-1c3d4001c009",
-      "enabled": true,
-      "marketListingCount": 10,
-      "cheaperCompetitor": null,
-      "ownFloorUsd": 18.061679370575,
-      "ownFloorUsdDisplay": "$18.06",
-      "priceHistory": [
-        {
-          "amount": 18.061679370575,
-          "fetchedAt": "2026-03-21T17:35:01.426Z"
+          "amount": 0.7140278062050001,
+          "fetchedAt": "2026-03-21T17:56:21.594Z"
         }
       ],
       "priceChanges": {
