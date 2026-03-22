@@ -7,28 +7,28 @@
     },
     "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftvivideyes:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "alerted",
-      "signature": "019d12a8-e844-4c0e-b3ef-c74fea0dfecb:61622000000000000:63844950000000000",
-      "updatedAt": "2026-03-21T23:33:41.942Z"
+      "signature": "019d133a-0c32-9207-af79-db963d96db92:61621998000000000:63844950000000000",
+      "updatedAt": "2026-03-22T02:47:40.617Z"
     },
     "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftreindeer:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "clear",
       "signature": null,
-      "updatedAt": "2026-03-21T23:55:13.627Z"
+      "updatedAt": "2026-03-22T02:47:40.617Z"
     },
     "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h24_bday_silversamovar:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "clear",
       "signature": null,
-      "updatedAt": "2026-03-21T23:55:13.627Z"
+      "updatedAt": "2026-03-22T02:47:40.617Z"
     },
     "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f:chatstyle_bobba:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "alerted",
-      "signature": "019d12c1-89e6-23b1-1c52-952cc77f0a62:115838452000000000:115838466000000000",
-      "updatedAt": "2026-03-21T23:55:14.063Z"
+      "signature": "019d1308-b644-2c1e-999e-24131987fbaa:100917431192660560:115838466000000000",
+      "updatedAt": "2026-03-22T02:47:41.013Z"
     },
     "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h22_whaleposter:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "clear",
       "signature": null,
-      "updatedAt": "2026-03-21T23:55:14.063Z"
+      "updatedAt": "2026-03-22T02:47:41.013Z"
     },
     "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1:0x52a6c53869ce09a731cd772f245b97a4401d3348": {
       "status": "clear",
@@ -132,6 +132,10 @@
     {
       "amount": 2090.215,
       "fetchedAt": "2026-03-21T23:55:13.473Z"
+    },
+    {
+      "amount": 2099.505,
+      "fetchedAt": "2026-03-22T02:47:40.060Z"
     }
   ],
   "itemPriceHistory": {
@@ -139,36 +143,60 @@
       {
         "amount": 10.111538385185,
         "fetchedAt": "2026-03-21T23:55:13.473Z"
+      },
+      {
+        "amount": 10.156479308295001,
+        "fetchedAt": "2026-03-22T02:47:40.060Z"
       }
     ],
     "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftvivideyes:0x52a6c53869ce09a731cd772f245b97a4401d3348": [
       {
         "amount": 133.44967216425002,
         "fetchedAt": "2026-03-21T23:55:13.473Z"
+      },
+      {
+        "amount": 134.04279174975,
+        "fetchedAt": "2026-03-22T02:47:40.060Z"
       }
     ],
     "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftreindeer:0x52a6c53869ce09a731cd772f245b97a4401d3348": [
       {
         "amount": 5.906291262490001,
         "fetchedAt": "2026-03-21T23:55:13.473Z"
+      },
+      {
+        "amount": 5.93254188543,
+        "fetchedAt": "2026-03-22T02:47:40.060Z"
       }
     ],
     "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h24_bday_silversamovar:0x52a6c53869ce09a731cd772f245b97a4401d3348": [
       {
         "amount": 1.342336073,
         "fetchedAt": "2026-03-21T23:55:13.473Z"
+      },
+      {
+        "amount": 1.348302111,
+        "fetchedAt": "2026-03-22T02:47:40.060Z"
       }
     ],
     "0x2da5094f8c6cd42f5b3b24803f998a28b40a398f:chatstyle_bobba:0x52a6c53869ce09a731cd772f245b97a4401d3348": [
       {
         "amount": 242.12729921019002,
         "fetchedAt": "2026-03-21T23:55:13.473Z"
+      },
+      {
+        "amount": 243.20343855933,
+        "fetchedAt": "2026-03-22T02:47:40.060Z"
       }
     ],
     "0x33976ee1477c75171b2b34814d75ebc37413e589:nft_h22_whaleposter:0x52a6c53869ce09a731cd772f245b97a4401d3348": [
       {
         "amount": 0.694513647835,
         "fetchedAt": "2026-03-21T23:55:13.473Z"
+      },
+      {
+        "amount": 0.697600426845,
+        "fetchedAt": "2026-03-22T02:47:40.060Z"
       }
     ],
     "0xdbf185750d135ea5581f9853db9f9657fb843a62:clothing_nftgardenshoes1:0x52a6c53869ce09a731cd772f245b97a4401d3348": [
